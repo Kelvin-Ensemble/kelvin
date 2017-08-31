@@ -1,0 +1,25 @@
+{% extends "website/base/subbase.html" %}
+{% load static from staticfiles %}
+
+{% block title %}
+Calendar
+{% endblock %}
+
+{% block header %}
+Calendar
+{% endblock %}
+
+{% block content %}
+
+<p>
+Rehearsals and other events will be added to the calendar below as they are scheduled.  If this information looks incomplete, please <a href="../contact/">email</a> either the Brass/Wind/Percussion manager or the Strings manager.
+</p>
+
+<br/>
+
+<iframe src="https://calendar.google.com/calendar/embed?src=webmaster%40kelvin-ensemble.co.uk&ctz=Europe/London" style=" border-width:0 " width="600" height="500" frameborder="0" scrolling="no"></iframe>
+
+<br/><p>Committee members can log in to <a href="http://www.google.com/calendar/hosted/kelvin-ensemble.co.uk/render">edit the calendar</a> or access the committee email (for information on how to do this, please contact  <a href="mailto:webmaster&#64;kelvin-ensemble.co.uk">webmaster@kelvin-ensemble.co.uk</a>.</p>
+
+
+{% endblock %}
