@@ -5,70 +5,57 @@
 Kelvin Ensemble
 {% endblock %}
 
+{% block extrastyle %}
+<link href="{% static 'website/kelvin/home.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block full-content %}
+
 <header class="masthead">
   <div class="header-content">
     <div class="header-content-inner">
-      <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
+      <h1 id="homeHeading">Glasgow University's Student Run Orchestra</h1>
       <hr>
-      <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+      <!--<p>Kelvin performs two concerts a year within the university area, providing students with the chance to both perform and socialise within a thriving music scene.</p>-->
+      <p>Leah performs two concerts a year within the university area, providing students with the chance to witness beautiful bassing.</p>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#concerts">Find Out More</a>
     </div>
   </div>
 </header>
 
-<section class="bg-primary" id="about">
+<section class="bg-primary" id="concerts">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto text-center">
-        <h2 class="section-heading text-white">We've got what you need!</h2>
+        <h2 class="section-heading text-white">Join Kelvin!</h2>
         <hr class="light">
-        <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-        <a class="btn btn-default btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+        <p class="text-faded">Come and play for Kelvin! Our Open Rehearsal is xx/xx/xxxx and the auditions are held between xx/xx/xxxx and yy/yy/yyyy in 321 University Gardens. </p>
+        <a class="btn btn-default btn-xl" href="join">More Information</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="services">
+<section id="extra-information">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading">At Your Service</h2>
-        <hr class="primary">
+      <div class="col-lg-4 col-md-6 text-center">
+        <i class="fa fa-4x fa-music text-primary sr-icons"></i>
+        <h3>Upcoming Concert!</h3>
+        <p class="text-muted">On the 18th of November we are playing in Glasgow University's Bute Hall!</p>
+        <a class="btn btn-primary btn-l" href="concerts">Concert Information</a>
       </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-3 col-md-6 text-center">
-        <div class="service-box">
-          <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-          <h3>Sturdy Templates</h3>
-          <p class="text-muted">Our templates are updated regularly so they don't break.</p>
-        </div>
+      <div class="col-lg-4 col-md-6 text-center">
+        <i class="fa fa-4x fa-calendar text-primary sr-icons"></i>
+        <h3>Members Calendar</h3>
+        <p class="text-muted">Keep up-to-date with everything Kelvin</p>
+        <a class="btn btn-primary btn-l" href="calendar">Dates, Dates, Dates!</a>
       </div>
-      <div class="col-lg-3 col-md-6 text-center">
-        <div class="service-box">
-          <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-          <h3>Ready to Ship</h3>
-          <p class="text-muted">You can use this theme as is, or you can make changes!</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 text-center">
-        <div class="service-box">
-          <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-          <h3>Up to Date</h3>
-          <p class="text-muted">We update dependencies to keep things fresh.</p>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 text-center">
-        <div class="service-box">
-          <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-          <h3>Made with Love</h3>
-          <p class="text-muted">You have to make your websites with love these days!</p>
-        </div>
+      <div class="col-lg-4 col-md-6 text-center">
+        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+        <h3>Support Us</h3>
+        <p class="text-muted">Help Support the Orchestra!</p>
+        <a class="btn btn-primary btn-l" href="support">Find Out More!</a>
       </div>
     </div>
   </div>
@@ -76,9 +63,26 @@ Kelvin Ensemble
 
 <div class="call-to-action bg-dark">
   <div class="container text-center">
-    <h2>Free Download at Start Bootstrap!</h2>
-    <a class="btn btn-default btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download Now!</a>
+    <h2>Our Facebook (everything goes here)</h2>
+    
+    <!-- Facebook -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="fb-page" data-href="https://www.facebook.com/kelvin-ensemble/" data-tabs="timeline" data-width="900" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/kelvin-ensemble/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/kelvin-ensemble/">Kelvin Ensemble</a></blockquote></div>
+
   </div>
 </div>
 
+{% endblock %}
+
+{% block extrascripts %}
+<script src="{% static 'website/kelvin/home.js' %}"></script>
 {% endblock %}

@@ -26,15 +26,6 @@
     offset: 48
   });
 
-  // Collapse the navbar when page is scrolled
-  $(window).scroll(function() {
-    if ($("#mainNav").offset().top > 100) {
-      $("#mainNav").addClass("navbar-shrink");
-    } else {
-      $("#mainNav").removeClass("navbar-shrink");
-    }
-  });
-
   // Scroll reveal calls
   window.sr = ScrollReveal();
   sr.reveal('.sr-icons', {

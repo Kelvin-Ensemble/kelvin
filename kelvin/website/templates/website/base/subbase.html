@@ -1,9 +1,13 @@
 {% extends "website/base/base.html" %}
 {% load static from staticfiles %}
 
+{% block extrastyle %}
+<link href="{% static 'website/kelvin/non-home.css' %}" rel="stylesheet">
+{% endblock %}
+
 {% block full-content %}
 
-<section class="bg-primary" id="about">
+<section class="bg-primary" id="page-header">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 mx-auto text-center">
@@ -14,7 +18,7 @@
   </div>
 </section>
 
-<section id="services">
+<section>
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">

@@ -36,3 +36,11 @@ def gallery(request):
 #contact
 def contact(request):
     return render(request, 'website/contact.html')
+
+#support
+def support(request):
+    return render(request, 'website/support.html')
+
+#404
+def notFound(request):
+    return render(request, 'website/404.html')

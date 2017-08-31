@@ -1,0 +1,22 @@
+
+#mainNav .navbar-brand {
+  color: #008888;}
+#mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
+  color: #006666; }
+
+#mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover,
+#mainNav .navbar-nav > li.nav-item > a.nav-link:hover {
+  color: #006666; }
+
+
+@media (min-width: 992px) {
+  #mainNav {
+    border-color: rgba(255, 255, 255, 0.3);
+    background-color: #FFF; } }
+
+#mainNav .navbar-nav > li.nav-item > a.nav-link,
+#mainNav .navbar-nav > li.nav-item > a.nav-link:focus {
+  color: #000000; }
+#mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
+#mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover {
+  color: #006666; }

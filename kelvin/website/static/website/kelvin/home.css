@@ -1,0 +1,14 @@
+@media (min-width: 992px) {
+    #mainNav {
+      border-color: rgba(255, 255, 255, 0.3);
+      background-color: transparent; }
+    #mainNav.navbar-shrink .navbar-brand {
+      color: #008888; }
+    #mainNav.navbar-shrink .navbar-brand:focus, #mainNav.navbar-shrink .navbar-brand:hover {
+      color: #008888; }
+    #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:hover,
+    #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus:hover {
+      color: #008888; }
+    #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
+    #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
+    color: #008888; } }
