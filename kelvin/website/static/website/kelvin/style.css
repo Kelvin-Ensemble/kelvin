@@ -64,3 +64,40 @@
 #page-header {
   padding: 110px 0 40px;
 }
+
+ul > li {
+  list-style-type: none;
+}
+
+/* past concerts */
+
+.pctable {
+  width: 100%;
+}
+
+.pctable tr td {
+  width: 50%;
+}
+
+.panel {
+  margin: 3px;
+}
+
+.panel-heading {
+  border: #bbbbbb solid 1px;
+  border-radius: 2px;
+  background-color: #dddddd;
+  padding: 2px;
+}
+
+.panel-title {
+  margin: 8px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
