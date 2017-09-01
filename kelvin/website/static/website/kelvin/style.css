@@ -26,6 +26,10 @@
   background-color: #FFFFFF;
 }
 
+.dropdown-custom {
+  position: relative;
+}
+
 @media (max-width: 992px) {
   .dropdown-menu {
     background-color: #FFF;

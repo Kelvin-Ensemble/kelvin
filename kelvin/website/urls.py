@@ -12,6 +12,7 @@ urlpatterns = [
 
     #players
     url(r'^info$', views.info, name='info'),
+    url(r'^constitution$', views.constitution, name='constitution'),
     url(r'^join$', views.join, name='join'),
     url(r'^calendar$', views.calendar, name='calendar'),
 
@@ -22,6 +23,7 @@ urlpatterns = [
     
     #contact
     url(r'^contact$', views.contact, name='contact'),
+    url(r'^mailing-list$', views.mailingList, name='mailing-list'),
 
     #support
     url(r'^support$', views.support, name='support'),

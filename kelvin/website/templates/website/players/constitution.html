@@ -1,0 +1,16 @@
+{% extends "website/base/subbase.html" %}
+{% load static from staticfiles %}
+
+{% block title %}
+Constitution 2017
+{% endblock %}
+
+{% block header %}
+Our Constitution for the 2017 AGM
+{% endblock %}
+
+{% block content %}
+<object data="{% static 'website/media/KelvinConstitution2017.pdf' %}" type="application/pdf" width="100%" height="500px">
+  <embed src="{% static 'website/media/KelvinConstitution2017.pdf' %}" type="application/pdf" />
+</object>
+{% endblock %}

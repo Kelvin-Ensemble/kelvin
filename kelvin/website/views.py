@@ -1,4 +1,5 @@
 
+from django.http import HttpResponse
 from django.shortcuts import render
 
 #home
@@ -14,6 +15,9 @@ def concerts(request):
 #players
 def info(request):
     return render(request, 'website/players/info.html')
+
+def constitution(request):
+    return render(request, 'website/players/constitution.html')
 
 def join(request):
     return render(request, 'website/players/join.html')
@@ -35,7 +39,10 @@ def gallery(request):
 
 #contact
 def contact(request):
-    return render(request, 'website/contact.html')
+    return render(request, 'website/contact/contact.html')
+
+def mailingList(request):
+    return render(request, 'website/contact/mailing-list.html')
 
 #support
 def support(request):
