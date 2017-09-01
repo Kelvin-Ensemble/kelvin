@@ -101,3 +101,18 @@ ul > li {
 .text-underline {
   text-decoration: underline;
 }
+
+@media (max-width: 992px) {
+  .padding-bottom-small {
+    padding-bottom: 20px;
+  }
+}
+
+
+/* Video Iframe */
+
+.video-iframe {
+  width: 100%;
+  height: 280px;
+  padding: 10px;
+}
