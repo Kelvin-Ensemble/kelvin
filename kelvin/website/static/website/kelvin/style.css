@@ -108,6 +108,10 @@ ul>li {
   text-decoration: underline;
 }
 
+.header-icon {
+  margin-bottom: 20px;
+}
+
 /* past concerts */
 
 .panel {
