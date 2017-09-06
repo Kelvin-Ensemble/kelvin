@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^history$', views.history, name='history'),
     url(r'^gallery$', views.gallery, name='gallery'),
     url(r'^committee$', views.committee, name='committee'),
+    url(r'^bios$', views.bios, name='bios'),
     
     #contact
     url(r'^contact$', views.contact, name='contact'),

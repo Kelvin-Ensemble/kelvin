@@ -39,6 +39,9 @@ def gallery(request):
 def committee(request):
     return render(request, 'website/about/committee.html')
 
+def bios(request):
+    return render(request, 'website/about/bios.html')
+
 
 #contact
 def contact(request):
