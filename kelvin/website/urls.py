@@ -24,10 +24,8 @@ urlpatterns = [
     #contact
     url(r'^contact$', views.contact, name='contact'),
     url(r'^mailing-list$', views.mailingList, name='mailing-list'),
-
-    #support
     url(r'^support$', views.support, name='support'),
-    
+
     #404
     url(r'^', views.notFound, name='404'),
         
