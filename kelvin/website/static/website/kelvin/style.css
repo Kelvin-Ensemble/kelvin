@@ -120,3 +120,29 @@ ul > li {
   height: 280px;
   padding: 10px;
 }
+
+.left_align_text {
+  text-align: left;
+}
+
+.allow_bullets > ul > li {
+  list-style-type: disc;
+}
+
+/* Contact Us */
+
+.contact-accordion .panel-title {
+  font-size: 18px;
+  margin: 5px;
+}
+
+.contact-accordion .panel-heading {
+  padding: 1px;
+}
+
+/* Support Us */
+
+.support-accordion .panel-title {
+  font-size: 20px;
+  margin: 6px;
+}

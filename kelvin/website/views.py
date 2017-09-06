@@ -45,7 +45,7 @@ def mailingList(request):
     return render(request, 'website/contact/mailing-list.html')
 
 def support(request):
-    return render(request, 'website/support.html')
+    return render(request, 'website/contact/support.html')
 
 
 #404
