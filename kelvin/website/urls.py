@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^past-concerts$', views.pastConcerts, name='past-concerts'),
     url(r'^history$', views.history, name='history'),
     url(r'^gallery$', views.gallery, name='gallery'),
+    url(r'^videos$', views.videos, name='videos'),
     url(r'^committee$', views.committee, name='committee'),
     url(r'^bios$', views.bios, name='bios'),
     

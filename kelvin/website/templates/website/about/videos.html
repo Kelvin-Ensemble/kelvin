@@ -1,0 +1,34 @@
+{% extends "website/base/subbase.html" %}
+{% load static from staticfiles %}
+
+{% block title %}
+Videos
+{% endblock %}
+
+{% block page-icon %}
+<i class="fa fa-video-camera fa-3x sr-contact text-white header-icon"></i>
+{% endblock %}
+
+{% block header %}
+Videos
+{% endblock %}
+
+{% block content %}
+
+<p>Kelvin Ensemble's newest video recordings can be found on our YouTube channel <a href="https://www.youtube.com/channel/UCr2-_bhHmy1GCkXIBB33q0A">here</a>.
+
+<p>Our Spring 2014 concert can be viewed in HD in 3 parts: </p>
+
+<div class="row">
+  <div class="col-lg-4 col-md-6">
+    <div class="video-iframe"><iframe width="100%" height="100%" src="//www.youtube.com/embed/OL3V2dytb4Y" frameborder="0" allowfullscreen></iframe></div>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <div class="video-iframe"><iframe width="100%" height="100%" src="//www.youtube.com/embed/axxSrfTrCCg" frameborder="0" allowfullscreen></iframe></div>
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <div class="video-iframe"><iframe width="100%" height="100%" src="//www.youtube.com/embed/_tSONSNQvDU" frameborder="0" allowfullscreen></iframe></div>
+  </div>
+</div>
+
+{% endblock %}
