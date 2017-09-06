@@ -1,20 +1,26 @@
-
 /*NAVBAR */
 
 @media (min-width: 992px) {
   #mainNav {
     border-color: rgba(255, 255, 255, 0.3);
-    background-color: transparent; }
+    background-color: transparent;
+  }
   #mainNav.navbar-shrink .navbar-brand {
-    color: #008888; }
-  #mainNav.navbar-shrink .navbar-brand:focus, #mainNav.navbar-shrink .navbar-brand:hover {
-    color: #008888; }
-  #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:hover,
-  #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus:hover {
-    color: #008888; }
-  #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
-  #mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
-  color: #008888; } }
+    color: #008888;
+  }
+  #mainNav.navbar-shrink .navbar-brand:focus,
+  #mainNav.navbar-shrink .navbar-brand:hover {
+    color: #008888;
+  }
+  #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:hover,
+  #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:focus:hover {
+    color: #008888;
+  }
+  #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link,
+  #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:focus {
+    color: #008888;
+  }
+}
 
 #mainNav.navbar-shrink {
   border-bottom: #008888 solid 1px;
@@ -41,7 +47,7 @@
 }
 
 .dropdown-item:hover {
-  color: #008888;
+  color: #00AAAA;
   background-color: #FFFFFF;
 }
 
@@ -61,9 +67,10 @@
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size: 13px;
     text-align: center;
-    color:#000000;
+    color: #000000;
   }
-  #mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover, #mainNav .navbar-nav > li.nav-item > a.nav-link:hover {
+  #mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,
+  #mainNav .navbar-nav>li.nav-item>a.nav-link:hover {
     color: #000000;
   }
   .nav-item {
@@ -74,7 +81,8 @@
   }
 }
 
-/*MAIN*/
+
+/* Main */
 
 .sr-icons {
   padding-bottom: 20px;
@@ -88,19 +96,19 @@
   padding: 110px 0 40px;
 }
 
-ul > li {
+ul>li {
   list-style-type: none;
 }
 
+.text-bold {
+  font-weight: bold;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
 /* past concerts */
-
-.pctable {
-  width: 100%;
-}
-
-.pctable tr td {
-  width: 50%;
-}
 
 .panel {
   margin: 3px;
@@ -115,14 +123,6 @@ ul > li {
 
 .panel-title {
   margin: 8px;
-}
-
-.text-bold {
-  font-weight: bold;
-}
-
-.text-underline {
-  text-decoration: underline;
 }
 
 @media (max-width: 992px) {
@@ -144,9 +144,10 @@ ul > li {
   text-align: left;
 }
 
-.allow_bullets > ul > li {
+.allow_bullets>ul>li {
   list-style-type: disc;
 }
+
 
 /* Contact Us */
 
@@ -158,6 +159,7 @@ ul > li {
 .contact-accordion .panel-heading {
   padding: 1px;
 }
+
 
 /* Support Us */
 
