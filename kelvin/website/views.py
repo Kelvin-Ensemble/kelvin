@@ -36,6 +36,9 @@ def history(request):
 def gallery(request):
     return render(request, 'website/about/gallery.html')
 
+def committee(request):
+    return render(request, 'website/about/committee.html')
+
 
 #contact
 def contact(request):
