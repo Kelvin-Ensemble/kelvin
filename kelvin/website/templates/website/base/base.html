@@ -18,13 +18,19 @@
   </head>
 
   <body>
+    <div id="wrap">
+      <div id="main" class="clear-top">
     
-    {% include "website/includes/navbar.html" %} 
+        {% include "website/includes/navbar.html" %} 
 
-    {% block full-content %} 
-    {% endblock %}
+        {% block full-content %} 
+        {% endblock %}
+      </div>
+    </div>
 
-    {% include "website/includes/footer.html" %} 
+    <footer class="footer">
+      {% include "website/includes/footer.html" %} 
+    </footer>
 
     {% include "website/includes/scripts.html" %} 
 
