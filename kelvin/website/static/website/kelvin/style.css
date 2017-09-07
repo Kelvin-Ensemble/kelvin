@@ -84,6 +84,12 @@
 
 /* Main */
 
+#page-header {
+  background: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .sr-icons {
   padding-bottom: 20px;
 }
@@ -110,6 +116,11 @@ ul>li {
 
 .header-icon {
   margin-bottom: 20px;
+}
+
+.committee-images img {
+  max-height: 400px;
+  max-width: 400px;
 }
 
 /* past concerts */

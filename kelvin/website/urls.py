@@ -12,7 +12,6 @@ urlpatterns = [
 
     #players
     url(r'^info$', views.info, name='info'),
-    url(r'^constitution$', views.constitution, name='constitution'),
     url(r'^join$', views.join, name='join'),
     url(r'^calendar$', views.calendar, name='calendar'),
 
@@ -23,6 +22,7 @@ urlpatterns = [
     url(r'^videos$', views.videos, name='videos'),
     url(r'^committee$', views.committee, name='committee'),
     url(r'^bios$', views.bios, name='bios'),
+    url(r'^conductor$', views.conductor, name='conductor'),
     
     #contact
     url(r'^contact$', views.contact, name='contact'),

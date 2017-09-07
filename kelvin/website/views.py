@@ -16,9 +16,6 @@ def concerts(request):
 def info(request):
     return render(request, 'website/players/info.html')
 
-def constitution(request):
-    return render(request, 'website/players/constitution.html')
-
 def join(request):
     return render(request, 'website/players/join.html')
 
@@ -44,6 +41,9 @@ def committee(request):
 
 def bios(request):
     return render(request, 'website/about/bios.html')
+
+def conductor(request):
+    return render(request, 'website/about/conductor.html')
 
 
 #contact

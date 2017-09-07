@@ -1,6 +1,14 @@
 {% extends "website/base/subbase.html" %}
 {% load static from staticfiles %}
 
+{% block extrastyle %}
+<style>	
+	#page-header {
+		background-image: url("{% static 'website/media/img/headers/1.jpg' %}");
+	}
+</style>
+{% endblock %}
+
 {% block page-icon %}
 <i class="fa fa-book fa-3x sr-contact text-white header-icon"></i>
 {% endblock %}

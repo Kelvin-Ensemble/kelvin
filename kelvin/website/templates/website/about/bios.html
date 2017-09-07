@@ -1,6 +1,14 @@
 {% extends "website/base/subbase.html" %}
 {% load static from staticfiles %}
 
+{% block extrastyle %}
+<style>	
+	#page-header {
+		background-image: url("{% static 'website/media/img/headers/1.jpg' %}");
+	}
+</style>
+{% endblock %}
+
 {% block title %}
 Bios
 {% endblock %}
@@ -15,12 +23,15 @@ Bios
 
 {% block content %}
 
-<p>Conductor: John Grant - <a href="http://www.grant-music-services.co.uk/">http://www.grant-music-services.co.uk/</a></p>
-
 <p>Photographer: Neil Stuchbury - <a href="www.stuch-photo.com">www.stuch-photo.com</a></p>
+
+<hr class="primary">
 
 <p>Poster Designer: Eve Campbell</p>
 
+<hr class="primary">
+
 <p>Sound Engineer: Lewis Lyall</p>
+<p>From the moment he completed his studies at Glasgow's Riverside Music Complex, Lewis had been looking for a good excuse to buy loads of really expensive recording equipment. Thankfully he became involved with the ensemble not long after, and has since been desperately trying to justify his spending by capturing their wonderful perfomances in digital audio form.  Usually found working in the background and pretending to know what's going on, Lewis is living proof that being part of an orchestra does not require any musical talent whatsoever.</p>
 
 {% endblock %}

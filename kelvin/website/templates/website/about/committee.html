@@ -1,6 +1,14 @@
 {% extends "website/base/subbase.html" %}
 {% load static from staticfiles %}
 
+{% block extrastyle %}
+<style>	
+	#page-header {
+		background-image: url("{% static 'website/media/img/headers/1.jpg' %}");
+	}
+</style>
+{% endblock %}
+
 {% block title %}
 Committee
 {% endblock %}
@@ -29,7 +37,10 @@ Some details about the current Kelvin Committee are below (more coming soon!):
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
-          chairperson&#64;kelvin-ensemble.co.uk
+        <div>chairperson&#64;kelvin-ensemble.co.uk</div>
+        <div class="committee-images">
+          <img src="{% static 'website/media/img/committee/chairperson.jpg' %}"/>
+        </div>
       </div>
     </div>
   </div>
@@ -44,7 +55,10 @@ Some details about the current Kelvin Committee are below (more coming soon!):
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
-        secretary&#64;kelvin-ensemble.co.uk
+        <div>secretary&#64;kelvin-ensemble.co.uk</div>
+        <div class="committee-images">
+          <img src="{% static 'website/media/img/committee/secretary.jpg' %}"/>
+        </div>
       </div>
     </div>
   </div>
@@ -59,7 +73,10 @@ Some details about the current Kelvin Committee are below (more coming soon!):
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
-        treasurer&#64;kelvin-ensemble.co.uk
+        <div>treasurer&#64;kelvin-ensemble.co.uk</div>
+        <div class="committee-images">
+          <img src="{% static 'website/media/img/committee/treasurer.jpg' %}"/>
+        </div>
       </div>
     </div>
   </div>
@@ -74,7 +91,10 @@ Some details about the current Kelvin Committee are below (more coming soon!):
     </div>
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-body">
-        concertorganiser&#64;kelvin-ensemble.co.uk
+        <div>concertorganiser&#64;kelvin-ensemble.co.uk</div>
+        <div class="committee-images">
+          <img src="{% static 'website/media/img/committee/concert.jpg' %}"/>
+        </div>
       </div>
     </div>
   </div>
@@ -89,7 +109,10 @@ Some details about the current Kelvin Committee are below (more coming soon!):
     </div>
     <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
       <div class="panel-body">
-        bwp&#64;kelvin-ensemble.co.uk
+        <div>bwp&#64;kelvin-ensemble.co.uk</div>
+        <div class="committee-images">
+          <img src="{% static 'website/media/img/committee/bwp.jpg' %}"/>
+        </div>
       </div>
     </div>
   </div>
@@ -104,7 +127,19 @@ Some details about the current Kelvin Committee are below (more coming soon!):
     </div>
     <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
       <div class="panel-body">
-        stringmanager&#64;kelvin-ensemble.co.uk
+        <div>stringmanager&#64;kelvin-ensemble.co.uk</div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="committee-images">
+              <img src="{% static 'website/media/img/committee/strings1.jpg' %}"/>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="committee-images">
+              <img src="{% static 'website/media/img/committee/strings2.jpg' %}"/>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -119,7 +154,10 @@ Some details about the current Kelvin Committee are below (more coming soon!):
     </div>
     <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
       <div class="panel-body">
-        librarian&#64;kelvin-ensemble.co.uk
+        <div>librarian&#64;kelvin-ensemble.co.uk</div>
+        <div class="committee-images">
+          <img src="{% static 'website/media/img/committee/librarian.jpg' %}"/>
+        </div>
       </div>
     </div>
   </div>
@@ -134,7 +172,19 @@ Some details about the current Kelvin Committee are below (more coming soon!):
     </div>
     <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
       <div class="panel-body">
-        socialmanager&#64;kelvin-ensemble.co.uk
+        <div>socialmanager&#64;kelvin-ensemble.co.uk</div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="committee-images">
+              <img src="{% static 'website/media/img/committee/social1.jpg' %}"/>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="committee-images">
+              <img src="{% static 'website/media/img/committee/social2.jpg' %}"/>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -149,7 +199,10 @@ Some details about the current Kelvin Committee are below (more coming soon!):
     </div>
     <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine">
       <div class="panel-body">
-        publicity&#64;kelvin-ensemble.co.uk
+        <div>publicity&#64;kelvin-ensemble.co.uk</div>
+        <div class="committee-images">
+          <img src="{% static 'website/media/img/committee/publicity.jpg' %}"/>
+        </div>
       </div>
     </div>
   </div>
@@ -164,7 +217,10 @@ Some details about the current Kelvin Committee are below (more coming soon!):
     </div>
     <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
       <div class="panel-body">
-        fundraising&#64;kelvin-ensemble.co.uk
+        <div>fundraising&#64;kelvin-ensemble.co.uk</div>
+        <div class="committee-images">
+          <img src="{% static 'website/media/img/committee/fundraising.jpg' %}"/>
+        </div>
       </div>
     </div>
   </div>
@@ -179,7 +235,10 @@ Some details about the current Kelvin Committee are below (more coming soon!):
     </div>
     <div id="collapseEleven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEleven">
       <div class="panel-body">
-        webmaster&#64;kelvin-ensemble.co.uk
+        <div>webmaster&#64;kelvin-ensemble.co.uk</div>
+        <div class="committee-images">
+          <img src="{% static 'website/media/img/committee/webmaster.jpg' %}"/>
+        </div>
       </div>
     </div>
   </div>
@@ -194,7 +253,32 @@ Some details about the current Kelvin Committee are below (more coming soon!):
     </div>
     <div id="collapseTwelve" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwelve">
       <div class="panel-body">
-          om&#64;kelvin-ensemble.co.uk
+        <div>om&#64;kelvin-ensemble.co.uk</div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="committee-images">
+              <img src="{% static 'website/media/img/committee/om2.jpg' %}"/>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="committee-images">
+              <img src="{% static 'website/media/img/committee/om4.jpg' %}"/>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="committee-images">
+              <img src="{% static 'website/media/img/committee/om3.jpg' %}"/>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="committee-images">
+              <img src="{% static 'website/media/img/committee/om1.jpg' %}"/>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

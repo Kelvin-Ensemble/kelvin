@@ -1,6 +1,14 @@
 {% extends "website/base/subbase.html" %}
 {% load static from staticfiles %}
 
+{% block extrastyle %}
+<style>	
+	#page-header {
+		background-image: url("{% static 'website/media/img/headers/2.jpg' %}");
+	}
+</style>
+{% endblock %}
+
 {% block title %}
 History
 {% endblock %}
