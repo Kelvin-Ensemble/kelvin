@@ -16,11 +16,17 @@ def concerts(request):
 def info(request):
     return render(request, 'website/players/info.html')
 
+def calendar(request):
+    return render(request, 'website/players/calendar.html')
+
 def join(request):
     return render(request, 'website/players/join.html')
 
-def calendar(request):
-    return render(request, 'website/players/calendar.html')
+def stringAuditions(request):
+    return render(request, 'website/players/string-auditions.html')
+
+def bwpAuditions(request):
+    return render(request, 'website/players/bwp-auditions.html')
 
 
 #about
