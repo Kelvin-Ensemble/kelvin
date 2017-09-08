@@ -93,15 +93,19 @@ html, body {
 
 #main {
   overflow:auto;
-  padding-bottom:216px; /* this needs to be bigger than footer height*/
+  padding-bottom: 192px; /* this needs to be bigger than footer height*/
 }
 
 .footer {
   position: relative;
-  margin-top: -216px; /* negative value of footer height */
-  height: 216px;
+  margin-top: -192px; /* negative value of footer height */
+  height: 192px;
   clear:both;
 } 
+
+.border-radius-med {
+  border-radius: 8px;
+}
 
 
 /* Main */
