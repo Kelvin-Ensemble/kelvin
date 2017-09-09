@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^gallery$', views.gallery, name='gallery'),
     url(r'^videos$', views.videos, name='videos'),
     url(r'^committee$', views.committee, name='committee'),
-    url(r'^bios$', views.bios, name='bios'),
+    url(r'^associates$', views.associates, name='associates'),
     url(r'^conductor$', views.conductor, name='conductor'),
     
     #contact

@@ -45,8 +45,8 @@ def videos(request):
 def committee(request):
     return render(request, 'website/about/committee.html')
 
-def bios(request):
-    return render(request, 'website/about/bios.html')
+def associates(request):
+    return render(request, 'website/about/associates.html')
 
 def conductor(request):
     return render(request, 'website/about/conductor.html')
