@@ -119,6 +119,7 @@ html, body {
   background: none;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .sr-icons {
@@ -149,10 +150,11 @@ ul>li {
   margin-bottom: 20px;
 }
 
-.committee-images img {
-  max-height: 400px;
-  max-width: 400px;
+.full-small-padding {
+  padding: 20px;
+  border-radius: 8px;
 }
+
 
 /* past concerts */
 
@@ -222,4 +224,33 @@ ul>li {
 .support-accordion .panel-title {
   font-size: 20px;
   margin: 6px;
+}
+
+.support-accordion p {
+  margin-bottom: 0px;
+}
+
+.sponsors img {
+  padding-bottom: 10px;
+}
+
+/* Committee */
+
+.committee-images img {
+  max-width: 200px;
+  max-height: 300px;
+}
+
+.committee-images p {
+  margin-bottom: 0px;
+}
+
+.small-padding {
+  padding-bottom: 15px;
+}
+
+/* Concerts */
+
+.ticket-info {
+  margin: 30px 10px 20px;
 }
