@@ -163,12 +163,16 @@ ul>li {
 .panel-heading {
   border: #bbbbbb solid 1px;
   border-radius: 2px;
-  background-color: #dddddd;
+  background-color: #008888;
   padding: 2px;
 }
 
 .panel-title {
   margin: 8px;
+}
+
+.panel-title a {
+  color: #FFFFFF;
 }
 
 @media (max-width: 992px) {
