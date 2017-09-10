@@ -2,6 +2,9 @@
 {% load static from staticfiles %}
 
 {% block extrastyle %}
+<link rel="stylesheet" href="{% static 'website/vendor/bootstrap-gallery-fluid/baguetteBox.min.css' %}">
+<link rel="stylesheet" href="{% static 'website/vendor/bootstrap-gallery-fluid/fluid-gallery.css' %}">
+
 <style>	
 	#page-header {
 		background-image: url("{% static 'website/media/img/headers/1.jpg' %}");
@@ -23,6 +26,69 @@ Gallery
 
 {% block content %}
 
-Images Coming Soon!
-    
+<h4>Photos by <a href="https://www.stuch-photo.com">Neil Stuchbury</a></h4>
+
+<div class="container gallery-container">
+
+  <div class="tz-gallery">
+    <div class="row">
+
+      <div class="col-sm-12 col-md-4">
+        <a class="lightbox" href="{% static 'website/media/img/gallery/1.jpg' %}">
+          <img src="{% static 'website/media/img/gallery/1.jpg' %}">
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <a class="lightbox" href="{% static 'website/media/img/gallery/1.jpg' %}">
+          <img src="{% static 'website/media/img/gallery/1.jpg' %}">
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <a class="lightbox" href="{% static 'website/media/img/gallery/1.jpg' %}">
+          <img src="{% static 'website/media/img/gallery/1.jpg' %}">
+        </a>
+      </div>
+
+      <div class="col-sm-12 col-md-6">
+        <a class="lightbox" href="{% static 'website/media/img/gallery/1.jpg' %}">
+          <img src="{% static 'website/media/img/gallery/1.jpg' %}">
+        </a>
+      </div>
+
+      <div class="col-sm-12 col-md-6">
+        <a class="lightbox" href="{% static 'website/media/img/gallery/1.jpg' %}">
+          <img src="{% static 'website/media/img/gallery/1.jpg' %}">
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <a class="lightbox" href="{% static 'website/media/img/gallery/1.jpg' %}">
+          <img src="{% static 'website/media/img/gallery/1.jpg' %}">
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <a class="lightbox" href="{% static 'website/media/img/gallery/1.jpg' %}">
+          <img src="{% static 'website/media/img/gallery/1.jpg' %}">
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-md-4">
+        <a class="lightbox" href="{% static 'website/media/img/gallery/1.jpg' %}">
+          <img src="{% static 'website/media/img/gallery/1.jpg' %}">
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extrascripts %}
+<script src="{% static 'website/vendor/bootstrap-gallery-fluid/baguetteBox.min.js' %}"></script>
+<script>
+  baguetteBox.run('.tz-gallery');
+</script>
 {% endblock %}
