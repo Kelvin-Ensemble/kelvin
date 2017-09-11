@@ -1,7 +1,7 @@
 # kelvin
-##The New Kelvin Site 2.0, using Python Django.
+## The New Kelvin Site 2.0, using Python Django.
 
-###How it works.
+### How it works.
 The main files that need to be cared about that are python related are kelvin/website/urls.py and kelvin/website/views.py, which is where all the urls are defined, and pages are rendered.
 
 All the content is in the "app" folder, kelvin/website. template/ includes all of the HTML for the site and static/ includes all of the CSS, JS and images.
