@@ -254,3 +254,9 @@ ul>li {
 .ticket-info {
   margin: 30px 10px 20px;
 }
+
+/* Gallery */
+
+#baguetteBox-overlay {
+  background-color: #333 !important;
+}
