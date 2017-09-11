@@ -1,5 +1,5 @@
 
-What everything does:
+##What everything does:
 
  - Bootstrap is the core CSS framework
  - Bootstrap Gallery Template Fluid is the template used for displaying the Gallery
