@@ -1,4 +1,4 @@
-/*NAVBAR */
+/* Navbar */
 
 @media (min-width: 992px) {
   #mainNav {
@@ -85,7 +85,7 @@
   }
 }
 
-/* Footer control */
+/* Footer Control */
 
 html, body {
   height: 100%;
@@ -112,55 +112,89 @@ html, body {
 }
 
 
-/* Main */
-
-.col-centered {
-  float: none;
-  margin: 0 auto;
-}
-
-#page-header {
-  background: none;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+/* HOME ------------------------------------------------------------------------------ */
 
 .sr-icons {
   padding-bottom: 20px;
 }
 
-.footer {
-  padding: 60px 0 40px 0;
-}
+/* CONCERTS -------------------------------------------------------------------------- */
 
-#page-header {
-  padding: 110px 0 40px;
-}
-
-ul>li {
-  list-style-type: none;
-}
-
-.text-bold {
-  font-weight: bold;
-}
-
-.text-underline {
-  text-decoration: underline;
-}
-
-.header-icon {
-  margin-bottom: 20px;
-}
-
-.full-small-padding {
-  padding: 20px;
-  border-radius: 8px;
+.ticket-info {
+  margin: 30px 10px 20px;
 }
 
 
-/* past concerts */
+/* PLAYERS --------------------------------------------------------------------------- */
+
+/* Auditions */
+
+.audition-iframe {
+  width: 100%;
+  height: 1000px;
+  border-width: 0px;
+  background-color: transparent;
+}
+
+/* Calendar */
+
+.iframe-calendar {
+  border-width: 0;
+  max-width: 900px;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+
+/* ABOUT ----------------------------------------------------------------------------- */
+
+/* Committee */
+
+.committee-images img {
+  max-width: 200px;
+  max-height: 300px;
+}
+
+.committee-images p {
+  margin-bottom: 0px;
+}
+
+.small-padding {
+  padding-bottom: 15px;
+}
+
+/* Gallery */
+
+#baguetteBox-overlay {
+  background-color: #333 !important;
+}
+
+/* Videos */
+
+.video-iframe-big {
+  width: 100%;
+  height: 400px;
+  border-width: 0;
+  margin: 10px;
+}
+
+.left_align_text {
+  text-align: left;
+}
+
+.allow_bullets>ul>li {
+  list-style-type: disc;
+}
+
+.video-iframe-small {
+  width: 100%;
+  height: 280px;
+  border-width: 0;
+  margin: 10px;
+}
+
+/* Past Concerts */
 
 .panel {
   margin: 3px;
@@ -188,32 +222,7 @@ ul>li {
 }
 
 
-/* Video Iframe */
-
-
-
-.video-iframe-big {
-  width: 100%;
-  height: 400px;
-  border-width: 0;
-  margin: 10px;
-}
-
-.left_align_text {
-  text-align: left;
-}
-
-.allow_bullets>ul>li {
-  list-style-type: disc;
-}
-
-.video-iframe-small {
-  width: 100%;
-  height: 280px;
-  border-width: 0;
-  margin: 10px;
-}
-
+/* CONTACT US ----------------------------------------------------------------- */
 
 /* Contact Us */
 
@@ -225,7 +234,6 @@ ul>li {
 .contact-accordion .panel-heading {
   padding: 1px;
 }
-
 
 /* Support Us */
 
@@ -242,47 +250,51 @@ ul>li {
   padding-bottom: 10px;
 }
 
-/* Committee */
-
-.committee-images img {
-  max-width: 200px;
-  max-height: 300px;
-}
-
-.committee-images p {
-  margin-bottom: 0px;
-}
-
-.small-padding {
-  padding-bottom: 15px;
-}
-
-/* Concerts */
-
-.ticket-info {
-  margin: 30px 10px 20px;
-}
-
-/* Gallery */
-
-#baguetteBox-overlay {
-  background-color: #333 !important;
-}
-
-/* Calendar */
-
-.iframe-calendar {
-  border-width: 0;
-  max-width: 900px;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-}
-
 /* Mailing List */
 
 #mc_embed_signup {
   background: #fff;
   clear: left;
   font: 14px Helvetica, Arial, sans-serif;
+}
+
+
+/* Other ------------------------------------------------------------------------ */
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+#page-header {
+  background: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 110px 0 40px;
+}
+
+.footer {
+  padding: 60px 0 40px 0;
+}
+
+ul>li {
+  list-style-type: none;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.header-icon {
+  margin-bottom: 20px;
+}
+
+.full-small-padding {
+  padding: 20px;
+  border-radius: 8px;
 }
