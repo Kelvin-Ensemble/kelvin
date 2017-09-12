@@ -278,3 +278,11 @@ ul>li {
   height: 500px;
   overflow: hidden;
 }
+
+/* Mailing List */
+
+#mc_embed_signup {
+  background: #fff;
+  clear: left;
+  font: 14px Helvetica, Arial, sans-serif;
+}
