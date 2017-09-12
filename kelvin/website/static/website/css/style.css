@@ -190,16 +190,13 @@ ul>li {
 
 /* Video Iframe */
 
-.video-iframe {
-  width: 100%;
-  height: 280px;
-  padding: 10px;
-}
+
 
 .video-iframe-big {
   width: 100%;
   height: 400px;
-  padding: 10px;
+  border-width: 0;
+  margin: 10px;
 }
 
 .left_align_text {
@@ -208,6 +205,13 @@ ul>li {
 
 .allow_bullets>ul>li {
   list-style-type: disc;
+}
+
+.video-iframe-small {
+  width: 100%;
+  height: 280px;
+  border-width: 0;
+  margin: 10px;
 }
 
 
