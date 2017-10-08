@@ -22,11 +22,11 @@ def calendar(request):
 def join(request):
     return render(request, 'website/players/join.html')
 
-def stringAuditions(request):
-    return render(request, 'website/players/string-auditions.html')
+# def stringAuditions(request):
+#     return render(request, 'website/players/string-auditions.html')
 
-def bwpAuditions(request):
-    return render(request, 'website/players/bwp-auditions.html')
+# def bwpAuditions(request):
+#     return render(request, 'website/players/bwp-auditions.html')
 
 
 #about
