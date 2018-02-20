@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 SECRET_KEY = '35mj@00fc)_&kd4(^)6g_3rqnz_k0)g&-grhqf_8nv=!trj_re'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.kelvin-ensemble.co.uk']
 
