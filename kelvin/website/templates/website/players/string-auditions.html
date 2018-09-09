@@ -23,20 +23,21 @@ String Auditions
 
 {% block content %}
 
-<p>The audition will consist of one prepared piece of your own choice, followed by an excerpt that <!--will be made available closer to the time--> is available below. You chosen piece should be approximately 5 minutes long - the panel may stop you after this time.</p>
+<p>The audition will consist of one prepared piece of your own choice, followed by an excerpt that <!--will be made available closer to the time--> is available below. Your chosen piece should be approximately 5 minutes long - the panel may stop you after this time. Violinists wanting to audition for leader will also be asked to play a piece of sight reading.</p>
 
 <p>Weekend auditions will take place in the University Music Department, 14 University Gardens - just along from the Queen Margaret Union.</p>
 
 <hr class="primary"/>
 
-<p>To book an audition please select a time below and complete the booking process. If you are having any difficulties, please contact <a href="mailto:webmaster&#64;kelvin-ensemble.co.uk">webmaster@kelvin-ensemble.co.uk</a>.
+<p>To book an audition please select a time below and complete the booking process. If you are having any difficulties, please contact <a href="mailto:webmaster&#64;kelvin-ensemble.co.uk">webmaster@kelvin-ensemble.co.uk</a>.</p>
+
+<hr class="primary"/>
+<p>You can download the violin excerpt <a href="{% static 'website/media/excerpts/String/Violin.pdf' %}">here</a>, the viola excerpt <a href="{% static 'website/media/excerpts/String/Viola.pdf' %}">here</a>, the cello excerpt <a href="{% static 'website/media/excerpts/String/Cello.pdf' %}">here</a>, and the double bass excerpt <a href="{% static 'website/media/excerpts/String/Bass.pdf' %}">here</a>. Players will be assessed on rhythmical and musical accuracy over tempo. </p>
+<p>Thank you and good luck!</p>
 
 <br/><br/>
 <iframe class="audition-iframe" src="https://string-kelvin-ensemble-auditions.youcanbook.me/?noframe=true&skipHeaderFooter=true" onload="keepInView(this);"></iframe>
 <script>function keepInView(item) {if((document.documentElement&&document.documentElement.scrollTop)||document.body.scrollTop>item.offsetTop)item.scrollIntoView();}</script>
 
-<p>You can download the violin excerpt <a href="{% static 'website/media/excerpts/violin.pdf' %}">here</a>, the viola excerpt <a href="{% static 'website/media/excerpts/viola.pdf' %}">here</a>, the cello excerpt <a href="{% static 'website/media/excerpts/cello.pdf' %}">here</a>, and the double bass excerpt <a href="{% static 'website/media/excerpts/bass.pdf' %}">here</a>.
-
-<p>Thank you and good luck!</p>
 
 {% endblock %}

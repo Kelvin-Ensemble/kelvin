@@ -23,18 +23,25 @@ BWP Auditions
 
 {% block content %}
 
-<p>The audition will consist of one prepared piece of your own choice, followed by a piece of sight reading. Your chosen piece should be approximately 5 minutes long - the panel may stop you after this time.</p>
+<p>The audition will consist of one prepared piece of your own choice, followed by an excerpt that <!--will be made available closer to the time--> is available below. Your chosen piece should be approximately 5 minutes long - the panel may stop you after this time.</p>
 
 <p>Weekend auditions will take place in the University Music Department, 14 University Gardens - just along from the Queen Margaret Union. Tuesday evening auditions will be in the Concert Hall, Main Building - A12 on the campus map, next to Hunter Halls.</p>
 
 <hr class="primary"/>
 
-<p>To book an audition please select a time below and complete the booking process. Can percussion please book auditions on the Tuesday evening. If you are having any difficulties, please contact <a href="mailto:webmaster&#64;kelvin-ensemble.co.uk">webmaster@kelvin-ensemble.co.uk</a>.
+<p>To book an audition please select a time below and complete the booking process. Can percussionists please book auditions on the Tuesday evening. If you are having any difficulties, please contact <a href="mailto:webmaster&#64;kelvin-ensemble.co.uk">webmaster@kelvin-ensemble.co.uk</a>.</p>
 
+<hr class="primary"/>
+<p>Wind players can download the flute excerpt <a href="{% static 'website/media/excerpts/BWP/Flute.pdf' %}">here</a>, the oboe excerpt <a href="{% static 'website/media/excerpts/BWP/Oboe.pdf' %}">here</a>, the clarinet excerpt <a href="{% static 'website/media/excerpts/BWP/Clarinet.pdf' %}">here</a>, and the bassoon excerpt <a href="{% static 'website/media/excerpts/BWP/Bassoon.pdf' %}">here</a>. </p>
+<p>Brass players can download the trumpet excerpt <a href="{% static 'website/media/excerpts/BWP/Trumpet.pdf' %}">here</a>, horn excerpt <a href="{% static 'website/media/excerpts/BWP/Horn.pdf' %}">here</a>, the trombone excerpt <a href="{% static 'website/media/excerpts/BWP/Trombone.pdf' %}">here</a>, and the tuba excerpt <a href="{% static 'website/media/excerpts/BWP/Tuba.pdf' %}">here</a>.</p>
+<p>Percussionists can download the percusion excerpts <a href="{% static 'website/media/excerpts/BWP/Percussion.pdf' %}">here.</a></p>
+<p>Players will be assessed on rhythmical and musical accuracy over tempo.</p>
+
+<hr class="primary"/>
+<p>Thank you and good luck!</p>
 <br/><br/>
 <iframe class="audition-iframe" src="https://bwp-kelvin-ensemble-auditions.youcanbook.me/?noframe=true&skipHeaderFooter=true" onload="keepInView(this);"></iframe>
 <script>function keepInView(item) {if((document.documentElement&&document.documentElement.scrollTop)||document.body.scrollTop>item.offsetTop)item.scrollIntoView();}</script>
 
-<p>Thank you and good luck!</p>
 
 {% endblock %}
