@@ -14,8 +14,8 @@ urlpatterns = [
     url(r'^info$', views.info, name='info'),
     url(r'^calendar$', views.calendar, name='calendar'),
     url(r'^join$', views.join, name='join'),
-    url(r'^string-auditions$', views.stringAuditions, name='string-auditions'),
-    url(r'^bwp-auditions$', views.bwpAuditions, name='bwp-auditions'),
+    #url(r'^string-auditions$', views.stringAuditions, name='string-auditions'),
+    #url(r'^bwp-auditions$', views.bwpAuditions, name='bwp-auditions'),
 
     #about
     url(r'^past-concerts$', views.pastConcerts, name='past-concerts'),
