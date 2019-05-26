@@ -24,6 +24,7 @@
 
 #mainNav.navbar-shrink {
   border-bottom: #008888 solid 1px;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .nav-item {
