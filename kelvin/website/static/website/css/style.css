@@ -32,7 +32,7 @@
 }
 
 .dropdown-menu {
-  background-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.95);
   min-width: 0px;
   width: 100%;
   border-width: 0;
@@ -84,6 +84,28 @@
   #mainNav .navbar-brand {
     color: #1a1a1a;
   }
+}
+
+/* Dark Mode (macOS 10.14+) */
+@media (prefers-color-scheme: dark) {
+    
+#mainNav.navbar-shrink {
+    border-bottom: #008888 solid 1px;
+    background-color: rgba(38, 38, 38, 0.95);
+}
+
+.dropdown-menu {
+    background-color: rgba(38, 38, 38, 0.95);
+}
+
+.dropdown-item {
+    color: #FFFFFF;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(38, 38, 38, 0.95);
+}
+
 }
 
 /* Footer Control */
