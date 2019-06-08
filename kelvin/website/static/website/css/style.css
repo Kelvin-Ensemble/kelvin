@@ -1,5 +1,10 @@
+:root {
+    color-scheme: light dark;
+}
+
 /* Navbar */
 
+/* For Desktop Only */
 @media (min-width: 992px) {
   #mainNav {
     border-color: rgba(255, 255, 255, 0.3);
@@ -60,9 +65,16 @@
   position: relative;
 }
 
+/* For Mobile Only */
 @media (max-width: 992px) {
+    #mainNav {
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+    
   .dropdown-menu {
+      /*
     background-color: #FFF;
+       */
     border: none;
     padding: 0;
   }
@@ -72,7 +84,6 @@
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size: 13px;
     text-align: center;
-    color: #000000;
   }
   #mainNav .navbar-nav>li.nav-item>a.nav-link:focus:hover,
   #mainNav .navbar-nav>li.nav-item>a.nav-link:hover {
@@ -82,12 +93,26 @@
     text-align: center;
   }
   #mainNav .navbar-brand {
-    color: #1a1a1a;
+    color: #008888;
   }
 }
 
 /* Dark Mode (macOS 10.14+) */
 @media (prefers-color-scheme: dark) {
+    
+    /* Dark Mode for Mobile Only */
+    @media (max-width: 992px) {
+    #mainNav {
+        background-color: rgba(38, 38, 38, 0.95);
+    }
+    #mainNav.navbar .navbar-nav>li.nav-item>a.nav-link,
+    #mainNav.navbar .navbar-nav>li.nav-item>a.nav-link:focus,
+    #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link,
+    #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:focus {
+        color: #FFFFFF;
+    }
+    
+    }
     
 #mainNav.navbar-shrink {
     border-bottom: #008888 solid 1px;

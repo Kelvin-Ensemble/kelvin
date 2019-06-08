@@ -4,6 +4,10 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-creative/blob/master/LICENSE)
  */
 
+:root {
+    color-scheme: light dark;
+}
+
 body,
 html {
   width: 100%;
@@ -11,7 +15,28 @@ html {
 }
 
 body {
-  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+    $font-family-sans-serif:
+    /* Safari for macOS and iOS (San Francisco) */
+    -apple-system,
+    /* Chrome < 56 for macOS (San Francisco) */
+    BlinkMacSystemFont,
+    /* Windows */
+    "Segoe UI",
+    /* Android */
+    "Roboto",
+    /* Basic web fallback */
+    "Helvetica Neue", Arial, sans-serif,
+    /* Emoji fonts */
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+    
+    /*! font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif; */
+}
+
+@media(prefers-color-scheme:dark) {
+    body {
+        background-color: #222222;
+        color: #e8e7e3;
+    }
 }
 
 hr {
@@ -42,7 +67,20 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    $font-family-sans-serif:
+    /* Safari for macOS and iOS (San Francisco) */
+    -apple-system,
+    /* Chrome < 56 for macOS (San Francisco) */
+    BlinkMacSystemFont,
+    /* Windows */
+    "Segoe UI",
+    /* Android */
+    "Roboto",
+    /* Basic web fallback */
+    "Helvetica Neue", Arial, sans-serif,
+    /* Emoji fonts */
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+  /* font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; */
 }
 
 p {
