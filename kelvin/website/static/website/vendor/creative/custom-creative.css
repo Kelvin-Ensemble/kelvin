@@ -109,6 +109,7 @@ section {
 .section-heading {
   margin-top: 0;
 }
+/* COLOR FOR SELECTED TEXT:
 
 ::-moz-selection {
   color: white;
@@ -131,7 +132,7 @@ img::-moz-selection {
   color: white;
   background: transparent;
 }
-
+ */
 #mainNav {
   border-color: rgba(34, 34, 34, 0.05);
   background-color: white;
