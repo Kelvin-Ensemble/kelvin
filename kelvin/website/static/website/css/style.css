@@ -4,8 +4,16 @@
 
 /******** 2020 ********/
 h2{
-  margin-bottom: 30px;
-  color: red;
+  margin-bottom: 2%;
+  font-size: 1.8rem;
+}
+
+hr{
+  margin: 3% auto;
+}
+
+section{
+  padding-top: 50px;
 }
 
 
