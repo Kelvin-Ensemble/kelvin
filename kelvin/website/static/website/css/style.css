@@ -2,20 +2,23 @@
     color-scheme: light dark;
 }
 
-/******** 2020 ********/
+/* 2020 ---------------------------------------------------------------------------------*/
+
+/* General */
 h2{
-  margin-bottom: 2%;
-  font-size: 1.8rem;
-  /* color: red; */
+    margin-bottom: 2%;
+    font-size: 1.8rem;
 }
 
 hr{
-  margin: 3% auto;
+    margin: 3% auto;
 }
 
-/* section{
+/* section{ 
   padding-top: 70px;
 } */
+
+/* Gallery */
 
 .tz-gallery a img{
     width: 100%;
@@ -23,8 +26,54 @@ hr{
     object-fit: cover;
   }
 
+/* Committee */
+.containter.committee-images{
+    max-width: 85%;
+    margin: auto;
+  }
 
-/******** 2020 ********/
+.committee-images img {
+  border-radius: 5px;
+  /* border: solid 2px black; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 100%;
+  object-fit: fill;
+  margin-bottom: 20px;
+}
+
+.overlay{
+    /* cetner horizontally, while postion absolute */
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    width: 88%;
+    max-width: 220px;
+    height: 53px;
+    bottom:45px;
+
+    color: #FFFFFF;  
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.overlay:hover{
+  color: #008888;
+  cursor: default;
+}
+
+.name{
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 3px 0 0 0;
+}
+
+.title{
+    letter-spacing: 0.05em;
+}
+
+
+/* 2020 ---------------------------------------------------------------------------------*/
 
 
 /* Navbar */
@@ -231,8 +280,8 @@ html, body {
 /* Committee */
 
 .committee-images img {
-  max-width: 200px;
-  max-height: 300px;
+  max-width: 220px;
+  max-height: 330px;
 }
 
 .committee-images p {
