@@ -117,8 +117,17 @@ input[type=submit]:hover {
 }
 
 .overlay:hover{
-color: #008888;
+color: #008888; 
 cursor: default;
+}
+
+.overlay a{
+  color: #FFFFFF;
+}
+
+.overlay a:hover{
+  color: #008888;
+  text-decoration: none;
 }
 
 .name{
@@ -345,7 +354,7 @@ html, body {
 
 .committee-images img {
   max-width: 220px;
-  max-height: 330px;
+  height: 330px;
 }
 
 .committee-images p {
