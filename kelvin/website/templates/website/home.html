@@ -79,41 +79,87 @@ Kelvin Ensemble
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
                     <i class="fa fa-4x fa-music text-white sr-icons"></i>
-                    <h2 class="section-heading text-white">Live Concert: 28<sup>th</sup> November 2020</h2>
+                    <h2 class="section-heading text-white">Autumn Live Concert 28<sup>th</sup> November 2020, 3pm</h2>
+                    <!-- <hr class="light"> -->
                     <hr class="light">
-                    <p class="text-faded">We are currently rehearsing for our first onlive concert ever!
-                    </p>
-                    <!-- <a class="btn btn-default btn-xl" href="concerts">Buy Tickets</a> -->
+
+                    <!-- Display the countdown timer in an element -->
+                    <h2 id="demo" style="color: white;"></h2>
+
+                    <script>
+                        // Set the date we're counting down to
+                        var countDownDate = new Date("Nov 28, 2020 15:00:00").getTime();
+                        
+                        // Update the count down every 1 second
+                        var x = setInterval(function() {
+                        
+                        // Get today's date and time
+                        var now = new Date().getTime();
+                        
+                        // Find the distance between now and the count down date
+                        var distance = countDownDate - now;
+                        
+                        // Time calculations for days, hours, minutes and seconds
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                        
+                        // Display the result in the element with id="demo"
+                        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                        + minutes + "m " + seconds + "s ";
+                        
+                        // If the count down is finished, write some text
+                        if (distance < 0) {
+                            clearInterval(x);
+                            document.getElementById("demo").innerHTML = "Concert just started.";
+                        }
+                        }, 1000);
+                    </script>
+
+                    
+                    <!-- <p class="text-faded">
+                    </p> -->
+                    <div style="margin: 30px 0 -20px 0;">
+                        <a class="text-white" href="https://www.facebook.com/kelvinensemble/" target="_blank" style="margin: 0 10px;">
+                            <i class="fa fa-facebook-square fa-3x  text-white"></i>
+                        </a>
+                        <a class="text-white" href="https://www.youtube.com/channel/UCr2-_bhHmy1GCkXIBB33q0A" target="_blank" style="margin: 0 10px;">
+                            <i class="fa fa-youtube-square fa-3x  text-white"></i>
+                        </a>
+                    </div>
+
+                    <!-- <a class="btn btn-default btn-xl" href="concerts" style="margin-top: 20px;">Buy Tickets</a> -->
                 </div>
             </div>
         </div>
     </section>
         
-        
-    <section id="extra-information">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 text-center padding-bottom-small">
-                    <i class="fa fa-4x fa-envelope text-primary sr-icons"></i>
-                    <h3>Contact Us</h3>
-                    <p class="text-muted">Get in touch with the Kelvin Ensemble.</p>
-                    <a class="btn btn-primary btn-l" href="contact">Contact Information</a>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center padding-bottom-small">
-                    <i class="fa fa-4x fa-calendar text-primary sr-icons"></i>
-                    <h3>Members Calendar</h3>
-                    <p class="text-muted">Keep up-to-date with everything Kelvin.</p>
-                    <a class="btn btn-primary btn-l" href="calendar">Dates, Dates, Dates!</a>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center padding-bottom-small">
-                    <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-                    <h3>Support Us</h3>
-                    <p class="text-muted">Help Support the Orchestra!</p>
-                    <a class="btn btn-primary btn-l" href="support">Find Out More</a>
+            
+        <section id="extra-information">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 text-center padding-bottom-small">
+                        <i class="fa fa-4x fa-envelope text-primary sr-icons"></i>
+                        <h3>Contact Us</h3>
+                        <p class="text-muted">Get in touch with the Kelvin Ensemble.</p>
+                        <a class="btn btn-primary btn-l" href="contact">Contact Information</a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 text-center padding-bottom-small">
+                        <i class="fa fa-4x fa-calendar text-primary sr-icons"></i>
+                        <h3>Members Calendar</h3>
+                        <p class="text-muted">Keep up-to-date with everything Kelvin.</p>
+                        <a class="btn btn-primary btn-l" href="calendar">Dates, Dates, Dates!</a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 text-center padding-bottom-small">
+                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+                        <h3>Support Us</h3>
+                        <p class="text-muted">Help Support the Orchestra!</p>
+                        <a class="btn btn-primary btn-l" href="support">Find Out More</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <div class="call-to-action bg-dark">
         <div class="row">
