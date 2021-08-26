@@ -105,3 +105,6 @@ ENV/
 
 # IDE
 .idea/
+/.vs/kelvin/v16/.suo
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
