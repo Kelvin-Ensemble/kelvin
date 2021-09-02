@@ -112,7 +112,7 @@ input[type=submit]:hover {
   left: 50%;
   transform: translate(-50%, 0);
 
-  width: 88%;
+  width: 100%;
   max-width: 220px;
   height: 53px;
   bottom:45px;
@@ -359,7 +359,7 @@ html, body {
 
 .committee-images img {
   max-width: 220px;
-  height: 330px;
+  height: 220px;
 }
 
 .committee-images p {
