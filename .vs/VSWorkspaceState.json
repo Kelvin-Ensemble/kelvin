@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\kelvin",
+    "\\kelvin\\website",
+    "\\kelvin\\website\\static",
+    "\\kelvin\\website\\static\\website",
+    "\\kelvin\\website\\static\\website\\media",
+    "\\kelvin\\website\\templates",
+    "\\kelvin\\website\\templates\\website",
+    "\\kelvin\\website\\templates\\website\\base",
+    "\\kelvin\\website\\templates\\website\\contact"
+  ],
+  "SelectedNode": "\\kelvin\\website\\static\\website\\media\\favicon.png",
+  "PreviewInSolutionExplorer": false
+}
