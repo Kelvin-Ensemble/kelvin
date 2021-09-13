@@ -9,8 +9,9 @@
     "\\kelvin\\website\\templates",
     "\\kelvin\\website\\templates\\website",
     "\\kelvin\\website\\templates\\website\\base",
-    "\\kelvin\\website\\templates\\website\\contact"
+    "\\kelvin\\website\\templates\\website\\contact",
+    "\\kelvin\\website\\templates\\website\\players"
   ],
-  "SelectedNode": "\\kelvin\\website\\static\\website\\media\\favicon.png",
+  "SelectedNode": "\\kelvin\\website\\templates\\website\\players\\join.html",
   "PreviewInSolutionExplorer": false
 }
