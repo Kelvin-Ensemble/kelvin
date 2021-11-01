@@ -6,11 +6,32 @@
     #page-header {
         background-image: url("{% static 'website/media/img/headers/concerts.jpg' %}");
     }
+
+    .playlists {
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        padding: 10px;
+    }
+
+    .grid-item {
+        align-self: center;
+    }
+
+    @media screen and (max-width: 650px) {
+        .grid-container {
+            grid-template-columns: auto;
+        }
+    }
 </style>
 {% endblock %}
 
 {% block title %}
-Concerts
+Upcoming Concerts
 {% endblock %}
 
 {% block page-icon %}
@@ -18,32 +39,60 @@ Concerts
 {% endblock %}
 
 {% block header %}
-Concerts
+Upcoming Concerts
 {% endblock %}
 
 
 {% block content %}
 
 <!-- ANNOUNCEMENT -->
-<!-- <div class="concert_announcement">
-    <br>
-    <p> We are excited to announce our first concert of the new year! <br>
-    <b>Date:</b> Saturday 7<sup>th</sup> March 2020 <br>
-    <b>Time:</b> 19:30 <br>
-    <b>Location:</b> <a href="https://frontdoor.spa.gla.ac.uk/map/embedded.html#!/?to=1040420">Bute Hall, University of Glasgow</a>
+<div>
+    <h2> Autumn 2021 Concert </h2>
+    <p> 
+        <strong> We are excited to announce our first concert since 2020! </strong>
     </p>
-    <img src="{% static 'website/media/img/concerts/mar20.jpg' %}" alt="November 2019" width="400">
-    <p> Information about tickets and repertoire will be published in due course.  <br> Please follow us on Social Media (links at bottom of page), and we will let you know when more details are available. </p> 
-</div> -->
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="{% static 'website/media/img/concerts/nov21.jpg' %}" alt="Autumn 2021 Concert" width="100%"> </img>
+        </div>
+        <div class="grid-item">
+            <h4> Date </h4>
+            <p>
+                Saturday 27<sup>th</sup> November 2021, 14:00
+            </p>
+            <h4> Location </h4>
+            <p>
+                St. Bride's Episcopal Church<br>
+                69 Hyndland Road,<br>
+                Glasgow,<br>
+                G12 9UX
+            </p>
+            <p>
+                <strong> Get Directions: </strong> <a href="https://goo.gl/maps/qusfhDQEtuFL2ENg6"> Google Maps </a> | <a href="https://maps.apple.com/place?q=St%20Bride%20Scottish%20Episcopal%20Church&ll=55.8798616%2C-4.3047314&auid=8034102897840914585&lsp=9902&address=St%20Brides%20Church%2C%2069%20Hyndland%20Road%2C%20Glasgow%2C%20G12%209UX%2C%20Scotland"> Apple Maps </a>
+            </p>
+        </div>
+    </div>
+</div>
 
 <!-- TICKETS SECTION -->
+<div class="highlight-section">
+    
+    <div class="bg-primary full-small-padding ticket-info text-white">
+        <h3>Tickets</h3>
+        <p>
+            Due to safety requirements for COVID-19, there is a limited capacity for seats in the church.  <br>
+            So that we can keep track of numbers, and ensure that people are not disappointed on the day, tickets must be bought online, and will be available via a first-come-first-serve basis.  
+        </p>
+        <p>
+            Tickets will become available during the week beginning 01/11/2021.  We will post on social media when they become available.
+        </p>
+    </div>
+</div>
 <!-- <div class="highlight-section">
     
     <div class="bg-primary full-small-padding ticket-info text-white">
         <h3>Tickets</h3>
-        <p>Tickets are available to buy online in advance of the concert.  We don't send an e-ticket, and will have a list of all the people who have purchased tickets on the door.
-            <br>The confirmation email from PayPal often ends up redirecting to spam, but email us if you are at all worried.<br>
-            It will also be possible to buy tickets on the door.
+        <p>Tickets must be bought in advance online.  We don't send an e-ticket, but you should receive a confirmation email from PayPal.  We will have a list of all the people who have purchased tickets on the door.
         </p>
         <div class="row">
             <div class="col-md-6">
@@ -94,35 +143,28 @@ Concerts
 
 <!-- <p> We are currently having a break for the summer, and will return when term recommences with new members! </h5> -->
 
-    
-    
-
-
-
-<p>Unfortunatelly, we won't be able to play as a full orchestra until it's safe and legal. Until then we plan on a strings only programme for first semester with brass, wind and percussion beginning to rehearse when it is allowed. </p>
-
 <!-- <p> The Kelvin Ensemble holds concerts in November and March in Glasgow, and goes on tour in May. </p> -->
 
 <!--
 <p>More information coming soon.</p>
 -->
-<!-- 
-</br>
 
-<h3> Repertoire </h3>
-<p> This concert we will be playing: </p>
-<p>
-<b>Bernstein</b> Candide Overture <br>
-<b>Copland</b> Four Dance Episodes from "Rodeo" <br>
-<b>Dvořák</b> Symphony No. 9 in E Minor "From the New World"<br>
-</p>
-<p>
-Feel free to listen to the playlists below and add them to your library!
-</p>
-<iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="450" style="width:100%;max-width:800px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/gb/playlist/kelvin-ensemble-spring-2020/pl.u-D2X3Cak69yyA"></iframe>
-<br></br>
-<iframe src="https://open.spotify.com/playlist/0FvIjERXuBfCQCDp229wnm?si=ynNuUKmyTN2TOVZpKfHwbQ" style="width:100%;max-width:800px" height="450" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
- -->
+
+<div>
+    <h3> Repertoire </h3>
+    <p>
+        <b>MacCunn</b> The Land of the Mountain and the Flood <br>
+        <b>Tchaikovsky</b> Exerpts from The Nutcracker Suite <br>
+        <b>Beethoven</b> Symphony No. 6<br>
+    </p>
+    <p>
+        If you would like to familiarise yourself with the music beforehand, feel free to add these playlists to your library:
+    </p>
+    <div class="playlists">
+        <iframe src="https://embed.music.apple.com/gb/playlist/kelvin-ensemble-autumn-2021/pl.u-eoGpczMlAPP9" height="450px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *;" style="width: 100%; max-width: 900px; overflow: hidden; border-radius: 10px; background: transparent;"></iframe> 
+        <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="100%" height="450" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+</div>
 
 <!-- <hr class="primary small-padding"/> -->
 

@@ -149,10 +149,11 @@ cursor: default;
 /* 2020 ---------------------------------------------------------------------------------*/
 
 
-
+/* 2019 */
 :root {
     color-scheme: light dark;
 }
+/* 2019 */
 
 /* Navbar */
 
@@ -260,7 +261,8 @@ cursor: default;
     #mainNav.navbar .navbar-nav>li.nav-item>a.nav-link,
     #mainNav.navbar .navbar-nav>li.nav-item>a.nav-link:focus,
     #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link,
-    #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:focus {
+    #mainNav.navbar-shrink .navbar-nav>li.nav-item>a.nav-link:focus,
+    #mainNav.navbar-shrink .navbar-light .navbar-toggler{
         color: #FFFFFF;
     }
     

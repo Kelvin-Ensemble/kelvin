@@ -5,10 +5,9 @@
     "\\kelvin\\website",
     "\\kelvin\\website\\static",
     "\\kelvin\\website\\static\\website",
-    "\\kelvin\\website\\static\\website\\media",
+    "\\kelvin\\website\\static\\website\\css",
     "\\kelvin\\website\\templates",
     "\\kelvin\\website\\templates\\website",
-    "\\kelvin\\website\\templates\\website\\base",
     "\\kelvin\\website\\templates\\website\\contact",
     "\\kelvin\\website\\templates\\website\\players"
   ],
