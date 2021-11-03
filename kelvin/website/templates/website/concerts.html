@@ -121,12 +121,19 @@ Upcoming Concerts
                          </td>
                     </tr>
                 </table>
-                            <input type="hidden" name="currency_code" value="GBP">
+                <input type="hidden" name="currency_code" value="GBP">
                 <table align="center">
                     <tr align="center">
                         <td align="center">
-                            <input type="submit" value="&#x1F6D2; Add to Cart" name="submit" style="width:150px" alt="PayPal – The safer, easier way to pay online!" padding="0px">
+                            <input type="submit" value="Add to Cart" name="submit" style="width:150px" alt="PayPal – The safer, easier way to pay online!" padding="0px">
                         </td>
+			<td align="center">
+				<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+				<input type="hidden" name="cmd" value="_s-xclick">
+				<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+				<input type="submit" value="&#x1F6D2; View Cart" name="submit" style="width:150px" alt="PayPal – The safer, easier way to pay online!" padding="0px">
+				</form>
+			    </td>
                     </tr>
                  </table>
                     
