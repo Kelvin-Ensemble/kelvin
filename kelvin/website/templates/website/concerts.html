@@ -113,6 +113,7 @@ Upcoming Concerts
             Unfortunately, tickets for this concert have sold out.  We are incredibly sorry if you were not able to buy any.  If you would like to be added to the waiting list, please fill the form below.
         </p>
 
+        <div class="ticket-form">
         <form action="https://formspree.io/f/xdoyrrla" method="POST">
             <label>
                 Name:
@@ -126,12 +127,13 @@ Upcoming Concerts
                 Number of Tickets:
                 <input type="number" name="quantity" min="1" max="3" inputmode="numeric">
             </label>
-            <label>
+            <p style="font-size:0.875em">
                 By submitting this form, you agree to allow for us to contact you at the email above if tickets become available.
-            </label>
+            </p>
             <!-- your other form fields go here -->
             <button type="submit">Send</button>
         </form>
+        </div>
 
         <!-- PayPal Section (uncomment to add support for PayPal form)-->
         <!--
