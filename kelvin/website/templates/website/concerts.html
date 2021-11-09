@@ -63,12 +63,13 @@ Upcoming Concerts
 <!-- ANNOUNCEMENT -->
 <div>
     <h2> Autumn 2021 Concert </h2>
-    <p> 
+    <p>
         <strong> We are excited to announce our first in-person concert since 2020! </strong>
     </p>
     <div class="grid-container">
         <div class="grid-item">
-            <img src="{% static 'website/media/img/concerts/nov21.jpg' %}" alt="Autumn 2021 Concert" width="100%"> </img>
+            <img src="{% static 'website/media/img/concerts/nov21.jpg' %}" alt="Autumn 2021 Concert" width="100%">
+            </img>
         </div>
         <div class="grid-item">
             <h4> Date </h4>
@@ -83,7 +84,10 @@ Upcoming Concerts
                 G12 9UX
             </p>
             <p>
-                <strong> Get Directions: </strong> <a href="https://goo.gl/maps/qusfhDQEtuFL2ENg6"> Google Maps </a> | <a href="https://maps.apple.com/place?q=St%20Bride%20Scottish%20Episcopal%20Church&ll=55.8798616%2C-4.3047314&auid=8034102897840914585&lsp=9902&address=St%20Brides%20Church%2C%2069%20Hyndland%20Road%2C%20Glasgow%2C%20G12%209UX%2C%20Scotland"> Apple Maps </a>
+                <strong> Get Directions: </strong> <a href="https://goo.gl/maps/qusfhDQEtuFL2ENg6"> Google Maps </a> |
+                <a
+                    href="https://maps.apple.com/place?q=St%20Bride%20Scottish%20Episcopal%20Church&ll=55.8798616%2C-4.3047314&auid=8034102897840914585&lsp=9902&address=St%20Brides%20Church%2C%2069%20Hyndland%20Road%2C%20Glasgow%2C%20G12%209UX%2C%20Scotland">
+                    Apple Maps </a>
             </p>
         </div>
     </div>
@@ -91,12 +95,13 @@ Upcoming Concerts
 
 <!-- TICKETS SECTION -->
 <div class="highlight-section">
-    
+
     <div class="bg-primary full-small-padding ticket-info text-white">
         <h3>Tickets</h3>
         <p>
-            Due to safety requirements for COVID-19, there is a limited capacity for seats in the church.  <br>
-            So that we can keep track of numbers, and ensure that people are not disappointed on the day, tickets must be bought online, and will be available via a first-come-first-serve basis.  
+            Due to safety requirements for COVID-19, there is a limited capacity for seats in the church. <br>
+            So that we can keep track of numbers, and ensure that people are not disappointed on the day, tickets must
+            be bought online, and will be available via a first-come-first-serve basis.
         </p>
 
         <p>
@@ -104,6 +109,32 @@ Upcoming Concerts
             <strong>Concession (Students/Under 18s/Seniors):</strong> &pound;5
         </p>
 
+        <p>
+            Unfortunately, tickets for this concert have sold out.  We are incredibly sorry if you were not able to buy any.  If you would like to be added to the waiting list, please fill the form below.
+        </p>
+
+        <form action="https://formspree.io/f/xdoyrrla" method="POST">
+            <label>
+                Name:
+                <input type="text" id="name" name="name" inputmode="latin-name">
+            </label>
+            <label>
+                Email:
+                <input type="email" name="_replyto" inputmode="email">
+            </label>
+            <label>
+                Number of Tickets:
+                <input type="number" name="quantity" min="1" max="3" inputmode="numeric">
+            </label>
+            <label>
+                By submitting this form, you agree to allow for us to contact you at the email above if tickets become available.
+            </label>
+            <!-- your other form fields go here -->
+            <button type="submit">Send</button>
+        </form>
+
+        <!-- PayPal Section (uncomment to add support for PayPal form)-->
+        <!--
         <div class="ticket-form">
             <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" align="center">
                 <input type="hidden" name="cmd" value="_s-xclick">
@@ -113,103 +144,54 @@ Upcoming Concerts
                     <tr align="center">
                         <td align="center">
                             <input type="hidden" name="on0" value="Type">
-                                <strong> Ticket Type: </strong>
+                            <strong> Ticket Type: </strong>
                             <select name="os0">
-	                            <option value="Standard">Standard &pound;10.00 GBP</option>
-	                            <option value="Concession">Concession &pound;5.00 GBP</option>
+                                <option value="Standard">Standard &pound;10.00 GBP</option>
+                                <option value="Concession">Concession &pound;5.00 GBP</option>
                             </select>
-                         </td>
+                        </td>
                     </tr>
                 </table>
                 <input type="hidden" name="currency_code" value="GBP">
                 <table align="center">
                     <tr align="center">
                         <td align="center">
-                            <input type="submit" value="Add to Cart" name="submit" style="width:150px" alt="PayPal – The safer, easier way to pay online!" padding="0px">
+                            <input type="submit" value="Add to Cart" name="submit" style="width:150px"
+                                alt="PayPal – The safer, easier way to pay online!" padding="0px">
                         </td>
-			</form>
-			<td align="center">
-				<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-				<input type="hidden" name="cmd" value="_s-xclick">
-				<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
-				<input type="submit" value="&#x1F6D2; View Cart" name="submit" style="width:150px" alt="PayPal – The safer, easier way to pay online!" padding="0px">
-				</form>
-			    </td>
-                    </tr>
-                 </table>
-	    <p style="font-size:0.875em">
-        N.B. If the cart doesn't open, it may already be open in another tab.
-    </p>
-                    
-                <!--<input type="image" src="http://127.0.0.1:8000/static/website/media/img/concerts/nov21.jpg" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">-->
-                <!--<img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">-->
-            
-                <!-- PayPal Logo -->
-                <table border="0" cellspacing="0" align="center">
-                    <tr><td align="center">
-                        <a href="https://www.paypal.com/uk/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/uk/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
-                            <img src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_payments_by_pp_2line.png" border="0" alt="Payments by PayPal" height=40px>
+            </form>
+            <td align="center">
+                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="encrypted"
+                        value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+                    <input type="submit" value="&#x1F6D2; View Cart" name="submit" style="width:150px"
+                        alt="PayPal – The safer, easier way to pay online!" padding="0px">
+                </form>
+            </td>
+            </tr>
+            </table>
+            <p style="font-size:0.875em">
+                N.B. If the cart doesn't open, it may already be open in another tab.
+            </p>
+            <table border="0" cellspacing="0" align="center">
+                <tr>
+                    <td align="center">
+                        <a href="https://www.paypal.com/uk/webapps/mpp/paypal-popup" title="How PayPal Works"
+                            onclick="javascript:window.open('https://www.paypal.com/uk/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
+                            <img src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_payments_by_pp_2line.png"
+                                border="0" alt="Payments by PayPal" height=40px>
                         </a>
-                        <!-- <div style="text-align:center">
-                            <a href="https://www.paypal.com/uk/webapps/mpp/how-paypal-works" target="_blank"><font size="2" face="Arial" color="#0079CD"><b>How PayPal Works</b></font>
-                            </a>
-                        </div> -->
-                    </td></tr>
-                </table>
-                <!-- PayPal Logo -->
-        </div>
+                    </td>
+                </tr>
+            </table>
+        </div> -->
+
         <!-- <p>
             Tickets will become available during the week beginning 01/11/2021.  We will post on social media when they become available.
         </p> -->
     </div>
 </div>
-<!-- <div class="highlight-section">
-    
-    <div class="bg-primary full-small-padding ticket-info text-white">
-        <h3>Tickets</h3>
-        <p>Tickets must be bought in advance online.  We don't send an e-ticket, but you should receive a confirmation email from PayPal.  We will have a list of all the people who have purchased tickets on the door.
-        </p>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>General Admission &#163;10</h4>
-                <h4> </h4>
-                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="WM2TC268LMUBQ">
-                    <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
-                    <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
-                </form>
-            </div>
-            <div class="col-md-6">
-                <h4>Concession Tickets &#163;5</h4>
-                <h4>(Under 18s, Students, Seniors)</h4>
-                
-                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="4FDVL8DX78H4U">
-                    <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
-                    <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
-                </form>
-            </div>
-        </div>
-        <br/>
-        
-        <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
-            <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_viewcart_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
-            <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
-        </form>
-        
-
-        <p>
-        Tickets are no longer available to be purchased online.
-        </p>
-        <p>
-        We will still be selling tickets at the door, and are able to take payments by cash, chip and pin, or contactless.
-        </p>
-    </div>
-</div>  -->
 
 <!-- OTHER ANNOUNCEMENTS -->
 <!-- 
@@ -233,11 +215,17 @@ Upcoming Concerts
         <b>Beethoven</b> Symphony No. 6<br>
     </p>
     <p>
-        If you would like to familiarise yourself with the music beforehand, feel free to add these playlists to your library:
+        If you would like to familiarise yourself with the music beforehand, feel free to add these playlists to your
+        library:
     </p>
     <div class="playlists">
-        <iframe src="https://embed.music.apple.com/gb/playlist/kelvin-ensemble-autumn-2021/pl.u-eoGpczMlAPP9" height="450px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *;" style="width: 100%; max-width: 900px; overflow: hidden; border-radius: 10px; background: transparent;"></iframe> 
-        <iframe src="https://open.spotify.com/embed/playlist/1C9hMouzDJOFhrMrkKkwIh?utm_source=generator" width="100%" height="450" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <iframe src="https://embed.music.apple.com/gb/playlist/kelvin-ensemble-autumn-2021/pl.u-eoGpczMlAPP9"
+            height="450px" frameborder="0"
+            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+            allow="autoplay *; encrypted-media *;"
+            style="width: 100%; max-width: 900px; overflow: hidden; border-radius: 10px; background: transparent;"></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/1C9hMouzDJOFhrMrkKkwIh?utm_source=generator" width="100%"
+            height="450" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
     <p style="font-size:0.875em">
         &#8592; Scroll to switch between Apple Music and Spotify &#8594;
