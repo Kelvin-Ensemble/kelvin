@@ -6,28 +6,28 @@
     #page-header {
         background-image: url("{% static 'website/media/img/headers/concerts.jpg' %}");
     }
-
+    
     .playlists {
         overflow: auto;
         white-space: nowrap;
     }
-
+    
     .grid-container {
         display: grid;
         grid-template-columns: 50% 50%;
-        padding: 10px;
+        padding: 20px;
     }
-
+    
     .grid-item {
         align-self: center;
     }
-
+    
     @media screen and (max-width: 650px) {
         .grid-container {
             grid-template-columns: auto;
         }
     }
-
+    
     .ticket-form {
         border-radius: 5px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -35,7 +35,7 @@
         color: white;
         padding: 10px;
     }
-
+    
     @media (prefers-color-scheme: dark) {
         .ticket-form {
             background-color: rgba(0, 0, 0, 0.3);
@@ -65,7 +65,7 @@ Upcoming Concerts
 <!--
 <h2> No Upcoming Concerts </h2>
 <p> 
-    Thank you to everyone who came to our Autumn 2021 concert.  We hope you enjoyed watching it as much as we did performing it! <br>  Photos are now available on our <a href="https://www.facebook.com/kelvinensemble">Facebook</a>. &#128247;
+Thank you to everyone who came to our Autumn 2021 concert.  We hope you enjoyed watching it as much as we did performing it! <br>  Photos are now available on our <a href="https://www.facebook.com/kelvinensemble">Facebook</a>. &#128247;
 </p>
 <p>Our next concert will be in March 2020 &#8212; please watch this space! </p>
 -->
@@ -78,7 +78,7 @@ Upcoming Concerts
 <div>
     <h2> Autumn 2022 Concert: Voyages of the Sea </h2>
     <p>
-        <strong> We are happy to announce our next concert will be in November 2022 with the theme Voyages of the Sea! </strong>
+    <strong> We are happy to announce our next concert will be in November 2022 with the theme Voyages of the Sea! </strong>
     </p>
     <div class="grid-container">
         <div class="grid-item">
@@ -88,27 +88,27 @@ Upcoming Concerts
         <div class="grid-item">
             <h4> Date </h4>
             <p>
-                Sunday 20<sup>th</sup> November 2022, 14:00
+            Sunday 20<sup>th</sup> November 2022, 14:00
             </p>
             <h4> Location </h4>
             <p>
-                Hunter Halls<br>
-                The University of Glasgow,<br>
-                University Avenue,<br>
-                Glasgow,<br>
-                G12 8QQ
+            Hunter Halls<br>
+            The University of Glasgow,<br>
+            University Avenue,<br>
+            Glasgow,<br>
+            G12 8QQ
             </p>
             <p>
-                <strong> Get Directions: </strong> <a href="https://goo.gl/maps/1ppK1t3AKqrJMkSj8"> Google Maps </a> |
-                <a
-                    href="https://maps.apple.com/place?q=University%20of%20Glasgow&ll=55.871452573004944%2C-4.288519620895386&auid=6303513611846241548&lsp=9902&address=Glasgow%2C%20G12%208QQ%2C%20Scotland">
-                    Apple Maps </a>
+            <strong> Get Directions: </strong> <a href="https://goo.gl/maps/1ppK1t3AKqrJMkSj8"> Google Maps </a> |
+            <a
+                href="https://maps.apple.com/place?q=University%20of%20Glasgow&ll=55.871452573004944%2C-4.288519620895386&auid=6303513611846241548&lsp=9902&address=Glasgow%2C%20G12%208QQ%2C%20Scotland">
+                Apple Maps </a>
             </p>
             <p>
-                The university is easily accessible from the Subway.  The nearest station is Hillhead.
+            The university is easily accessible from the Subway.  The nearest station is Hillhead.
             </p>
             <p>
-                There is limited free parking available on the UofG campus during the weekend.  For more information, please see the <a href = "https://www.gla.ac.uk/myglasgow/estates/parkingattheuniversity/visitorparking/">UofG website</a>.
+            There is limited free parking available on the UofG campus during the weekend.  For more information, please see the <a href = "https://www.gla.ac.uk/myglasgow/estates/parkingattheuniversity/visitorparking/">UofG website</a>.
             </p>
         </div>
     </div>
@@ -120,85 +120,85 @@ Upcoming Concerts
     <div class="bg-primary full-small-padding ticket-info text-white">
         <h3>Tickets</h3>
         <p>
-
-<!-- Unfortunately, tickets for this concert are no longer available for purchase online. Tickets are still available on the door. -->
-
-            Tickets are available for purchase below.  Please <a href="mailto:webmaster@kelvin-ensemble.co.uk" style="color: white">let us know</a> if you have any issues.
+        
+        <!-- Unfortunately, tickets for this concert are no longer available for purchase online. Tickets are still available on the door. -->
+        
+        Tickets are available for purchase below.  Please <a href="mailto:webmaster@kelvin-ensemble.co.uk" style="color: white">let us know</a> if you have any issues.
         </p>
-
+        
         <p>
-            <strong>Standard:</strong> &pound;10<br>
-            <strong>Concession (Students/Under 18s/Seniors):</strong> &pound;5
+        <strong>Standard:</strong> &pound;10<br>
+        <strong>Concession (Students/Under 18s/Seniors):</strong> &pound;5
         </p>
-    
+        
         <!-- Sold Out Form Section (uncomment to add support for Sold Out form)-->
         
-        <div class="ticket-form">
-           <!-- <h5><strong>Sold Out</strong></h5>
-            <p>
-                Unfortunately, tickets for this concert are no longer available for purchase online. Tickets are still available on the door.
-            </p> 
-            <form action="https://formspree.io/f/xdoyrrla" method="POST">
-                <label>
-                    Name:
-                    <input type="text" id="name" name="name" inputmode="latin-name">
-                </label>
-                <label>
-                    Email:
-                    <input type="email" name="_replyto" inputmode="email">
-                </label>
-                <label>
-                    Number of Tickets:
-                    <input type="number" name="quantity" min="1" max="3" inputmode="numeric">
-                </label>
-                <p style="font-size:0.875em">
-                    By submitting this form, you agree to allow for us to contact you at the email above if tickets
-                    become available.
-                </p>
-                <button type="submit">Send</button>
-            </form>
+        <!--        <div class="ticket-form">
+        <h5><strong>Sold Out</strong></h5>
+        <p>
+        Unfortunately, tickets for this concert are no longer available for purchase online. Tickets are still available on the door.
+        </p> 
+        <form action="https://formspree.io/f/xdoyrrla" method="POST">
+        <label>
+        Name:
+        <input type="text" id="name" name="name" inputmode="latin-name">
+        </label>
+        <label>
+        Email:
+        <input type="email" name="_replyto" inputmode="email">
+        </label>
+        <label>
+        Number of Tickets:
+        <input type="number" name="quantity" min="1" max="3" inputmode="numeric">
+        </label>
+        <p style="font-size:0.875em">
+        By submitting this form, you agree to allow for us to contact you at the email above if tickets
+        become available.
+        </p>
+        <button type="submit">Send</button>
+        </form>
         </div> -->
-
+        
         <!-- PayPal Section (uncomment to add support for PayPal form)-->
         
         <div class="ticket-form">
             <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" align="center">
                 <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="QUXKN9NBTLWPY">
-                <h5> Buy Tickets </h5>
-                <table align="center">
-                    <tr align="center">
-                        <td align="center">
-                            <input type="hidden" name="on0" value="Type">
-                            <strong> Ticket Type: </strong>
-                            <select name="os0">
-                                <option value="Standard">Standard &pound;10.00 GBP</option>
-                                <option value="Concession">Concession &pound;5.00 GBP</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                <input type="hidden" name="currency_code" value="GBP">
-                <table align="center">
-                    <tr align="center">
-                        <td align="center">
-                            <input type="submit" value="Add to Cart" name="submit" style="width:150px"
-                                alt="PayPal – The safer, easier way to pay online!" padding="0px">
-                        </td>
-            </form>
+                    <input type="hidden" name="hosted_button_id" value="QUXKN9NBTLWPY">
+                        <h5> Buy Tickets </h5>
+                        <table align="center">
+                            <tr align="center">
+                                <td align="center">
+                                    <input type="hidden" name="on0" value="Type">
+                                        <strong> Ticket Type: </strong>
+                                        <select name="os0">
+                                            <option value="Standard">Standard &pound;10.00 GBP</option>
+                                            <option value="Concession">Concession &pound;5.00 GBP</option>
+                                        </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="hidden" name="currency_code" value="GBP">
+                            <table align="center">
+                                <tr align="center">
+                                    <td align="center">
+                                        <input type="submit" value="Add to Cart" name="submit" style="width:150px"
+                                            alt="PayPal – The safer, easier way to pay online!" padding="0px">
+                                    </td>
+                                </form>
             <td align="center">
                 <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="encrypted"
-                        value="-----BEGIN PKCS7-----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-----END PKCS7-----">
-                    <input type="submit" value="&#x1F6D2; View Cart" name="submit" style="width:150px"
-                        alt="PayPal – The safer, easier way to pay online!" padding="0px">
-                </form>
+                        <input type="hidden" name="encrypted"
+                            value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+                            <input type="submit" value="&#x1F6D2; View Cart" name="submit" style="width:150px"
+                                alt="PayPal – The safer, easier way to pay online!" padding="0px">
+                            </form>
             </td>
             </tr>
             </table>
             <p style="font-size:0.875em">
-                N.B. If the cart doesn't open, it may already be open in another tab.
+            N.B. If the cart doesn't open, it may already be open in another tab.  Unfortunately the Facebook Web Browser does not support the cart; please open this page in Safari, Chrome, or Edge.
             </p>
             <table border="0" cellspacing="0" align="center">
                 <tr>
@@ -212,7 +212,7 @@ Upcoming Concerts
                 </tr>
             </table>
         </div>
-
+        
     </div>
 </div>
 
@@ -220,13 +220,13 @@ Upcoming Concerts
 <div>
     <h3> Repertoire </h3>
     <p>
-        <b>Mendelssohn</b> The Hebrides (Fingal's Cave)<br>
-        <b>Ethel Smyth</b> The Wreckers: Overture <br>
-        <b>Rimsky-Korsakov</b> Sheherazade, Op. 35<br>
+    <b>Mendelssohn</b> The Hebrides (Fingal's Cave)<br>
+    <b>Ethel Smyth</b> The Wreckers: Overture <br>
+    <b>Rimsky-Korsakov</b> Sheherazade, Op. 35<br>
     </p>
     <p>
-        If you would like to familiarise yourself with the music beforehand, feel free to add these playlists to your
-        library:
+    If you would like to familiarise yourself with the music beforehand, feel free to add these playlists to your
+    library:
     </p>
     <div class="playlists">
         <iframe src="https://open.spotify.com/embed/playlist/0QhMTwW5pje0yno48V3cD1?utm_source=generator" width="100%"
@@ -238,40 +238,40 @@ Upcoming Concerts
             style="width: 100%; max-width: 900px; overflow: hidden; border-radius: 10px; background: transparent;"></iframe>
     </div>
     <p style="font-size:0.875em">
-        &#8592; Scroll to switch between Spotify and Apple Music &#8594;
+    &#8592; Scroll to switch between Spotify and Apple Music &#8594;
     </p>
 </div>
 
 <div>
     <h3> Facebook Event </h3>
     <p>
-        The Facebook for the concert is available <a href="https://www.facebook.com/events/574947067731655/">here</a>.
+    The Facebook for the concert is available <a href="https://www.facebook.com/events/574947067731655/">here</a>.
     </p>
     <p>
-        Concert updates will be posted on Facebook.  In the event of a major change to the concert, we will email everyone who has purchased tickets.
+    Concert updates will be posted on Facebook.  In the event of a major change to the concert, we will email everyone who has purchased tickets.
     </p>
     <p>
-        We would be very grateful if you would mark yourself as going and invite friends, in order to to maximise our reach.
+    We would be very grateful if you would mark yourself as going and invite friends, in order to to maximise our reach.
     </p>
 </div>
 
 <!-- <hr class="primary small-padding"/> -->
 <!-- <h3>Kelvin Tour</h3>
 <div class="left_align_text allow_bullets">
-    <p>
-        We are going on tour to Northern Ireland!
-    </p>
-    <p>We are looking for:</p>
-    <p>
-        <ul>
-            <li> 1 horn </li>
-            <li> 1 violin </li>
-            <li> 1 viola </li>
-        </ul>
-    </p>
-    <p>If you are interested, or would like more information, please contact the <a href="mailto:tourmanager@kelvin-ensemble.co.uk">Tour Manager</a>.
-    </p>
-    </p> -->
+<p>
+We are going on tour to Northern Ireland!
+</p>
+<p>We are looking for:</p>
+<p>
+<ul>
+<li> 1 horn </li>
+<li> 1 violin </li>
+<li> 1 viola </li>
+</ul>
+</p>
+<p>If you are interested, or would like more information, please contact the <a href="mailto:tourmanager@kelvin-ensemble.co.uk">Tour Manager</a>.
+</p>
+</p> -->
 
 <!--
 <br/><br/>
