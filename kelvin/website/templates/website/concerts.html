@@ -62,34 +62,37 @@ Upcoming Concerts
 
 <!-- No Concert Announcement -->
 
-<h2> No Upcoming Concerts </h2>
+<!-- <h2> No Upcoming Concerts </h2>
 <p> &nbsp;&nbsp;&nbsp; </p>
 <p> 
-Thank you to everyone who came to our <b>Autumn 2022: Voyages of the Sea</b> concert.  <br> We hope you enjoyed watching it as much as we did performing it! <!-- <br> Please keep an eye on this page for photos update! --> <br> Photos are now available on our <a href="https://www.facebook.com/kelvinensemble">Facebook</a>. &#128247;
+Thank you to everyone who came to our <b>Autumn 2022: Voyages of the Sea</b> concert.  <br> We hope you enjoyed watching it as much as we did performing it! <br> Please keep an eye on this page for photos update! <br> Photos are now available on our <a href="https://www.facebook.com/kelvinensemble">Facebook</a>. &#128247;
 </p>
-<p>Our next concert, <b>Spring 2023: Romance</b>, will be on 4th & 5th March 2023 &#8212; tickets will go on sale soon, please watch this space! </p>
-
+<p>Our next concert, <b>Spring 2023: Romance</b>, will be on 4th & 5th March 2023 &#8212; tickets will go on sale soon, please watch this space! </p> 
+-->
 
 <!-- <p> We are currently having a break for the summer, and will return when term recommences with new members! </p> 
 -->
 
 <!-- Concert Announcement ANNOUNCEMENT -->
 
-<!-- <div>
-    <h2> Autumn 2022 Concert: Voyages of the Sea </h2>
+<div>
+    <h2> Spring 2023 Concert: Romance </h2>
     <p>
-    <strong> We are happy to announce our next concert will be in November 2022 with the theme Voyages of the Sea! </strong>
+    <strong> We are happy to announce our next concert will be on 4<sup>th</sup> <b>AND</b> 5<sup>th</sup> March 2023 with the theme Romance! </strong>
     </p>
     <div class="grid-container">
         <div class="grid-item">
-            <img src="{% static 'website/media/img/concerts/nov22.png' %}" alt="March 2022 Concert" width="100%">
+            <img src="{% static 'website/media/img/concerts/mar23.png' %}" alt="March 2023 Concert" width="100%">
             </img>
         </div>
         <div class="grid-item">
-            <h4> Date </h4>
+            <h4> Dates </h4>
             <p>
-            Sunday 20<sup>th</sup> November 2022, 14:00
+                1. Saturday 4<sup>th</sup> March 2023, 19:30
             </p>
+            <p>
+                2. Sunday 5<sup>th</sup> March 2023, 14:30
+                </p>
             <h4> Location </h4>
             <p>
             Hunter Halls<br>
@@ -112,7 +115,7 @@ Thank you to everyone who came to our <b>Autumn 2022: Voyages of the Sea</b> con
             </p>
         </div>
     </div>
-</div> -->
+</div> 
 
 <!-- TICKETS SECTION -->
 <!-- <div class="highlight-section"> -->
@@ -134,7 +137,7 @@ Thank you to everyone who came to our <b>Autumn 2022: Voyages of the Sea</b> con
         
 
     
- <!-- <div class="bg-primary full-small-padding ticket-info text-white">
+    <div class="bg-primary full-small-padding ticket-info text-white">
 
         <h3>Tickets</h3>
 
@@ -147,7 +150,7 @@ Thank you to everyone who came to our <b>Autumn 2022: Voyages of the Sea</b> con
         <strong>Concession (Students/Under 18s/Seniors):</strong> &pound;5
         </p> 
 
-    </div> -->
+    </div> 
         
         <!-- Sold Out Form Section (uncomment to add support for Sold Out form)-->
         
@@ -213,9 +216,34 @@ Thank you to everyone who came to our <b>Autumn 2022: Voyages of the Sea</b> con
 
         <!-- PayPal Section (uncomment to add support for PayPal form)-->
         
-        <!-- <div class="ticket-form"> -->
-        <!-- <div class="bg-primary full-small-padding ticket-info text-white">
+        <div class="ticket-form">
+        <div class="bg-primary full-small-padding ticket-info text-white">
             <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" align="center">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="QUXKN9NBTLWPY">
+                        <h5> Buy Tickets for 4<sup>th</sup> March (Saturday) </h5>
+                        <table align="center">
+                            <tr align="center">
+                                <td align="center">
+                                    <input type="hidden" name="on0" value="Type">
+                                        <strong> Ticket Type: </strong>
+                                        <select name="os0">
+                                            <option value="Standard">Standard &pound;10.00 GBP</option>
+                                            <option value="Concession">Concession &pound;5.00 GBP</option>
+                                        </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="hidden" name="currency_code" value="GBP">
+                            <table align="center">
+                                <tr align="center">
+                                    <td align="center">
+                                        <input type="submit" value="Add to Cart" name="submit" style="width:150px"
+                                            alt="PayPal – The safer, easier way to pay online!" padding="0px">
+                                    </td>
+                                </form>
+
+    <!--                          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" align="center">
                 <input type="hidden" name="cmd" value="_s-xclick">
                     <input type="hidden" name="hosted_button_id" value="QUXKN9NBTLWPY">
                         <h5> Buy Tickets </h5>
@@ -246,10 +274,32 @@ Thank you to everyone who came to our <b>Autumn 2022: Voyages of the Sea</b> con
                             value="-----BEGIN PKCS7-----MIIG1QYJKoZIhvcNAQcEoIIGxjCCBsICAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYCytR8b3+QrZcSF1h4ySgy+WOb67XSD8CsDP74drVY54wJvf4BUjh7S47f3U4K0+THse6NJILHSqbNf3A9vj/WV9auFNmaYukTh7/mhipThnuRJpaZiA9yIbNfktrl6K1+5HAZhgpsoi+DHPB2BQLIAqZwQeQF+hjL6vZZ0u7H1QzELMAkGBSsOAwIaBQAwUwYJKoZIhvcNAQcBMBQGCCqGSIb3DQMHBAiX126GR/IL/4AwcgxUpFZNyCUyhhWUFivepbfsBJ3Sarsi0RMAKaZNp00Xlhks6Z0LosApv5TqCKG4oIIDhzCCA4MwggLsoAMCAQICAQAwDQYJKoZIhvcNAQEFBQAwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMB4XDTA0MDIxMzEwMTMxNVoXDTM1MDIxMzEwMTMxNVowgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBR07d/ETMS1ycjtkpkvjXZe9k+6CieLuLsPumsJ7QC1odNz3sJiCbs2wC0nLE0uLGaEtXynIgRqIddYCHx88pb5HTXv4SZeuv0Rqq4+axW9PLAAATU8w04qqjaSXgbGLP3NmohqM6bV9kZZwZLR/klDaQGo1u9uDb9lr4Yn+rBQIDAQABo4HuMIHrMB0GA1UdDgQWBBSWn3y7xm8XvVk/UtcKG+wQ1mSUazCBuwYDVR0jBIGzMIGwgBSWn3y7xm8XvVk/UtcKG+wQ1mSUa6GBlKSBkTCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb22CAQAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQCBXzpWmoBa5e9fo6ujionW1hUhPkOBakTr3YCDjbYfvJEiv/2P+IobhOGJr85+XHhN0v4gUkEDI8r2/rNk1m0GA8HKddvTjyGw/XqXa+LSTlDYkqI8OwR8GEYj4efEtcRpRYBxV8KxAW93YDWzFGvruKnnLbDAF6VR5w/cCMn5hzGCAZowggGWAgEBMIGUMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbQIBADAJBgUrDgMCGgUAoF0wGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjExMTAzMDg0MjQ2WjAjBgkqhkiG9w0BCQQxFgQUOdhQq9beUls8sKCUDpyjwix6wWwwDQYJKoZIhvcNAQEBBQAEgYC6ioNVDhspsO/v0nSpHObjQVCwMjxrnw0B+FCMViycZfISapGCX9f0w7qY1A5FwsIkLc7e/5AMoO0ixhTuJtBzesKqhAgRKUWGdH+e6LipHklo/UxHK1BxhCxLynkICefSjKwhO9mQzPfeQ9B5UkqiB7bBcdvAuEOTNlcpPC+gJA==-----END PKCS7-----">
                             <input type="submit" value="&#x1F6D2; View Cart" name="submit" style="width:150px"
                                 alt="PayPal – The safer, easier way to pay online!" padding="0px">
-                            </form>
+                            </form> -->
             </td>
             </tr>
             </table>
+
+            <div class ="ticket-form">
+                <div class="bg-primary full-small-padding ticket-info text-white">
+                    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="TPK24JN3JGQ3E">
+                        <h5> Buy Tickets for 5<sup>th</sup> March (Sunday) </h5>
+                        <table align="center">
+                          <tr align="center"><td align="center"><input type="hidden" name="on0" value="Type">
+                            <strong> Ticket Type </strong>
+                          </td></tr>
+                            <tr><td><select name="os0">
+                              <option value="Standard">Standard £10.00 GBP</option>
+                              <option value="Concession">Concession £5.00 GBP</option>
+                            </select></td></tr>
+                        </table>
+                        <input type="hidden" name="currency_code" value="GBP">
+                        <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+                        </form>
+                </div>
+                
             <table border="0" cellspacing="0" align="center">
                 <tr>
                     <td align="center">
@@ -261,6 +311,7 @@ Thank you to everyone who came to our <b>Autumn 2022: Voyages of the Sea</b> con
                     </td>
                 </tr>
             </table>
+
         <div class="ticket-form">
             <h5> &#9888; Known Issues &#9888; </h5>
             <p style="font-size:0.875em">
@@ -278,15 +329,15 @@ Thank you to everyone who came to our <b>Autumn 2022: Voyages of the Sea</b> con
         </div>
         </div>
     </div>
-</div> -->
+</div>
 
 
-<!-- <div> 
+<div> 
     <center><h3> Repertoire </h3>
     <p>
-    <b>Mendelssohn</b> The Hebrides (Fingal's Cave)<br>
-    <b>Ethel Smyth</b> The Wreckers: Overture <br>
-    <b>Rimsky-Korsakov</b> Sheherazade, Op. 35<br>
+    <b>Rachmaninoff</b> Symphony No.2 <br>
+    <b>Tchaikovsky</b> Romeo and Juliet <br>
+    <b>Saint-Saens</b> Bacchanale (From Act III of Samson and Delilah) <br>
     </p>
     <p>
     If you would like to familiarise yourself with the music beforehand, feel free to add these playlists to your
@@ -298,26 +349,29 @@ Thank you to everyone who came to our <b>Autumn 2022: Voyages of the Sea</b> con
             sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
             allow="autoplay *; encrypted-media *;"
             style="width: 100%; max-width: 900px; overflow: hidden; border-radius: 10px; background: transparent;"></iframe>
-        <iframe src="https://open.spotify.com/embed/playlist/0QhMTwW5pje0yno48V3cD1?utm_source=generator" width="100%"
+        <iframe src="https://open.spotify.com/embed/playlist/6ct5N1h9vsOa7NxBBsib1W?utm_source=generator" width="100%"
             height="450" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
     <p style="font-size:0.875em">
     &#8592; Scroll to switch between Spotify and Apple Music &#8594;
     </p> </center>
-</div> -->
+</div> 
 
-<!-- <div>
+<div>
     <center> <h3> Facebook Event </h3>
-    <p>
-    The Facebook for the concert is available <a href="https://www.facebook.com/events/574947067731655/">here</a>.
+    <!-- <p>
+    The Facebook event for the concert is available <a href="https://www.facebook.com/events/574947067731655/">here</a>.
     </p>
     <p>
     Concert updates will be posted on Facebook.  In the event of a major change to the concert, we will email everyone who has purchased tickets.
     </p>
     <p>
     We would be very grateful if you would mark yourself as going and invite friends, in order to to maximise our reach.
-    </p> </center>
-</div> -->
+    </p> </center> -->
+    <p> 
+        The Facebook event would be posted soon!
+    </p>
+</div> 
 
 <!-- <hr class="primary small-padding"/> -->
 <!-- <h3>Kelvin Tour</h3>
