@@ -396,22 +396,25 @@ Thank you to everyone who came to our <b>Autumn 2022: Voyages of the Sea</b> con
 </center>
 
 <script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script>
+<div id="adobe-dc-view" style="height: 360px; width: 500px;"></div>
+
+<script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script>
 
 <script type="text/javascript">
 
-    document.addEventListener("adobe_dc_view_sdk.ready", function(){
+  document.addEventListener("adobe_dc_view_sdk.ready", function(){
 
-        var adobeDCView = new AdobeDC.View({clientId: "b448788912c846d6a846e9e8408b6453"});
+    var adobeDCView = new AdobeDC.View({clientId: "b448788912c846d6a846e9e8408b6453", divId: "adobe-dc-view"});
 
-        adobeDCView.previewFile({
+    adobeDCView.previewFile({
 
-            content:{location: {url: "{% static 'website/media/programme/spring23.pdf' %}"}},
+      content:{location: {url: "{% static 'website/media/programme/spring23.pdf' %}"}},
 
-            metaData:{fileName: "{% static 'website/media/programme/spring23.pdf' %}"}
+      metaData:{fileName: "{% static 'website/media/programme/spring23.pdf' %}"}
 
-        }, {embedMode: "LIGHT_BOX", exitPDFViewerType: "CLOSE"});
+    }, { embedMode: "SIZED_CONTAINER", showFullScreen: true });
 
-    });
+  });
 
 </script>
   </center>
