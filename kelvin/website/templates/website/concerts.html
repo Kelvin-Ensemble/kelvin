@@ -395,27 +395,23 @@ Thank you to everyone who came to our <b>Autumn 2022: Voyages of the Sea</b> con
     <p>Please find the concert programme below, or download <a href="{% static 'website/media/programme/spring23.pdf' %}">here</a>.</p>
 </center>
 
-<div id="adobe-dc-view"></div>
-
-<div id="adobe-dc-view" style="width: 800px;"></div>
-
 <script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script>
 
 <script type="text/javascript">
 
-   document.addEventListener("adobe_dc_view_sdk.ready", function(){
+    document.addEventListener("adobe_dc_view_sdk.ready", function(){
 
-     var adobeDCView = new AdobeDC.View({clientId: "b448788912c846d6a846e9e8408b6453", divId: "adobe-dc-view"});
+        var adobeDCView = new AdobeDC.View({clientId: "b448788912c846d6a846e9e8408b6453"});
 
-   adobeDCView.previewFile({
+        adobeDCView.previewFile({
 
-     content:{location: {url: "{% static 'website/media/programme/spring23.pdf' %}"}},
+            content:{location: {url: "{% static 'website/media/programme/spring23.pdf' %}"}},
 
-     metaData:{fileName: "{% static 'website/media/programme/spring23.pdf' %}"}
+            metaData:{fileName: "{% static 'website/media/programme/spring23.pdf' %}"}
 
- }, { embedMode: "IN_LINE", showPrintPDF: true });
+        }, {embedMode: "LIGHT_BOX", exitPDFViewerType: "CLOSE"});
 
- });
+    });
 
 </script>
   </center>
