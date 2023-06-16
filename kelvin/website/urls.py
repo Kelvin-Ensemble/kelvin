@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^info$', views.info, name='info'),
     url(r'^calendar$', views.calendar, name='calendar'),
     url(r'^join$', views.join, name='join'),
+    url(r'^composition$', views.composition, name='composition'),
     # Comment out lines below to deactivate URLs when auditions are not taking place.
     # url(r'^string-auditions$', views.stringAuditions, name='string-auditions'),
     # url(r'^bwp-auditions$', views.bwpAuditions, name='bwp-auditions'),

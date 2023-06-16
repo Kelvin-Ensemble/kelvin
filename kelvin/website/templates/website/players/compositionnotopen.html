@@ -1,0 +1,39 @@
+{% extends "website/base/subbase.html" %}
+{% load static from staticfiles %}
+
+{% block extrastyle %}
+<style>	
+	#page-header {
+		background-image: url("{% static 'website/media/img/headers/players/joinn.jpg' %}");
+	}
+</style>
+{% endblock %}
+
+{% block title %}
+Composition Competition
+{% endblock %}
+
+{% block page-icon %}
+<i class="fa fa-pencil fa-3x sr-contact text-white header-icon"></i>
+{% endblock %}
+
+{% block header %}
+Composition Competition
+{% endblock %}
+
+{% block content %}
+
+<div class="left_align_text allow_bullets">
+
+
+    <h2 style="text-align: center"> Competition not yet open </h2>
+
+    <hr class="primary"/>
+    <p style="text-align: center">The competition will open at 12:00 BST on the 16/06/2023.</p>
+<p style="text-align: center"> Please check back here once the competition has opened. Details will be posted here.</p>
+
+
+</div>
+
+	{% endblock %}
+	

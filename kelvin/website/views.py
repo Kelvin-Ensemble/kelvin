@@ -1,6 +1,7 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render
+import datetime
 
 #home
 def home(request):
@@ -21,6 +22,45 @@ def calendar(request):
 
 def join(request):
     return render(request, 'website/players/join.html')
+
+def composition(request):
+    date = datetime.datetime.utcnow()
+
+    competitionPlanned = True
+
+    # Competition Opening day info
+    competitionOpenDay = 16
+    competitionOpenMonth = 6
+    competitionOpenYear = 2023
+    competitionOpenHour = 11
+    competitionOpenMin = 0
+
+
+    # Check if its day of competition opening
+    if not competitionPlanned:
+        return render(request, 'website/players/compositionNotPlanned.html')
+    elif date.day == competitionOpenDay and date.month == competitionOpenMonth and date.year == competitionOpenYear:
+        # If it is the day, is it before or after the hour it opens?
+        if date.hour >= competitionOpenHour:
+            # Is it before or after the minute it opens?
+            if date.minute >= competitionOpenMin:
+                return render(request, 'website/players/composition.html')
+            else:
+                return render(request, 'website/players/compositionnotopen.html')
+        else:
+            return render(request, 'website/players/compositionnotopen.html')
+    # If the year the competition opens
+    elif date.year == competitionOpenYear:
+        # If over a month after the competition opens or if it is in the same month but after the day
+        if date.month > competitionOpenMonth or (date.month == competitionOpenMonth and date.day > competitionOpenDay):
+            return render(request, 'website/players/composition.html')
+    elif date.year > competitionOpenYear:
+        return render(request, 'website/players/composition.html')
+    elif competitionPlanned:
+        return render(request, 'website/players/compositionnotopen.html')
+    return render(request, 'website/players/compositionNotPlanned.html')
+
+
 
 # def stringAuditions(request):
 #   return render(request, 'website/players/string-auditions.html')
