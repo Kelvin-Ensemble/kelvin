@@ -43,6 +43,14 @@ def concerts(request):
     return render(request, 'website/concerts.html')
 
 
+def payment_successful(request):
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    checkout_session_id = request.GET.get('session_id', None)
+    session = stripe.checkout.Session.retrieve(checkout_session_id)
+    customer = stripe.Customer.retrieve(session.customer)
+    return render(request, 'website/payment_successful.html', {'customer':customer})
+
+
 #players
 def info(request):
     return render(request, 'website/players/info.html')

@@ -10,6 +10,9 @@ urlpatterns = [
     #concerts
     url(r'^concerts$', views.concerts, name='concerts'),
 
+    #payments
+    url(r'^payment_successful$', views.payment_successful, name='payment_successful'),
+
     #players
     url(r'^info$', views.info, name='info'),
     url(r'^calendar$', views.calendar, name='calendar'),
