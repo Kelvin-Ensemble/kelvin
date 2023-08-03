@@ -11,9 +11,20 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 # CONCERT SETTINGS #######
+CONCERT_NAME = 'Ticketing Sample Concert'
+CONCERT_STATUS = 'forsale' # upcoming, over, soldout, forsale # are the options *case sensitive*
 
-TICKETS_FOR_SALE = True # Enables the buy tickets portion of the website
-TICKETS_SOLD_OUT = False # Enables the sold out message and waiting list embed
+CONCERT_PHOTOS = ''
+
+CONCERT_PROGRAMMELINK = 'https://drive.google.com/file/d/1GP6d2XVpOsNdNrA4gryEz3s4VitvxvaC/preview' # Embed link to the pdf for the concert. Please set to 0 if not yet available
+CONCERT_PLAYLISTLINK = ['https://open.spotify.com/embed/playlist/6ct5N1h9vsOa7NxBBsib1W?utm_source=generator','https://embed.music.apple.com/gb/playlist/kelvin-ensemble-spring-2023/pl.u-J9jJSDRzpXXv'] # ['spotify link','apple music link'] set to 0 if not available
+
+CONCERT_REPERTOIRE = [ # List of repetoire for the concert(s). If the repetoire is not yet available, set CONCERTREPETOIRE = 0
+    ['Dvorak', 'Carnival Overture'],
+    ['Saint-Saens', 'Bacchanale (From Act III of Samson and Delilah)'],
+    ['Tchaikovsky', 'Romeo and Juliet'],
+    ['Rachmaninoff', 'Symphony No.2'],
+]
 
 CONCERT_LIST = [ # {'soldOut': False, 'date': 'CONCERT DATE', 'standardTicketID': 'STANDARD STRIPE PRICE ID', 'concessionTicketID': 'CONC. STRIPE PRICE ID' }, ### NOTE: Make sure the price IDs are different for the different concerts. Speak to the treasurer about this.
     {'soldOut': False, 'date': '4rd March 2023', 'standardTicketID': 'price_1MlGWDDysBLU7VPvvQNq2Qia', 'concessionTicketID': 'price_1MlK92DysBLU7VPvinYZrGB8' },
@@ -92,9 +103,13 @@ TEMPLATES = [
 ]
 
 SETTINGS_EXPORT = [
-    'TICKETS_FOR_SALE',
-    'TICKETS_SOLD_OUT',
-    'CONCERT_LIST'
+    'CONCERT_NAME',
+    'CONCERT_STATUS',
+    'CONCERT_PHOTOS',
+    'CONCERT_PROGRAMMELINK',
+    'CONCERT_PLAYLISTLINK',
+    'CONCERT_REPERTOIRE',
+    'CONCERT_LIST',
 ]
 
 
