@@ -33,10 +33,19 @@ CONCERT_LIST = [ # {'soldOut': False, 'date': 'CONCERT DATE', 'standardTicketID'
 
 # CONCERT SETTINGS END HERE DO NOT CHANGE ANYTHING BELOW UNLESS CONFIDENT ######
 
-
-
-
 import os
+import kelvin_secrets
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = kelvin_secrets.SECRET_KEY
+STRIPE_SECRET_KEY = kelvin_secrets.STRIPE_SECRET_KEY
+STRIPE_PUBLIC_SECRET = kelvin_secrets.STRIPE_PUBLIC_SECRET
+STRIPE_ENDPOINT_SECRET = kelvin_secrets.STRIPE_ENDPOINT_SECRET
+
+# STRIPE SETTINGS ######
+# REDIRECT_DOMAIN = 'http://yukisuter.pythonanywhere.com'
+REDIRECT_DOMAIN = 'http://127.0.0.1'
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -48,8 +57,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '35mj@00fc)_&kd4(^)6g_3rqnz_k0)g&-grhqf_8nv=!trj_re'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -110,6 +117,9 @@ SETTINGS_EXPORT = [
     'CONCERT_PLAYLISTLINK',
     'CONCERT_REPERTOIRE',
     'CONCERT_LIST',
+
+    'STRIPE_SECRET_KEY',
+    'REDIRECT_DOMAIN'
 ]
 
 

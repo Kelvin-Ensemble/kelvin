@@ -1,7 +1,10 @@
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.conf import settings
 import datetime
+import stripe
+
 
 #home
 def home(request):
@@ -10,6 +13,33 @@ def home(request):
 
 #concerts
 def concerts(request):
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    if request.method == 'POST':
+        print(request.POST['concessionTicketQty'])
+        print(request.POST.get('concessionTicketID'))
+        basket = []
+
+        if int(request.POST.get('standardTicketQty')) > 0:
+            basket.append({
+                'price': request.POST.get('standardTicketID'),
+                'quantity': request.POST['standardTicketQty'],
+            })
+
+        if int(request.POST.get('concessionTicketQty')) > 0:
+            basket.append({
+                'price': request.POST.get('concessionTicketID'),
+                'quantity': request.POST['concessionTicketQty'],
+            })
+
+        checkout_session = stripe.checkout.Session.create(
+            payment_method_types=['card'],
+            line_items=basket,
+            mode='payment',
+            customer_creation='always',
+            success_url=settings.REDIRECT_DOMAIN + '/payment_successful?session_id={CHECKOUT_SESSION_ID}',
+            cancel_url=settings.REDIRECT_DOMAIN + '/payment_cancelled',
+        )
+        return redirect(checkout_session.url, code=303)
     return render(request, 'website/concerts.html')
 
 
