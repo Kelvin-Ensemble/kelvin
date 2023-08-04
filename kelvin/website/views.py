@@ -4,6 +4,13 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 import datetime
 import stripe
+import json
+import os,sys
+
+from django.views.decorators.csrf import csrf_exempt
+
+sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + '/scripts')
+import ticketing
 
 
 #home
@@ -42,13 +49,6 @@ def concerts(request):
         return redirect(checkout_session.url, code=303)
     return render(request, 'website/concerts.html')
 
-
-def payment_successful(request):
-    stripe.api_key = settings.STRIPE_SECRET_KEY
-    checkout_session_id = request.GET.get('session_id', None)
-    session = stripe.checkout.Session.retrieve(checkout_session_id)
-    customer = stripe.Customer.retrieve(session.customer)
-    return render(request, 'website/payment_successful.html', {'customer':customer})
 
 
 #players
@@ -144,3 +144,58 @@ def support(request):
 #404
 def notFound(request):
     return render(request, 'website/404.html')
+
+
+def payment_successful(request):
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    checkout_session_id = request.GET.get('session_id', None)
+    session = stripe.checkout.Session.retrieve(checkout_session_id)
+    customer = stripe.Customer.retrieve(session.customer)
+    return render(request, 'website/payment_successful.html', {'customer':customer})
+
+@csrf_exempt
+def stripe_webhook(request):
+    print("Webhook triggerrededededed")
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    endpoint_secret = settings.STRIPE_ENDPOINT_SECRET
+    print("is this still working?")
+
+    payload = request.body
+    print("yes it is.")
+
+    try:
+        event = json.loads(payload)
+        print(event)
+
+    except:
+        print('⚠️  Webhook error while parsing basic request. \n')
+    if endpoint_secret:
+        sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+        try:
+            event = stripe.Webhook.construct_event(
+                payload, sig_header, endpoint_secret
+            )
+        except stripe.error.SignatureVerificationError as e:
+            print('⚠️  Webhook signature verification failed.' + str(e))
+            return json.dumps(success=False)
+    # print(payload['type'])
+    # print(payload['request']['type'])
+    print("checking for event type")
+
+    if event and event['type'] == 'checkout.session.completed':
+        print("Order Success")
+        orderDetails = event['data']  # contains a stripe.PaymentIntent
+        paymentID = event['data']["object"]["id"]
+        line_items = stripe.checkout.Session.list_line_items(paymentID)['data']
+        customer_info = event['data']["object"]["customer_details"]
+        # print(event)
+        # print(orderDetails)
+        # print(paymentID)
+        # print(line_items)
+        print(customer_info)
+        ticketing.sendConfirmation(line_items,customer_info, paymentID)
+    else:
+        # Unexpected event type
+        print('Unhandled event type {}'.format(event['type']))
+
+    return HttpResponse(200)

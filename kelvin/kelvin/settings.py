@@ -61,7 +61,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.kelvin-ensemble.co.uk']
+ALLOWED_HOSTS = ['127.0.0.1', '.kelvin-ensemble.co.uk', 'yukisuter.pythonanywhere.com']
 
 
 # Application definition
