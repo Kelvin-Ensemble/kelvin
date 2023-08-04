@@ -10,9 +10,9 @@ from email.mime.application import MIMEApplication
 from email import encoders
 from email.mime.image import MIMEImage
 
-ticketGenDir = (os.path.dirname(os.path.realpath(__file__)))  + '/scripts'
+ticketGenDir = (os.path.dirname(os.path.realpath(__file__)))  + '/'
 def sendConfirmation(cartInfo, customerDetails, pid):
-    html = open(ticketGenDir + "email_template.html")
+    html = open(ticketGenDir + "confirmation_template.html")
     sender_password = kelvin_secrets.email_password
     sender_address = 'tickets@kelvin-ensemble.co.uk'
 
@@ -22,8 +22,8 @@ def sendConfirmation(cartInfo, customerDetails, pid):
     msg = MIMEMultipart('alternative')
     msg['From'] = sender_address
     msg['To'] = customerEmail
-    msg['Subject'] = "Tickets for " + settings.CONCERTNAME + " - Kelvin Ensemble"
-    msg.attach(MIMEText(html.read().format(customerName, settings.CONCERTNAME, pid), 'html'))
+    msg['Subject'] = "Tickets for " + settings.CONCERT_NAME + " - Kelvin Ensemble"
+    msg.attach(MIMEText(html.read().format(customerName, settings.CONCERT_NAME, pid), 'html'))
 
     fp = open(ticketGenDir + 'KELogoLong.jpg', 'rb')
     msgImage = MIMEImage(fp.read())

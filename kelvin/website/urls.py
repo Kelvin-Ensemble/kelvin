@@ -12,6 +12,8 @@ urlpatterns = [
 
     #payments
     url(r'^payment_successful$', views.payment_successful, name='payment_successful'),
+    # url(r'^payment_cancelled$', views.payment_cancelled, name='payment_cancelled'),
+    url(r'^stripe_webhook$', views.stripe_webhook, name='stripe_webhook'),
 
     #players
     url(r'^info$', views.info, name='info'),
