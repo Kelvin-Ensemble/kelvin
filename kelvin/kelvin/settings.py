@@ -43,8 +43,8 @@ STRIPE_PUBLIC_SECRET = kelvin_secrets.STRIPE_PUBLIC_SECRET
 STRIPE_ENDPOINT_SECRET = kelvin_secrets.STRIPE_ENDPOINT_SECRET
 
 # STRIPE SETTINGS ######
-# REDIRECT_DOMAIN = 'http://yukisuter.pythonanywhere.com'
-REDIRECT_DOMAIN = 'http://127.0.0.1:8000'
+REDIRECT_DOMAIN = 'http://yukisuter.pythonanywhere.com'
+# REDIRECT_DOMAIN = 'http://127.0.0.1:8000'
 
 
 
