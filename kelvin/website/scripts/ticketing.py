@@ -1,4 +1,3 @@
-import kelvin_secrets
 import os
 from django.conf import settings
 import ssl
@@ -13,7 +12,7 @@ from email.mime.image import MIMEImage
 ticketGenDir = (os.path.dirname(os.path.realpath(__file__)))  + '/'
 def sendConfirmation(cartInfo, customerDetails, pid):
     html = open(ticketGenDir + "confirmation_template.html")
-    sender_password = kelvin_secrets.email_password
+    sender_password = settings.TICKETS_PASSWORD
     sender_address = 'tickets@kelvin-ensemble.co.uk'
 
     customerName = customerDetails["name"]

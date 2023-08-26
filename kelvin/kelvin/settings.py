@@ -34,13 +34,22 @@ CONCERT_LIST = [ # {'soldOut': False, 'date': 'CONCERT DATE', 'standardTicketID'
 # CONCERT SETTINGS END HERE DO NOT CHANGE ANYTHING BELOW UNLESS CONFIDENT ######
 
 import os
-import kelvin_secrets
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(PROJECT_DIR)
+
+
+from dotenv import load_dotenv
+
+dotenv_file = os.path.join(BASE_DIR, ".env")
+load_dotenv(dotenv_file)
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = kelvin_secrets.SECRET_KEY
-STRIPE_SECRET_KEY = kelvin_secrets.STRIPE_SECRET_KEY
-STRIPE_PUBLIC_SECRET = kelvin_secrets.STRIPE_PUBLIC_SECRET
-STRIPE_ENDPOINT_SECRET = kelvin_secrets.STRIPE_ENDPOINT_SECRET
+SECRET_KEY = os.environ['SECRET_KEY']
+STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
+STRIPE_PUBLIC_SECRET = os.environ['STRIPE_PUBLIC_SECRET']
+STRIPE_ENDPOINT_SECRET = os.environ['STRIPE_ENDPOINT_SECRET']
+
+TICKETS_PASSWORD = os.environ['tickets_password']
 
 # STRIPE SETTINGS ######
 REDIRECT_DOMAIN = 'http://yukisuter.pythonanywhere.com'
