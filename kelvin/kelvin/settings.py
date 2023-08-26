@@ -12,19 +12,23 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 # CONCERT SETTINGS #######
 CONCERT_NAME = 'Ticketing Sample Concert'
-CONCERT_STATUS = 'forsale' # upcoming, over, soldout, forsale # are the options *case sensitive*
+CONCERT_STATUS = 'notyet' # upcoming, over, soldout, forsale, notyet # are the options *case sensitive*
 
 CONCERT_PHOTOS = ''
 
-CONCERT_PROGRAMMELINK = 'https://drive.google.com/file/d/1GP6d2XVpOsNdNrA4gryEz3s4VitvxvaC/preview' # Embed link to the pdf for the concert. Please set to 0 if not yet available
-CONCERT_PLAYLISTLINK = ['https://open.spotify.com/embed/playlist/6ct5N1h9vsOa7NxBBsib1W?utm_source=generator','https://embed.music.apple.com/gb/playlist/kelvin-ensemble-spring-2023/pl.u-J9jJSDRzpXXv'] # ['spotify link','apple music link'] set to 0 if not available
+CONCERT_PROGRAMMELINK = 0 # Embed link to the pdf for the concert. Please set to 0 WITHOUT QUOTES if not yet available
+CONCERT_PLAYLISTLINK = 0 # ['spotify link','apple music link'] set to 0 WITHOUT QUOTES if not available
 
-CONCERT_REPERTOIRE = [ # List of repetoire for the concert(s). If the repetoire is not yet available, set CONCERTREPETOIRE = 0
-    ['Dvorak', 'Carnival Overture'],
-    ['Saint-Saens', 'Bacchanale (From Act III of Samson and Delilah)'],
-    ['Tchaikovsky', 'Romeo and Juliet'],
-    ['Rachmaninoff', 'Symphony No.2'],
-]
+# List of repetoire for the concert(s). If the repetoire is not yet available, set CONCERTREPETOIRE = 0
+
+CONCERT_REPERTOIRE = 0
+
+# CONCERT_REPERTOIRE = [
+#     ['Dvorak', 'Carnival Overture'],
+#     ['Saint-Saens', 'Bacchanale (From Act III of Samson and Delilah)'],
+#     ['Tchaikovsky', 'Romeo and Juliet'],
+#     ['Rachmaninoff', 'Symphony No.2'],
+# ]
 
 CONCERT_LIST = [ # {'soldOut': False, 'date': 'CONCERT DATE', 'standardTicketID': 'STANDARD STRIPE PRICE ID', 'concessionTicketID': 'CONC. STRIPE PRICE ID' }, ### NOTE: Make sure the price IDs are different for the different concerts. Speak to the treasurer about this.
     {'soldOut': False, 'date': '4rd March 2023', 'standardTicketID': 'price_1MlGWDDysBLU7VPvvQNq2Qia', 'concessionTicketID': 'price_1MlK92DysBLU7VPvinYZrGB8' },
@@ -112,7 +116,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'django_settings_export.settings_export',
+                'django_settings_export.settings_export',
             ],
         },
     },

@@ -194,7 +194,7 @@
 	</div>
 </div> {% endif %}
 
-    <div><center>{% if settings.CONCERT_PLAYLISTLINK %}
+{% if settings.CONCERT_PLAYLISTLINK %} <div><center>
 
         If you would like to familiarise yourself with the music beforehand, feel free to add these playlists to your
         library:
@@ -207,6 +207,11 @@
         &#8592; Scroll to switch between Spotify and Apple Music &#8594;
     </p></center></div>
 {% endif %}
+
+{%  if settings.CONCERT_STATUS == "notyet" %}
+    <p>Details about our upcoming concert have not yet been released. We will update this page as soon as we are ready.<br><br>Please check back again soon!</p>
+    <br><br>
+{%  endif %}
 
 
 
