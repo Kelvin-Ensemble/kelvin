@@ -10,7 +10,7 @@ import os,sys
 from django.views.decorators.csrf import csrf_exempt
 
 sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + '/scripts')
-import ticketing
+# import ticketing
 
 
 #home
@@ -20,34 +20,72 @@ def home(request):
 
 #concerts
 def concerts(request):
-    stripe.api_key = settings.STRIPE_SECRET_KEY
-    if request.method == 'POST':
-        print(request.POST['concessionTicketQty'])
-        print(request.POST.get('concessionTicketID'))
-        basket = []
+    date = datetime.datetime.utcnow()
 
-        if int(request.POST.get('standardTicketQty')) > 0:
-            basket.append({
-                'price': request.POST.get('standardTicketID'),
-                'quantity': request.POST['standardTicketQty'],
-            })
+    concertPlanned = True
 
-        if int(request.POST.get('concessionTicketQty')) > 0:
-            basket.append({
-                'price': request.POST.get('concessionTicketID'),
-                'quantity': request.POST['concessionTicketQty'],
-            })
+    # Competition Opening day info
+    concertTOSDay = 30
+    concertTOSMonth = 10
+    concertTOSYear = 2023
+    concertTOSHour = 20
+    concertTOSMin = 00
 
-        checkout_session = stripe.checkout.Session.create(
-            payment_method_types=['card'],
-            line_items=basket,
-            mode='payment',
-            customer_creation='always',
-            success_url=settings.REDIRECT_DOMAIN + '/payment_successful?session_id={CHECKOUT_SESSION_ID}',
-            cancel_url=settings.REDIRECT_DOMAIN + '/payment_cancelled',
-        )
-        return redirect(checkout_session.url, code=303)
-    return render(request, 'website/concerts.html')
+
+    # Check if its day of competition opening
+    if not concertPlanned:
+        return render(request, 'website/concerts_old.html')
+    elif date.day == concertTOSDay and date.month == concertTOSMonth and date.year == concertTOSYear:
+        # If it is the day, is it before or after the hour it opens?
+        if date.hour >= concertTOSHour:
+            # Is it before or after the minute it opens?
+            if date.minute >= concertTOSMin:
+                return render(request, 'website/concerts_old_open.html')
+            else:
+                return render(request, 'website/concerts_old.html')
+        else:
+            return render(request, 'website/concerts_old.html')
+    # If the year the competition opens
+    elif date.year == concertTOSYear:
+        # If over a month after the competition opens or if it is in the same month but after the day
+        if date.month > concertTOSMonth or (date.month == concertTOSMonth and date.day > concertTOSDay):
+            return render(request, 'website/concerts_old_open.html')
+    elif date.year > concertTOSYear:
+        return render(request, 'website/concerts_old_open.html')
+    elif concertPlanned:
+        return render(request, 'website/concerts_old.html')
+    return render(request, 'website/concerts_old.html')
+
+
+# def concerts(request):
+#     stripe.api_key = settings.STRIPE_SECRET_KEY
+#     if request.method == 'POST':
+#         print(request.POST['concessionTicketQty'])
+#         print(request.POST.get('concessionTicketID'))
+#         basket = []
+#
+#         if int(request.POST.get('standardTicketQty')) > 0:
+#             basket.append({
+#                 'price': request.POST.get('standardTicketID'),
+#                 'quantity': request.POST['standardTicketQty'],
+#             })
+#
+#         if int(request.POST.get('concessionTicketQty')) > 0:
+#             basket.append({
+#                 'price': request.POST.get('concessionTicketID'),
+#                 'quantity': request.POST['concessionTicketQty'],
+#             })
+#
+#         checkout_session = stripe.checkout.Session.create(
+#             payment_method_types=['card'],
+#             line_items=basket,
+#             mode='payment',
+#             customer_creation='always',
+#             success_url=settings.REDIRECT_DOMAIN + '/payment_successful?session_id={CHECKOUT_SESSION_ID}',
+#             cancel_url=settings.REDIRECT_DOMAIN + '/payment_cancelled',
+#         )
+#         return redirect(checkout_session.url, code=303)
+#     return render(request, 'website/concerts.html')
 
 
 
@@ -64,7 +102,7 @@ def join(request):
 def composition(request):
     date = datetime.datetime.utcnow()
 
-    competitionPlanned = True
+    competitionPlanned = False
 
     # Competition Opening day info
     competitionOpenDay = 16
