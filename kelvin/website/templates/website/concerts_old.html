@@ -1,0 +1,420 @@
+{% extends "website/base/subbase.html" %}
+{% load static from staticfiles %}
+
+{% block extrastyle %}
+<style>
+    #page-header {
+        background-image: url("{% static 'website/media/img/headers/concert.jpg' %}");
+    }
+
+    .playlists {
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        padding: 20px;
+    }
+
+    .grid-item {
+        align-self: center;
+    }
+
+    @media screen and (max-width: 650px) {
+        .grid-container {
+            grid-template-columns: auto;
+        }
+    }
+
+    .ticket-form {
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 10px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .ticket-form {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block title %}
+Upcoming Concerts
+{% endblock %}
+
+{% block page-icon %}
+<i class="fa fa-music fa-3x sr-contact text-white header-icon"></i>
+{% endblock %}
+
+{% block header %}
+Upcoming Concerts
+{% endblock %}
+
+
+{% block content %}
+
+<!-- No Concert Announcement -->
+<!--
+<h2> No Upcoming Concerts </h2>
+<p> &nbsp;&nbsp;&nbsp; </p>
+<p>
+Thank you to everyone who came to our <b>Spring 2023: Romance</b> concert.  <br> We hope you enjoyed watching it as much as we did performing it! <br> Please keep an eye on this page for photos update! <br> Photos are now available on our <a href="https://www.facebook.com/kelvinensemble">Facebook</a>. &#128247;
+</p>-->
+<p>Our next concert, <b>Autumn 2023: Around the UK</b>, will be on 18th & 19th November 2023 &#8212; tickets will go on sale soon, please watch this space! </p>
+
+
+<!-- <p> We are currently having a break for the summer, and will return when term recommences with new members! </p>
+-->
+
+<!-- Concert Announcement ANNOUNCEMENT -->
+
+<!-- <div>
+    <h2> Spring 2023 Concert: Romance </h2>
+    <p>
+    <strong> We are happy to announce our next concert will be on 4<sup>th</sup> <b>AND</b> 5<sup>th</sup> March 2023 with the theme Romance! </strong>
+    </p>
+    <p>
+        <strong> *PLEASE SCROLL DOWN TO FIND THE CONCERT PROGRAMME* </strong>
+    </p>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="{% static 'website/media/img/concerts/mar23.png' %}" alt="March 2023 Concert" width="100%">
+            </img>
+        </div>
+        <div class="grid-item">
+            <h4> Dates </h4>
+            <p>
+                1. Saturday 4<sup>th</sup> March 2023, 19:30
+            </p>
+            <p>
+                2. Sunday 5<sup>th</sup> March 2023, 14:30
+                </p>
+            <h4> Location </h4>
+            <p>
+            Hunter Halls<br>
+            The University of Glasgow,<br>
+            University Avenue,<br>
+            Glasgow,<br>
+            G12 8QQ
+            </p>
+            <p>
+            <strong> Get Directions: </strong> <a href="https://goo.gl/maps/1ppK1t3AKqrJMkSj8"> Google Maps </a> |
+            <a
+                href="https://maps.apple.com/place?q=University%20of%20Glasgow&ll=55.871452573004944%2C-4.288519620895386&auid=6303513611846241548&lsp=9902&address=Glasgow%2C%20G12%208QQ%2C%20Scotland">
+                Apple Maps </a>
+            </p>
+            <p>
+            The university is easily accessible from the Subway.  The nearest station is Hillhead.
+            </p>
+            <p>
+            There is limited free parking available on the UofG campus during the weekend.  For more information, please see the <a href = "https://www.gla.ac.uk/myglasgow/estates/parkingattheuniversity/visitorparking/">UofG website</a>.
+            </p>
+        </div>
+    </div>
+</div> -->
+
+<!-- TICKETS SECTION -->
+<!-- <div class="highlight-section">
+<div class="bg-primary full-small-padding ticket-info text-white">
+
+        <h3>Tickets</h3>
+
+        <p>
+        Tickets are available for purchase below.  Please <a href="mailto:treasurer@kelvin-ensemble.co.uk" style="color: white">let us know</a> if you have any issues.
+        </p>
+
+        <p>
+        <strong>Standard:</strong> &pound;10<br>
+        <strong>Concession (Students/Under 18s/Seniors):</strong> &pound;5
+        </p>
+
+        <p>
+         If you have purchased a ticket, a confirmation email would be sent to you closer to the date.
+        </p>
+
+        <p>
+            <i><u> If paypal isn't an available option for you, please get in touch with us via info@kelvin-ensemble.co.uk and we will find a way to reserve and purchase tickets.</u></i>
+        </p>
+
+    </div> -->
+
+    <!-- Sold Out Form Section (uncomment to add support for Sold Out form)-->
+
+    <!-- <div>
+        <h5><strong>SOLD OUT!</strong></h5>
+         <p>
+        Unfortunately, tickets for this concert are no longer available for purchase online. Tickets are still available on the door.
+        </p>
+
+        <p>
+            The form below could be filled in to be added in a waiting list in case a ticket holder can no longer attend the concert.
+        </p>
+        </div> -->
+
+      <!-- <script async defer src="https://formfacade.com/include/108007679701008707894/form/1FAIpQLScL9wubGI6a8GUfuyxA5DvMyo-ymUvuoP37byWxhRpZS1kEOQ/classic.js?div=ff-compose"></script>
+        </div>
+        <div class="bg-primary full-small-padding ticket-info text-white"  id="ff-compose">
+        <p style="font-size:0.875em">
+        By submitting this form, you agree to allow for us to contact you at the email above if tickets
+        become available.
+        </p>
+        <p>
+            <i>If the form doesn't work on your browser, try https://forms.gle/SAQnspSuyaCu5HkM7</i>
+        </p>
+    </div> -->
+
+
+        <!-- PayPal Section (uncomment to add support for PayPal form)-->
+
+        <!-- <div class="ticket-form">
+        <div class="bg-primary full-small-padding ticket-info text-white">
+           <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" align="center">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="QUXKN9NBTLWPY">
+                        <h5> Buy Tickets for 4<sup>th</sup> March (Saturday) </h5>
+                        <table align="center">
+                            <tr align="center">
+                                <td align="center">
+                                    <input type="hidden" name="on0" value="Type">
+                                        <strong> Ticket Type: </strong>
+                                        <select name="os0">
+                                            <option value="Standard">Standard &pound;10.00 GBP</option>
+                                            <option value="Concession">Concession &pound;5.00 GBP</option>
+                                        </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="hidden" name="currency_code" value="GBP">
+                            <table align="center">
+                                <tr align="center">
+                                    <td align="center">
+                                        <input type="submit" value="Add to Cart" name="submit" style="width:150px"
+                                            alt="PayPal – The safer, easier way to pay online!" padding="0px">
+                                    </td>
+                                </form> -->
+      <!-- <div class="ticket-form">
+                              <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" align="center">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="QUXKN9NBTLWPY">
+                        <h5> Buy Tickets for <b> 4<sup>th</sup> March (Saturday) </b></h5>
+                        <table align="center">
+                            <tr align="center">
+                                <td align="center">
+                                    <input type="hidden" name="on0" value="Type">
+                                        <strong> Ticket Type: </strong>
+                                        <select name="os0">
+                                            <option value="Standard">Standard &pound;10.00 GBP</option>
+                                            <option value="Concession">Concession &pound;5.00 GBP</option>
+                                        </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="hidden" name="currency_code" value="GBP">
+                            <table align="center">
+                                <tr align="center">
+                                    <td align="center">
+                                        <input type="submit" value="Add to Cart" name="submit" style="width:150px"
+                                            alt="PayPal – The safer, easier way to pay online!" padding="0px">
+                                    </td>
+                                </form>
+            <td align="center">
+                <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="encrypted"
+                            value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+                            <input type="submit" value="&#x1F6D2; View Cart" name="submit" style="width:150px"
+                                alt="PayPal – The safer, easier way to pay online!" padding="0px">
+                            </form>
+            </td>
+            </tr>
+            </table>
+        </div> -->
+
+        <!-- <div class="ticket-form">
+            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="TPK24JN3JGQ3E">
+                <h5> Buy Tickets for <b> 5<sup>th</sup> March (Sunday) </b></h5>
+                <table align="center">
+                <tr align="center"><td align="center"><input type="hidden" name="on0" value="Type">
+                    <strong> Ticket Type: </strong>
+                <select name="os0">
+                    <option value="Standard">Standard £10.00 GBP</option>
+                    <option value="Concession">Concession £5.00 GBP</option>
+                </select>
+                 </td></tr>
+                </table>
+                <input type="hidden" name="currency_code" value="GBP">
+                <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_cart_LG.gif" border="0" name="submit" style="width:150px" alt="PayPal – The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+                <table align="center">
+                    <tr align="center">
+                        <td align="center">
+                            <input type="submit" value="Add to Cart" name="submit" style="width:150px"
+                                alt="PayPal – The safer, easier way to pay online!" padding="0px">
+                        </td>
+                </form>
+
+                <table border="0" cellspacing="0" align="center">
+                    <tr>
+                        <td align="center">
+                            <a href="https://www.paypal.com/uk/webapps/mpp/paypal-popup" title="How PayPal Works"
+                                onclick="javascript:window.open('https://www.paypal.com/uk/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
+                                <img src="https://www.paypalobjects.com/webstatic/mktg/logo/bdg_payments_by_pp_2line.png"
+                                    border="0" alt="Payments by PayPal" height=40px>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+        </div> -->
+
+
+        <!-- <div class="ticket-form">
+            <h5> &#9888; Known Issues &#9888; </h5>
+            <p style="font-size:0.875em">
+            The Facebook/Instagram Web Browser does not support the cart; please open this page in Safari, Chrome, or Edge.
+            </p>
+            <p style="font-size:0.875em">
+            The PayPal guest checkout might not work.  We are looking into this, but in the meantime, you can purchase tickets using a PayPal account.
+            </p>
+            <p style="font-size:0.875em">
+            N.B. If the cart doesn't open, it may already be open in another tab.
+            </p>
+            <p style="font-size:0.875em">
+            Last Updated: 09/11/2022
+            </p>
+        </div>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <div>
+    <center>
+        <h3> Repertoire </h3>
+    <p>
+    <b>Rachmaninoff</b> Symphony No.2 <br>
+    <b>Tchaikovsky</b> Romeo and Juliet <br>
+    <b>Dvorak</b> Carnival Overture <br>
+    <b>Saint-Saens</b> Bacchanale (From Act III of Samson and Delilah) <br>
+    </p>
+    <p>
+    If you would like to familiarise yourself with the music beforehand, feel free to add these playlists to your
+    library:
+    </p>
+    <div class="playlists">
+        <iframe src="https://open.spotify.com/embed/playlist/6ct5N1h9vsOa7NxBBsib1W?utm_source=generator" width="100%"
+            height="450" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <iframe src="https://embed.music.apple.com/gb/playlist/kelvin-ensemble-spring-2023/pl.u-J9jJSDRzpXXv"
+            height="450px" frameborder="0"
+            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+            allow="autoplay *; encrypted-media *;"
+            style="width: 100%; max-width: 900px; overflow: hidden; border-radius: 10px; background: transparent;"></iframe>
+    </div>
+    <p style="font-size:0.875em">
+    &#8592; Scroll to switch between Spotify and Apple Music &#8594;
+    </p>
+</center>
+</div> -->
+
+<!-- <div>
+    <center> <h3> Facebook Event </h3>
+    <p>
+    The Facebook event for the concert is available <a href="https://www.facebook.com/events/749505646782458/749526153447074?acontext=%7B%22event_action_history%22%3A[%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22surface%22%2C%22surface%22%3A%22permalink%22%7D%2C%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22surface%22%2C%22surface%22%3A%22permalink%22%7D%2C%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22surface%22%2C%22surface%22%3A%22permalink%22%7D]%2C%22ref_notif_type%22%3Anull%7D">here</a>.
+    </p>
+    <p>
+    Concert updates will be posted on Facebook.  In the event of a major change to the concert, we will email everyone who has purchased tickets.
+    </p>
+    <p>
+    We would be very grateful if you would mark yourself as going and invite friends, in order to to maximise our reach.
+    </p> </center>
+    <p>
+        The Facebook event would be posted soon!
+    </p>
+    </center>
+</div> -->
+
+<!-- <div>
+  <center>
+    <h3> Concert Programme </h3>
+    <p>Please find the concert programme below, or download <a href="{% static 'website/media/programme/spring23.pdf' %}">here</a>.</p>
+
+<script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script>
+<div id="adobe-dc-view" style="height: 450px; width: 100%;"></div>
+
+<script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script>
+
+<script type="text/javascript">
+
+  document.addEventListener("adobe_dc_view_sdk.ready", function(){
+
+    var adobeDCView = new AdobeDC.View({clientId: "b448788912c846d6a846e9e8408b6453", divId: "adobe-dc-view"});
+
+    adobeDCView.previewFile({
+
+      content:{location: {url: "{% static 'website/media/programme/spring23.pdf' %}"}},
+
+      metaData:{fileName: "{% static 'website/media/programme/spring23.pdf' %}"}
+
+    }, { embedMode: "SIZED_CONTAINER", showFullScreen: true });
+
+  });
+
+</script>
+</center>
+</div> -->
+
+<div>
+    <center>
+        <p>
+            <b>Please do not hesitate to <a href="mailto:webmaster@kelvin-ensemble.co.uk" style="color: black">reach out</a> if there are any questions.</b>
+        </p>
+    </center>
+</div>
+
+<!-- <hr class="primary small-padding"/> -->
+<!-- <h3>Kelvin Tour</h3>
+<div class="left_align_text allow_bullets">
+<p>
+We are going on tour to Northern Ireland!
+</p>
+<p>We are looking for:</p>
+<p>
+<ul>
+<li> 1 horn </li>
+<li> 1 violin </li>
+<li> 1 viola </li>
+</ul>
+</p>
+<p>If you are interested, or would like more information, please contact the <a href="mailto:tourmanager@kelvin-ensemble.co.uk">Tour Manager</a>.
+</p>
+</p> -->
+
+<!--
+<br/><br/>
+<div><b>Date:</b> Thursday 31st May</div>
+<div><b>Venue:</b> Kendal Parish Church</div>
+<div>Directions <a href="https://goo.gl/maps/rmUQcwdS4Bz" target='_blank'>here</a></div>
+
+<hr class="primary"/>
+<div><b>Date:</b> Saturday 2nd June</div>
+<div><b>Venue:</b> Arran High School, Lamlash</div>
+<div>Directions <a href="https://goo.gl/maps/DaafivFttqv" target='_blank'>here</a></div>
+
+<hr class="primary"/>
+<div><b>Date:</b> Sunday 3rd June</div>
+<div><b>Venue:</b> Glasgow University Memorial Chapel</div>
+<div>Directions <a href="https://goo.gl/maps/WKbX8tVqwUu" target='_blank'>here</a></div>
+-->
+
+
+{% endblock %}
