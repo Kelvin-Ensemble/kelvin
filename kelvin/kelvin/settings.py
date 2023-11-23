@@ -11,32 +11,42 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 # CONCERT SETTINGS #######
-CONCERT_NAME = 'Ticketing Sample Concert'
-CONCERT_STATUS = 'forsale' # upcoming, over, soldout, forsale # are the options *case sensitive*
 
-CONCERT_PHOTOS = ''
+CONCERT_STATUS = 'forsale' # upcoming, over, soldout, forsale, notyet # are the options *case sensitive*
 
-CONCERT_PROGRAMMELINK = 'https://drive.google.com/file/d/1GP6d2XVpOsNdNrA4gryEz3s4VitvxvaC/preview' # Embed link to the pdf for the concert. Please set to 0 if not yet available
-CONCERT_PLAYLISTLINK = ['https://open.spotify.com/embed/playlist/6ct5N1h9vsOa7NxBBsib1W?utm_source=generator','https://embed.music.apple.com/gb/playlist/kelvin-ensemble-spring-2023/pl.u-J9jJSDRzpXXv'] # ['spotify link','apple music link'] set to 0 if not available
-
-CONCERT_REPERTOIRE = [ # List of repetoire for the concert(s). If the repetoire is not yet available, set CONCERTREPETOIRE = 0
-    ['Dvorak', 'Carnival Overture'],
-    ['Saint-Saens', 'Bacchanale (From Act III of Samson and Delilah)'],
-    ['Tchaikovsky', 'Romeo and Juliet'],
-    ['Rachmaninoff', 'Symphony No.2'],
-]
-
-CONCERT_LIST = [ # {'soldOut': False, 'date': 'CONCERT DATE', 'standardTicketID': 'STANDARD STRIPE PRICE ID', 'concessionTicketID': 'CONC. STRIPE PRICE ID' }, ### NOTE: Make sure the price IDs are different for the different concerts. Speak to the treasurer about this.
-    {'soldOut': False, 'date': '4rd March 2023', 'standardTicketID': 'price_1MlGWDDysBLU7VPvvQNq2Qia', 'concessionTicketID': 'price_1MlK92DysBLU7VPvinYZrGB8' },
-    {'soldOut': True, 'date': '5th March 2023', 'standardTicketID': 'price_1MlGWDDysBLU7VPvvQNq2Qia', 'concessionTicketID': 'price_1MlK92DysBLU7VPvinYZrGB8' },
+CONCERT_LIST = [
+    {
+         'soldOut': False,
+         'date': '18th November 2023',
+         'tickets': [{'ticketLabel': "Standard Ticket", 'ticketID': 'price_1OFVVXDysBLU7VPvWnC7jH1Z'}, {'ticketLabel': "Concession Ticket", 'ticketID': 'price_1OFVVXDysBLU7VPvJhWYmQ1D'}, {'ticketLabel': "Standing Ticket", 'ticketID': 'price_1OFhKCDysBLU7VPvXpb95h3Q'}]
+    }
 ]
 
 # CONCERT SETTINGS END HERE DO NOT CHANGE ANYTHING BELOW UNLESS CONFIDENT ######
 
+import os,sys
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 
+from dotenv import load_dotenv
 
-import os
+dotenv_file = os.path.join(BASE_DIR, ".env")
+load_dotenv(dotenv_file)
+
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ['SECRET_KEY']
+STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
+STRIPE_PUBLIC_SECRET = os.environ['STRIPE_PUBLIC_SECRET']
+STRIPE_ENDPOINT_SECRET = os.environ['STRIPE_ENDPOINT_SECRET']
+
+TICKETS_PASSWORD = os.environ['tickets_password']
+
+# STRIPE SETTINGS ######
+REDIRECT_DOMAIN = 'http://yukisuter.pythonanywhere.com'
+# REDIRECT_DOMAIN = 'http://127.0.0.1:8000'
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -48,13 +58,11 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '35mj@00fc)_&kd4(^)6g_3rqnz_k0)g&-grhqf_8nv=!trj_re'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.kelvin-ensemble.co.uk']
+ALLOWED_HOSTS = ['127.0.0.1', '.kelvin-ensemble.co.uk', 'yukisuter.pythonanywhere.com']
 
 
 # Application definition
@@ -103,13 +111,11 @@ TEMPLATES = [
 ]
 
 SETTINGS_EXPORT = [
-    'CONCERT_NAME',
     'CONCERT_STATUS',
-    'CONCERT_PHOTOS',
-    'CONCERT_PROGRAMMELINK',
-    'CONCERT_PLAYLISTLINK',
-    'CONCERT_REPERTOIRE',
     'CONCERT_LIST',
+
+    'STRIPE_SECRET_KEY',
+    'REDIRECT_DOMAIN'
 ]
 
 
@@ -188,3 +194,5 @@ LOGGING = {
         },
     },
 }
+
+

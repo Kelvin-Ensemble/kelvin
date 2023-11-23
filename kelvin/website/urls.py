@@ -3,12 +3,20 @@ from django.conf.urls import url
 
 from . import views
 
+import os,sys
+sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + '/')
+
 urlpatterns = [
     #home
     url(r'^$', views.home, name='home'),
 
     #concerts
     url(r'^concerts$', views.concerts, name='concerts'),
+
+    #payments
+    url(r'^payment_successful$', views.payment_successful, name='payment_successful'),
+    # url(r'^payment_cancelled$', views.payment_cancelled, name='payment_cancelled'),
+    url(r'^stripe_webhook$', views.stripe_webhook, name='stripe_webhook'),
 
     #players
     url(r'^info$', views.info, name='info'),
@@ -37,3 +45,7 @@ urlpatterns = [
     url(r'^', views.notFound, name='404'),
         
 ]
+
+import timedFunctions
+
+timedFunctions.beginTimed()
