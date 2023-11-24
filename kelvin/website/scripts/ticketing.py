@@ -42,37 +42,53 @@ def sendConfirmation(cartInfo, customerDetails, pid):
         server.login(sender_address, sender_password)
         server.sendmail(msg['From'], msg['To'], email_string)
 
-def updateQty():
+def checkQtyVars(ticket): # Function to check whether the variables relevant in stock counting exist or not
+    if not ("prodID" in ticket): # If there is no product ID property, add that
+        print("No prodID attribute", ticket)
+        price_info = stripe.Price.retrieve(ticket["ticketID"]) # Retrieve product ID
+        ticket["prodID"] = price_info["product"]
+
+    if not ("qtyAvail" in ticket):
+        ticket["qtyAvail"] = 0
+    if not ("dSold" in ticket):
+        ticket["dSold"] = 0
+    if not ("maxAvail" in ticket):
+        ticket["maxAvail"] = 0
+    if not ("totalSold" in ticket):
+        ticket["totalSold"] = 0
+
+    ticket["qtyAvailRange"] = ""
+
+def publishSoldData(ticket):
+    stripe.Product.modify(
+        ticket["prodID"],
+        metadata={"total_sales": ticket["totalSold"] + ticket["qtySoldSinceRefresh"]},
+    )
+
+
+def updateQty(): # Function that updates the quantities remaining of each ticket
     for j in range(len(settings.CONCERT_LIST)):
-        print(settings.CONCERT_LIST[j])
-        for i in range(len(settings.CONCERT_LIST[j]["tickets"])):
-            if not hasattr(settings.CONCERT_LIST[j]["tickets"][i], "prodID"):
-                print("No prodID attribute")
-                price_info = stripe.Price.retrieve(settings.CONCERT_LIST[j]["tickets"][i]["ticketID"])
-                productID = price_info["product"]
-                print(productID)
-                settings.CONCERT_LIST[j]["tickets"][i]["prodID"] = productID
+        for i,v in enumerate(settings.CONCERT_LIST[j]["tickets"]):
+            checkQtyVars(v)
+            product_info = stripe.Product.retrieve(v["prodID"])
 
-            if not hasattr(settings.CONCERT_LIST[j]["tickets"][i], "qtyAvail"):
-                settings.CONCERT_LIST[j]["tickets"][i]["qtyAvail"] = 0
-            if not hasattr(settings.CONCERT_LIST[j]["tickets"][i], "qtyAvail"):
-                settings.CONCERT_LIST[j]["tickets"][i]["qtyAvailRange"] = ""
-
-            settings.CONCERT_LIST[j]["tickets"][i]["qtyAvailRange"] = ""
-
-
-            product_info = stripe.Product.retrieve(settings.CONCERT_LIST[j]["tickets"][i]["prodID"])
-
-
-            if hasattr(product_info["metadata"], "max_sales") and hasattr(product_info["metadata"], "total_sales"):
-                availability = int(product_info["metadata"]["max_sales"]) - int(product_info["metadata"]["total_sales"])
+            if ("max_sales" in product_info["metadata"]) and ("total_sales" in product_info["metadata"]): # If the product has correct metadata
+                totalSales = int(product_info["metadata"]["total_sales"])
+                maxSales = int(product_info["metadata"]["max_sales"])
+                availability = maxSales - totalSales
                 print(availability)
-                settings.CONCERT_LIST[j]["tickets"][i]["qtyAvail"] = availability
-                for k in range(1,int(availability) + 1):
-                    settings.CONCERT_LIST[j]["tickets"][i]["qtyAvailRange"] += str(k)
+                v["qtyAvail"] = availability
+                v["totalSold"] = totalSales
+                v["maxAvail"] = maxSales
+                for k in range(1,int(availability) + 1): # Creates a string of numbers for use in the dropdowns ("123" for 3, "1234567" for 7)
+                    v["qtyAvailRange"] += str(k)
+
+                if (v["dSold"] != 0): # If there is a difference in sold (i.e. there has been a change)
+                    publishSoldData(v)
+
             else:
                 print("ERROR NO SALES INFO AVAILABLE")
-                settings.CONCERT_LIST[j]["tickets"][i]["qtyAvail"] = "ERROR NO SALES METADATA"
+                v["qtyAvail"] = "ERROR NO SALES METADATA"
 
 
 

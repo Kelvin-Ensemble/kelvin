@@ -5,8 +5,8 @@ import ticketing
 
 def beginTimed():
 
-    threading.Timer(3, every3seconds).start()
+    threading.Timer(3, every5seconds).start()
 
-def every3seconds():
+def every5seconds():
     ticketing.updateQty()
-    threading.Timer(3, every3seconds).start()
+    threading.Timer(5, every5seconds).start()

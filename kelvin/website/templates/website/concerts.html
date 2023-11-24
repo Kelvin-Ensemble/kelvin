@@ -194,10 +194,10 @@
                                 </div>
                             </form>
                         {% else %}
-                            <p>ERROR: Metadata not available for: <strong>{{ ticket.ticketLabel }}</strong></p>
+                            <p>ERROR: Metadata not available for <strong>{{ ticket.ticketLabel }}</strong>. Please contact webmaster@kelvin-ensemble.co.uk.</p>
                         {% endif %}
                     {% else %}
-                        <p>ERROR: Metadata not available for: <strong>{{ ticket.ticketLabel }}</strong></p>
+                        <p>ERROR: Metadata not available for: <strong>{{ ticket.ticketLabel }}</strong>. Please contact webmaster@kelvin-ensemble.co.uk.</p>
                     {% endif %}
                 {% endfor %}
 
