@@ -5,6 +5,37 @@
     background-image: url("{% static 'website/media/img/headers/concert.jpg' %}");
   }
 
+  .selector div {
+      width: 100%;
+      height: 2rem;
+  }
+
+  .selector div #button {
+      width: 100%;
+      height: 100%;
+  }
+
+  .selector div input {
+      width: 100%;
+      height: 100%;
+  }
+
+  #viewCart{
+      background-color: #ffffff;
+      border-color: #008888;
+      color: #008888;
+      padding: 7px;
+      width: 10rem;
+      border: 1px solid;
+      border-radius: 4px;
+  }
+
+
+  #viewCart:hover{
+      background-color: #d7d7d7;
+      cursor: pointer;
+  }
+
   .playlists {
     overflow: auto;
     white-space: nowrap;
@@ -40,6 +71,8 @@
       color: white;
     }
   }
+
+
 </style>
 {% endblock %}
 
@@ -163,6 +196,7 @@
 
                 <p style="font-size:0.875em; padding-top:5%"> Last Updated: 14/03/2023 </p>
             </div>
+
             {% for concert in settings.CONCERT_LIST %}
                 <div class="bg-primary full-small-padding ticket-info text-white">
                 <h3>{{ concert.date }}</h3>
@@ -171,22 +205,34 @@
                 {% for ticket in concert.tickets %}
                     {% if ticket.qtyAvail  %}
                         {% if ticket.qtyAvail|is_numeric %}
-                            <form enctype="multipart/form-data" method="post" role="concerts">
+                            <form enctype="multipart/form-data" method="post" action="/payment" role="concerts">
                                 <div class="row">
-                                    <div class="col-md-8">
+                                    <div class="col-7">
                                         <label for="ticketQuantity">{{ ticket.ticketLabel }}</label>
                                     </div>
-                                    <div class="col-md-1" style="float:right">
-                                        <input type="hidden" name="ticketID" value="{{ ticket.ticketID }}">
-                                        <select name="ticketQty" id="ticketQuantity" value="1">
-                                            {% for i in ticket.qtyAvailRange %} {# This for loop adds the options for the qty of tickets #}
-                                                <option value={{ forloop.counter }}>{{ forloop.counter }}</option>
-                                            {% endfor %}
-                                        </select>
+                                    <div class="col-2" style="float:right">
+                                        <div class="row" id="selector">
+                                            <input type="hidden" name="ticketID" value="{{ ticket.ticketID }}">
+{#                                        <select name="ticketQty" id="ticketQuantity" value="1">#}
+{#                                            {% for i in ticket.qtyAvailRange %} {# This for loop adds the options for the qty of tickets #}
+{#                                                <option value={{ forloop.counter }}>{{ forloop.counter }}</option>#}
+{#                                            {% endfor %}#}
+{#                                        </select>#}
+                                        <div class="col-4">
+                                            <button id="selectorButton+" action="/">-</button>
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="number">
+                                        </div>
+                                        <div class="col-4">
+                                            <button action="/">+</button>
+                                        </div>
+                                        </div>
+
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-3">
                                     {% if ticket.qtyAvail > 0 %}
-                                        <input type="submit" disabled=false value="Add to Cart" style="margin-top: -6px; width: 100%; border-color: #5e5e5e; border: 1px solid">
+                                        <input type="submit" value="Purchase" style="margin-top: -6px; width: 100%; border-color: #5e5e5e; border: 1px solid">
                                     {% else %}
                                         <input type="submit" disabled=true value="Sold Out" style="margin-top: -6px; width: 100%; border-color: #5e5e5e; border: 1px solid">
                                     {% endif %}
@@ -215,7 +261,7 @@
             </p><div class="playlists"><iframe src= width="100%"
                     height="450" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe><iframe src=
                     height="450px" frameborder="0"
-                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+                    sandbox="allow-forms allow-popups allow-same-origin allow-ticketing allow-top-navigation-by-user-activation"
                     allow="autoplay *; encrypted-media *;"
                     style="width: 100%; max-width: 900px; overflow: hidden; border-radius: 10px; background: transparent;"></iframe></div><p style="font-size:0.875em">
             &#8592; Scroll to switch between Spotify and Apple Music &#8594;

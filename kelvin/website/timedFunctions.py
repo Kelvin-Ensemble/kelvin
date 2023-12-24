@@ -1,6 +1,5 @@
-import os, sys, threading
+import threading
 
-sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + '/scripts')
 import ticketing
 
 def beginTimed():

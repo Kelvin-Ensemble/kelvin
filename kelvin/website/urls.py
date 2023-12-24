@@ -2,6 +2,7 @@
 from django.conf.urls import url
 
 from . import views
+from . import ticketRouting
 
 import os,sys
 sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + '/')
@@ -14,9 +15,10 @@ urlpatterns = [
     url(r'^concerts$', views.concerts, name='concerts'),
 
     #payments
-    url(r'^payment_successful$', views.payment_successful, name='payment_successful'),
-    # url(r'^payment_cancelled$', views.payment_cancelled, name='payment_cancelled'),
-    url(r'^stripe_webhook$', views.stripe_webhook, name='stripe_webhook'),
+    url(r'^payment_successful$', ticketRouting.payment_successful, name='payment_successful'),
+    # url(r'^payment_cancelled$', ticketRouting.payment_cancelled, name='payment_cancelled'),
+    url(r'^stripe_webhook$', ticketRouting.stripe_webhook, name='stripe_webhook'),
+    url(r'^payment$', ticketRouting.payment_page, name='payment'),
 
     #players
     url(r'^info$', views.info, name='info'),
