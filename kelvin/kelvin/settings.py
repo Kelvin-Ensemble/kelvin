@@ -18,7 +18,11 @@ CONCERT_LIST = [
     {
          'soldOut': False,
          'date': '18th November 2023',
-         'tickets': [{'ticketLabel': "Standard Ticket", 'ticketID': 'price_1OFVVXDysBLU7VPvWnC7jH1Z'}, {'ticketLabel': "Concession Ticket", 'ticketID': 'price_1OFVVXDysBLU7VPvJhWYmQ1D'}, {'ticketLabel': "Restricted View Ticket", 'ticketID': 'price_1OFhKCDysBLU7VPvXpb95h3Q'}]
+         'tickets': [
+             {'ticketLabel': "Standard Ticket", 'ticketID': 'price_1OFVVXDysBLU7VPvWnC7jH1Z'},
+             {'ticketLabel': "Concession Ticket", 'ticketID': 'price_1OFVVXDysBLU7VPvJhWYmQ1D'},
+             {'ticketLabel': "Restricted View Ticket", 'ticketID': 'price_1OFhKCDysBLU7VPvXpb95h3Q'}
+         ]
     }
 ]
 

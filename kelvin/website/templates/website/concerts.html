@@ -72,8 +72,182 @@
     }
   }
 
+  #selector {
+      {#background-color: lightgray;#}
+      height: 100%;
+      width: 100%;
+      padding-top: 0.2rem;
+      padding-bottom: 0.2rem;
+  }
+
+
+  #selectorButtonL {
+      background-color: #FCFCFC;
+      border: none;
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      border-radius: 0.5rem 0px 0px 0.5rem;
+  }
+
+  #selectorButtonL:disabled {
+      background-color: #e0e0e0;
+  }
+
+  #selectorButtonR:disabled {
+      background-color: #e0e0e0;
+  }
+
+  #purchaseButton {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      height: 100%;
+      width: 100%;
+      border-color: #5e5e5e;
+      border: 1px solid;
+  }
+
+  #purchaseButton:disabled {
+      background-color: #76bbbb;
+  }
+
+  #selectorButtonR {
+      background-color: #FCFCFC;
+      border: none;
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      border-radius: 0px 0.5rem 0.5rem 0px;
+  }
+
+  .selectorQty {
+      background-color: #FCFCFC;
+      color: #2e3133;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+  }
+
+  #ticketRow {
+      {#background-color: pink;#}
+      height: 3rem;
+      line-height: 3rem;
+      text-align: center;
+  }
+
 
 </style>
+
+<script>
+    tickets = []
+
+    {% for concert in settings.CONCERT_LIST %}
+        {% for ticket in concert.tickets %}
+            {% if ticket.qtyAvail|is_numeric %}
+                tickets.push({
+                    ticketID: '{{ ticket.ticketID }}',
+                    qtyAvail: {{ ticket.qtyAvail }},
+                    linkedProducts: {{ ticket.linkedProducts }},
+                    qtySelected: 0
+                })
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
+    console.log(tickets)
+    window.onload = updateButtons
+
+
+
+    function sendPurchase(){
+        cartContents = []
+
+        for (let i = 0; i < tickets.length; i++) {
+            console.log("Ticket ID: " + tickets[i].ticketID + " has this many tickets selected: " + tickets[i].qtySelected)
+            if (tickets[i].qtySelected !== 0) {
+                cartContents.push({
+                    ticketID: tickets[i].ticketID,
+                    qtySelected: tickets[i].qtySelected
+                })
+            }
+        }
+        console.log(cartContents)
+        params = {cart: JSON.stringify(cartContents)}
+
+        queryString = new URLSearchParams((params)).toString();
+        urlWithParams = "../payment?" + queryString;
+
+        window.location.href = urlWithParams
+    }
+
+    function updateButtons() {
+        console.log("Updating buttons")
+        ticketsSelected = 0
+        for (let i = 0; i<tickets.length; i++) {
+            ticket = tickets[i]
+            linkedSelected = 0
+            for (let i = 0; i<ticket.linkedProducts.length; i++) {
+                console.log("found linked: ", ticket.linkedProducts[i])
+                linkedSelected += tickets[ticket.linkedProducts[i]].qtySelected
+            }
+
+            if (ticket.qtySelected + linkedSelected >= ticket.qtyAvail) {
+                document.getElementById("rButtonContainer_"+ticket.ticketID).children[0].disabled = true
+            } else if (document.getElementById("rButtonContainer_"+ticket.ticketID).children[0].disabled) {
+                document.getElementById("rButtonContainer_"+ticket.ticketID).children[0].disabled = false
+            }
+
+            if (ticket.qtySelected == 0) {
+                document.getElementById("lButtonContainer_"+ticket.ticketID).children[0].disabled = true
+            } else if (document.getElementById("lButtonContainer_"+ticket.ticketID).children[0].disabled) {
+                document.getElementById("lButtonContainer_"+ticket.ticketID).children[0].disabled = false
+            }
+            ticketsSelected += ticket.qtySelected
+        }
+
+        console.log("Tickets selected: " + ticketsSelected.toString())
+
+        if (ticketsSelected == 0) {
+            console.log("Disabling purchase button")
+            document.getElementById("purchaseButton").disabled = true
+        } else {
+            console.log("Enabling purchase button")
+            document.getElementById("purchaseButton").disabled = false
+        }
+    }
+
+    function changeQty(type, id){
+        idExists = tickets.some(e => e.ticketID == id)
+        if (idExists) {
+            ticket = tickets[tickets.findIndex((element) => element.ticketID == id)]
+            console.log(ticket)
+            linkedSelected = 0
+
+            for (let i = 0; i<ticket.linkedProducts.length; i++) {
+                console.log("found linked: ", ticket.linkedProducts[i])
+                linkedSelected += tickets[ticket.linkedProducts[i]].qtySelected
+            }
+            console.log("Selected due to link: ", linkedSelected)
+
+            if (type == "+") {
+                if (ticket.qtySelected + linkedSelected < ticket.qtyAvail) {
+                    ticket.qtySelected += 1
+                }
+                document.getElementById(id).innerHTML = ticket.qtySelected
+            } else if (type == "-") {
+                if (ticket.qtySelected > 0) {
+                    ticket.qtySelected -= 1
+                }
+                document.getElementById(id).innerHTML = ticket.qtySelected
+            }
+        }
+        updateButtons()
+    }
+
+</script>
+
 {% endblock %}
 
 {% block title %} Upcoming Concerts {% endblock %}
@@ -199,55 +373,45 @@
 
             {% for concert in settings.CONCERT_LIST %}
                 <div class="bg-primary full-small-padding ticket-info text-white">
-                <h3>{{ concert.date }}</h3>
-                <p>Tickets for {{ concert.date }} are now available for purchase below:</p>
-                {# For every ticket type, it generates the form #}
-                {% for ticket in concert.tickets %}
+                    <h3>{{ concert.date }}</h3>
+                    <p>Tickets for {{ concert.date }} are now available for purchase below:</p>
+                    {# For every ticket type, it generates the form #}
+                    {% for ticket in concert.tickets %}
                     {% if ticket.qtyAvail  %}
-                        {% if ticket.qtyAvail|is_numeric %}
-                            <form enctype="multipart/form-data" method="post" action="/payment" role="concerts">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <label for="ticketQuantity">{{ ticket.ticketLabel }}</label>
-                                    </div>
-                                    <div class="col-2" style="float:right">
-                                        <div class="row" id="selector">
-                                            <input type="hidden" name="ticketID" value="{{ ticket.ticketID }}">
-{#                                        <select name="ticketQty" id="ticketQuantity" value="1">#}
-{#                                            {% for i in ticket.qtyAvailRange %} {# This for loop adds the options for the qty of tickets #}
-{#                                                <option value={{ forloop.counter }}>{{ forloop.counter }}</option>#}
-{#                                            {% endfor %}#}
-{#                                        </select>#}
-                                        <div class="col-4">
-                                            <button id="selectorButton+" action="/">-</button>
-                                        </div>
-                                        <div class="col-4">
-                                            <input type="number">
-                                        </div>
-                                        <div class="col-4">
-                                            <button action="/">+</button>
-                                        </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-3">
-                                    {% if ticket.qtyAvail > 0 %}
-                                        <input type="submit" value="Purchase" style="margin-top: -6px; width: 100%; border-color: #5e5e5e; border: 1px solid">
-                                    {% else %}
-                                        <input type="submit" disabled=true value="Sold Out" style="margin-top: -6px; width: 100%; border-color: #5e5e5e; border: 1px solid">
-                                    {% endif %}
-                                    </div>
+                    {% if ticket.qtyAvail|is_numeric %}
+                    {% if ticket.qtyAvail > 0 %}
+                    <div class="row" id="ticketRow">
+                        <div class="col-9">
+                            <label for="ticketType">{{ ticket.ticketLabel }}</label>
+                        </div>
+                        <div class="col-3" style="float:right; height: 100%; width:100%;">
+                            <div class="row" id="selector">
+                                <div class="col-4" id="lButtonContainer_{{ ticket.ticketID }}" style="height:100%; width:100%; padding: 0px 0px">
+                                    <button id="selectorButtonL" onclick="changeQty('-','{{ ticket.ticketID }}')">-</button>
                                 </div>
-                            </form>
-                        {% else %}
-                            <p>ERROR: Metadata not available for <strong>{{ ticket.ticketLabel }}</strong>. Please contact webmaster@kelvin-ensemble.co.uk.</p>
-                        {% endif %}
+                                <div class="col-4" style="height:100%; width:100%; padding: 0px 0px">
+                                    <label for="ticketQuantity" class="selectorQty" id="{{ ticket.ticketID }}">0</label>
+                                </div>
+                                <div class="col-4" id="rButtonContainer_{{ ticket.ticketID }}" style="height:100%; width:100%; padding: 0px 0px">
+                                    <button id="selectorButtonR" onclick="changeQty('+','{{ ticket.ticketID }}')">+</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                     {% else %}
-                        <p>ERROR: Metadata not available for: <strong>{{ ticket.ticketLabel }}</strong>. Please contact webmaster@kelvin-ensemble.co.uk.</p>
+                    <p><strong>{{ ticket.ticketLabel }}</strong> have now sold out. Please see other ticket options or check back again soon for a waitlist.</p>
+                    {% endif %}
+                    {% endif %}
                     {% endif %}
                 {% endfor %}
-
+                    <p><br>Please note: In the event that limited tickets remain, you may be unable to select your desired quantity.<br>Thank you for your understanding.</p>
+                    <div class="col-3" style="margin: auto; text-align: center; height: 100%; width: 100%; padding-top: 0.2rem; padding-bottom: 0.2rem">
+                    <input type="submit" id="purchaseButton" value="Purchase" onclick="sendPurchase()">
+                    </div>
+                    <br><br>
                 </div>
+
             {% endfor %}
 
         </div>
