@@ -50,13 +50,15 @@ load_dotenv(dotenv_file)
 SECRET_KEY = os.environ['SECRET_KEY']
 STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
 STRIPE_PUBLIC_SECRET = os.environ['STRIPE_PUBLIC_SECRET']
-STRIPE_ENDPOINT_SECRET = os.environ['STRIPE_ENDPOINT_SECRET']
+# STRIPE_ENDPOINT_SECRET = os.environ['STRIPE_ENDPOINT_SECRET']
+
+STRIPE_ENDPOINT_SECRET = 'whsec_7390c4a8a79fc04e2a50f24b2fdd39809814f7e8686a0c74306d0a6a38095320'
 
 TICKETS_PASSWORD = os.environ['tickets_password']
 
 # STRIPE SETTINGS ######
-REDIRECT_DOMAIN = 'http://yukisuter.pythonanywhere.com'
-# REDIRECT_DOMAIN = 'http://127.0.0.1:8000'
+# REDIRECT_DOMAIN = 'http://yukisuter.pythonanywhere.com'
+REDIRECT_DOMAIN = 'http://127.0.0.1:8000'
 
 
 
