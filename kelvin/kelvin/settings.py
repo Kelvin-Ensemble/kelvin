@@ -11,40 +11,33 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 # CONCERT SETTINGS #######
-CONCERT_NAME = 'Ticketing Sample Concert'
-CONCERT_STATUS = 'notyet' # upcoming, over, soldout, forsale, notyet # are the options *case sensitive*
 
-CONCERT_PHOTOS = ''
+CONCERT_STATUS = 'forsale' # upcoming, over, soldout, forsale, notyet # are the options *case sensitive*
 
-CONCERT_PROGRAMMELINK = 0 # Embed link to the pdf for the concert. Please set to 0 WITHOUT QUOTES if not yet available
-CONCERT_PLAYLISTLINK = 0 # ['spotify link','apple music link'] set to 0 WITHOUT QUOTES if not available
-
-# List of repetoire for the concert(s). If the repetoire is not yet available, set CONCERTREPETOIRE = 0
-
-CONCERT_REPERTOIRE = 0
-
-# CONCERT_REPERTOIRE = [
-#     ['Dvorak', 'Carnival Overture'],
-#     ['Saint-Saens', 'Bacchanale (From Act III of Samson and Delilah)'],
-#     ['Tchaikovsky', 'Romeo and Juliet'],
-#     ['Rachmaninoff', 'Symphony No.2'],
-# ]
-
-CONCERT_LIST = [ # {'soldOut': False, 'date': 'CONCERT DATE', 'standardTicketID': 'STANDARD STRIPE PRICE ID', 'concessionTicketID': 'CONC. STRIPE PRICE ID' }, ### NOTE: Make sure the price IDs are different for the different concerts. Speak to the treasurer about this.
-    {'soldOut': False, 'date': '4rd March 2023', 'standardTicketID': 'price_1MlGWDDysBLU7VPvvQNq2Qia', 'concessionTicketID': 'price_1MlK92DysBLU7VPvinYZrGB8' },
-    {'soldOut': True, 'date': '5th March 2023', 'standardTicketID': 'price_1MlGWDDysBLU7VPvvQNq2Qia', 'concessionTicketID': 'price_1MlK92DysBLU7VPvinYZrGB8' },
+CONCERT_LIST = [
+    {
+         'soldOut': False,
+         'date': '18th November 2023',
+         'tickets': [
+             {'ticketLabel': "Standard Ticket", 'ticketID': 'price_1OFVVXDysBLU7VPvWnC7jH1Z'},
+             {'ticketLabel': "Concession Ticket", 'ticketID': 'price_1OFVVXDysBLU7VPvJhWYmQ1D'},
+             {'ticketLabel': "Restricted View Ticket", 'ticketID': 'price_1OFhKCDysBLU7VPvXpb95h3Q'}
+         ]
+    }
 ]
 
 # CONCERT SETTINGS END HERE DO NOT CHANGE ANYTHING BELOW UNLESS CONFIDENT ######
 
-import os
+import os,sys
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
+
 
 from dotenv import load_dotenv
 
 dotenv_file = os.path.join(BASE_DIR, ".env")
 load_dotenv(dotenv_file)
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
@@ -55,6 +48,8 @@ STRIPE_PUBLIC_SECRET = os.environ['STRIPE_PUBLIC_SECRET']
 STRIPE_ENDPOINT_SECRET = 'whsec_7390c4a8a79fc04e2a50f24b2fdd39809814f7e8686a0c74306d0a6a38095320'
 
 TICKETS_PASSWORD = os.environ['tickets_password']
+
+COOKIE_DATA = {}
 
 # STRIPE SETTINGS ######
 # REDIRECT_DOMAIN = 'http://yukisuter.pythonanywhere.com'
@@ -73,7 +68,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.kelvin-ensemble.co.uk', 'yukisuter.pythonanywhere.com']
 
@@ -124,12 +119,7 @@ TEMPLATES = [
 ]
 
 SETTINGS_EXPORT = [
-    'CONCERT_NAME',
     'CONCERT_STATUS',
-    'CONCERT_PHOTOS',
-    'CONCERT_PROGRAMMELINK',
-    'CONCERT_PLAYLISTLINK',
-    'CONCERT_REPERTOIRE',
     'CONCERT_LIST',
 
     'STRIPE_SECRET_KEY',
@@ -212,3 +202,5 @@ LOGGING = {
         },
     },
 }
+
+
