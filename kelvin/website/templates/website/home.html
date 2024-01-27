@@ -1,12 +1,8 @@
 {% extends "website/base/base.html" %}
 {% load static %}
-
-{% block title %}
-Kelvin Ensemble
-{% endblock %}
-
+{% block title %}Kelvin Ensemble{% endblock %}
 {% block extrastyle %}
-<style>	
+    <style>
     header.masthead {
         background-image: url("{% static 'website/media/img/headers/homepage.jpg' %}");
     }
@@ -14,24 +10,25 @@ Kelvin Ensemble
     .col {
         width: 50%;
     }
-</style>
+    </style>
 {% endblock %}
-
 {% block full-content %}
-
-<header class="masthead">
-    <div class="header-content">
-        <div class="header-content-inner">
-            <h1 id="homeHeading">Glasgow University's Student Run Orchestra</h1>
-            <hr>
-            <p><b>Kelvin is an entirely student-run orchestra that performs two concerts a year within the university area, providing students with the chance to both learn and perform a wide variety of music in amazing venues.</b></p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#extra-information">Find Out More</a>
+    <header class="masthead">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">Glasgow University's Student Run Orchestra</h1>
+                <hr>
+                <p>
+                    <b>Kelvin is an entirely student-run orchestra that performs two concerts a year within the university area, providing students with the chance to both learn and perform a wide variety of music in amazing venues.</b>
+                </p>
+                <a class="btn btn-primary btn-xl js-scroll-trigger"
+                   href="#extra-information">Find Out More</a>
+            </div>
         </div>
-    </div>
-</header>
-<div>
-    <!-- ONLINE AUDITION MESSAGE -->
-    <!-- <section class="bg-primary" id="concerts">
+    </header>
+    <div>
+        <!-- ONLINE AUDITION MESSAGE -->
+        <!-- <section class="bg-primary" id="concerts">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
@@ -45,10 +42,9 @@ Kelvin Ensemble
                 </div>
             </div>
         </div>
-    </section> -->
-
-    <!-- AUDITION MESSAGE -->
-    <!-- <section class="bg-primary" id="concerts">
+</section> -->
+        <!-- AUDITION MESSAGE -->
+        <!-- <section class="bg-primary" id="concerts">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
@@ -60,10 +56,9 @@ Kelvin Ensemble
                 </div>
             </div>
         </div>
-    </section> -->
-
-    <!-- COMMITEE MESSAGE -->
-    <!-- <section class="bg-primary" id="concerts">
+</section> -->
+        <!-- COMMITEE MESSAGE -->
+        <!-- <section class="bg-primary" id="concerts">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
@@ -75,10 +70,9 @@ Kelvin Ensemble
             </div>
         </div>
     </div>
-    </section> -->
-
-    <!-- CONCERT MESSAGE -->
-    <!-- <section class="bg-primary" id="concerts">
+</section> -->
+        <!-- CONCERT MESSAGE -->
+        <!-- <section class="bg-primary" id="concerts">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
@@ -90,9 +84,7 @@ Kelvin Ensemble
                 </div>
             </div>
         </div>
-    </section> -->
-        
-            
+</section> -->
         <section id="extra-information">
             <div class="container">
                 <div class="row">
@@ -124,36 +116,45 @@ Kelvin Ensemble
                 </div>
             </div>
         </section>
-
-    <div class="call-to-action bg-dark">
-        <div class="row">
-            <div class="col">
-                <div class="container text-center">
-                    <h2>Facebook</h2>
-                    
-                    <!-- Facebook -->
-                    <div id="fb-root"></div>
-                    <script>(function(d, s, id) {
+        <div class="call-to-action bg-dark">
+            <div class="row">
+                <div class="col">
+                    <div class="container text-center">
+                        <h2>Facebook</h2>
+                        <!-- Facebook -->
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
                         var js, fjs = d.getElementsByTagName(s)[0];
                         if (d.getElementById(id)) return;
                         js = d.createElement(s); js.id = id;
                         js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
                         fjs.parentNode.insertBefore(js, fjs);
                     }(document, 'script', 'facebook-jssdk'));
-                </script>
-                
-                <div class="fb-page" data-href="https://www.facebook.com/kelvin-ensemble" data-tabs="timeline, events" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/kelvin-ensemble" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/kelvin-ensemble">Kelvin Ensemble</a></blockquote></div>
+                        </script>
+                        <div class="fb-page"
+                             data-href="https://www.facebook.com/kelvin-ensemble"
+                             data-tabs="timeline, events"
+                             data-width=""
+                             data-height=""
+                             data-small-header="false"
+                             data-adapt-container-width="true"
+                             data-hide-cover="false"
+                             data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/kelvin-ensemble"
+                                        class="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/kelvin-ensemble">Kelvin Ensemble</a>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="container text-center">
+                        <h2>Twitter</h2>
+                        <a class="twitter-timeline"
+                           href="https://twitter.com/kelvinensemble?ref_src=twsrc%5Etfw"
+                           data-height="500">>Tweets by kelvinensemble</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
             </div>
-            
         </div>
-        
-        <div class="col">
-            <div class="container text-center">
-                <h2>Twitter</h2>
-                <a class="twitter-timeline" href="https://twitter.com/kelvinensemble?ref_src=twsrc%5Etfw" data-height="500">>Tweets by kelvinensemble </a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </div>
-    </div>
-</div>
-
-{% endblock %}
+    {% endblock %}

@@ -1,90 +1,139 @@
+import datetime
 import os
 from django.conf import settings
 import stripe
 import json
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from ticketingEmails import sendEmail
+from website.models import Concert, TicketType, Ticket
+
+# This try thing is here because pyCharm sucks and I need it, so I get hints because im forgetful.
+try:
+    from kelvin.website.models import Concert, TicketType, Ticket
+except Exception as e:
+    print("Exception: ", str(e))
 
 ticketGenDir = (os.path.dirname(os.path.realpath(__file__))) + "/"
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
-def checkQtyVars():  # Function to check whether the variables relevant in stock counting exist or not
-    for j in range(len(settings.CONCERT_LIST)):
-        for i, ticket in enumerate(settings.CONCERT_LIST[j]["tickets"]):
-            if not ("prodID" in ticket):  # If there is no product ID property, add that
-                print("No prodID attribute", ticket)
-                price_info = stripe.Price.retrieve(
-                    ticket["ticketID"]
-                )  # Retrieve product ID
-                ticket["prodID"] = price_info["product"]
+def updateQuantities():  # Function to check whether the variables relevant in stock counting exist or not
+    print("Updating Quantites")
+    for ticket in TicketType.objects.all():
+        linked_sold = 0
 
-            if not ("qtyAvail" in ticket):
-                ticket["qtyAvail"] = 0
-            if not ("dSold" in ticket):
-                ticket["dSold"] = 0
-            if not ("maxAvail" in ticket):
-                ticket["maxAvail"] = 0
-            if not ("totalSold" in ticket):
-                ticket["totalSold"] = 0
-            if not ("qtyAvailRange" in ticket):
-                ticket["qtyAvailRange"] = ""
+        for linked in ticket.Linked_Tickets.all():
+            print("Linked object as sold", linked.Quantity_sold, "numebr of tix")
+            linked_sold += linked.Quantity_sold
 
-        for i, ticket in enumerate(settings.CONCERT_LIST[j]["tickets"]):
-            if not ("linkedProducts" in ticket):
-                print("Finding matches", ticket)
-                ticket["linkedProducts"] = []
-                for k, l in enumerate(settings.CONCERT_LIST[j]["tickets"]):
-                    if l["prodID"] == ticket["prodID"] and i != k:
-                        print("Found a match!", i, k)
-                        ticket["linkedProducts"].append(k)
-
-    ticket["qtyAvailRange"] = ""
+        ticket.Linked_sold = linked_sold
+        ticket.Quantity_available = (
+            ticket.Total_ticket_count - linked_sold - ticket.Quantity_sold
+        )
+        ticket.save()
 
 
-def publishSoldData(ticket):
-    stripe.Product.modify(
-        ticket["prodID"],
-        metadata={"total_sales": ticket["totalSold"] + ticket["qtySoldSinceRefresh"]},
-    )
+def processWebhookRequest(request):
+    print("Webhook triggerrededededed")
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    endpoint_secret = settings.STRIPE_ENDPOINT_SECRET
+    print("is this still working?")
 
+    payload = request.body
+    print("yes it is.")
 
-def updateQty():  # Function that updates the quantities remaining of each ticket
-    checkQtyVars()
-    for j in range(len(settings.CONCERT_LIST)):
-        for i, v in enumerate(settings.CONCERT_LIST[j]["tickets"]):
-            product_info = stripe.Product.retrieve(v["prodID"])
-            print(v)
-            if ("max_sales" in product_info["metadata"]) and (
-                "total_sales" in product_info["metadata"]
-            ):  # If the product has correct metadata
-                totalSales = int(product_info["metadata"]["total_sales"])
-                maxSales = int(product_info["metadata"]["max_sales"])
-                availability = maxSales - totalSales
-                print(availability)
-                v["qtyAvail"] = availability
-                v["totalSold"] = totalSales
-                v["maxAvail"] = maxSales
-                for k in range(
-                    1, int(availability) + 1
-                ):  # Creates a string of numbers for use in the dropdowns ("123" for 3, "1234567" for 7)
-                    v["qtyAvailRange"] += str(k)
+    try:
+        event = json.loads(payload)
+        print(event)
 
-                if (
-                    v["dSold"] != 0
-                ):  # If there is a difference in sold (i.e. there has been a change)
-                    publishSoldData(v)
+    except:
+        print("⚠️  Webhook error while parsing basic request. \n")
+    if endpoint_secret:
+        sig_header = request.headers["stripe-signature"]
+        try:
+            event = stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)
+        except stripe.error.SignatureVerificationError as e:
+            print("⚠️  Webhook signature verification failed." + str(e))
+            return json.dumps(success=False)
+    # print(payload['type'])
+    # print(payload['request']['type'])
+    print("checking for event type")
 
-            else:
-                print("ERROR NO SALES INFO AVAILABLE")
-                v["qtyAvail"] = "ERROR NO SALES METADATA"
+    if event and event["type"] == "checkout.session.completed":
+        print("Order Success")
+        orderDetails = event["data"]  # contains a stripe.PaymentIntent
+        paymentID = event["data"]["object"]["id"]
+        line_items = stripe.checkout.Session.list_line_items(paymentID)["data"]
+        customer_info = event["data"]["object"]["customer_details"]
+        customer_info["name"] = event["data"]["object"]["custom_fields"][0]["text"][
+            "value"
+        ]
+        # print(event)
+        # print(orderDetails)
+        # print(paymentID)
+        # print(line_items)
+        # print(type(line_items))
+        print(event["data"])
+        print(customer_info)
 
+        items = []
 
-def holdPurchase():
-    # Function to hold tickets whilst a transaction is taking place (will just add to the dSold (assume it has been sold))
-    pass
+        print("Itemised line items")
+        for ticket in TicketType.objects.all():
+            print("Looking for ticket")
+            for item in line_items:
+                print("Finding item id in ticket")
+                if item["price"]["id"] == ticket.Price_ID:
+                    items.append(
+                        {
+                            "price_id": item["price"]["id"],
+                            "qty": item["quantity"],
+                            "label": ticket.ticket_label,
+                            "concertDate": ticket.for_concert.Concert_Date,
+                            "concertLoc": ticket.for_concert.Concert_location,
+                        }
+                    )
+                    print("Found correct id")
+                    if item["quantity"] > ticket.Quantity_available:
+                        print("INVALID QUANTITY FOUND")
+                        return HttpResponse(400)
 
+        print("checkout accepted")
 
-def expirePurchase():
-    # Function to expire a purchase and "unreserve" the persons ticket if they have taken too long, or the browser window expires. (lowers dSold)
-    pass
+        print(items)
+        for item in items:
+            ticketType = None
+            for ticket in TicketType.objects.all():
+                if item["price_id"] == ticket.Price_ID:
+                    print("Found ticket and adding concert to details")
+                    ticketType = ticket
+                    customer_info["concertDate"] = ticket.for_concert.Concert_Date
+                    customer_info["concertLoc"] = ticket.for_concert.Concert_location
+                    break
+
+            newEntry = Ticket(
+                name=customer_info["name"],
+                email=customer_info["email"],
+                transaction_ID=event["data"]["object"]["id"],
+                for_concert=ticketType.for_concert,
+                ticket_type=ticketType,
+                validity=True,
+                change_log="[{}] - Payment Accepted".format(datetime.datetime.utcnow()),
+            )
+            newEntry.save()
+            print("Saved ticket")
+
+        # print(customer_info)
+
+        templateDir = os.getcwd() + "\\website\\templates\\ticketing\\"
+
+        sendEmail(
+            customer_info, items, "ticketing\\template.html", "Concert_Programme.pdf"
+        )
+        # sendConfirmation(items, customer_info, paymentID)
+    else:
+        # Unexpected event type
+        print("Unhandled event type {}".format(event["type"]))
+
+    return HttpResponse(200)

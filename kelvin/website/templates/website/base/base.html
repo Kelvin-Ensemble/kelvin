@@ -1,40 +1,28 @@
 <!DOCTYPE html>
-
 {% load static %}
-
 <html lang="en">
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Kelvin Ensemble Website">
-    <meta name="author" content="Kelvin Ensemble">
-    <meta name="theme-color" content="#008888">
-
-    <title>{% block title %}{% endblock %}</title>
-
-    {% include "website/includes/links.html" %} 
-
-    {% block extrastyle %}{% endblock %}
-  </head>
-
-  <body>
-    <div id="wrap">
-      <div id="main" class="clear-top">
-    
-        {% include "website/includes/navbar.html" %} 
-        
-        {% block full-content %} 
-        {% endblock %}
-      </div>
-    </div>
-
-    {% include "website/includes/footer.html" %} 
-
-    {% include "website/includes/scripts.html" %} 
-
-    {% block extrascripts %}
-    {% endblock %}
-  </body>
-
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Kelvin Ensemble Website">
+        <meta name="author" content="Kelvin Ensemble">
+        <meta name="theme-color" content="#008888">
+        <title>
+            {% block title %}{% endblock %}
+        </title>
+        {% include "website/includes/links.html" %}
+        {% block extrastyle %}{% endblock %}
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="main" class="clear-top">
+                {% include "website/includes/navbar.html" %}
+                {% block full-content %}{% endblock %}
+            </div>
+        </div>
+        {% include "website/includes/footer.html" %}
+        {% include "website/includes/scripts.html" %}
+        {% block extrascripts %}{% endblock %}
+    </body>
 </html>

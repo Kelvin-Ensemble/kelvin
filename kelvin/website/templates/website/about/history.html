@@ -1,60 +1,47 @@
 {% extends "website/base/subbase.html" %}
 {% load static %}
-
 {% block extrastyle %}
-<style>	
+    <style>
 	#page-header {
 		background-image: url("{% static 'website/media/img/headers/about/historyy.jpg' %}");
 	}
-</style>
+    </style>
 {% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-book fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block title %}
-History
-{% endblock %}
-
-{% block header %}
-History of the Kelvin Ensemble
-{% endblock %}
-
+{% block page-icon %}<i class="fa fa-book fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block title %}History{% endblock %}
+{% block header %}History of the Kelvin Ensemble{% endblock %}
 {% block content %}
-
-<p>
-	The Kelvin Ensemble was founded in 1991 by a group of students at <a href="http://www.gla.ac.uk" target="_blank">Glasgow University</a>.
-	This provided musicians from across the University with the opportunity to perform classical music concerts under the direction of professional conductors.
-</p>
-
-<hr class="primary">
-
-<p>
-	In its first 10 years the Ensemble specialised in chamber music and was recognised as one of Scotland's leading non-professional chamber orchestras.
-	Due to a size increase of over three times, the Ensemble now performs symphonic works rather than chamber music, but has continued to have the goal of allowing as many university students as possible the opportunity to perform orchestral music.
-</p>
-<p>
-	The Ensemble's reputation has earned its musicians invitations to perform throughout the country, including representing Glasgow University in prestigious music festivals.
-	The Ensemble's own concerts in the University's magnificent Bute Hall and Chapel regularly attracts large audiences.
-</p>
-
-<hr class="primary">
-
-<p>
-	The Kelvin Ensemble is ideally placed to promote local and young talent, whether it is among its own members on in its choice of conductors and soloists.
-	An impressive lineup of conductors has directed the Ensemble, including
-		<a href="http://www.osj.org.uk/about-us/about-john-lubbock/" target="_blank">John Lubbock</a>,
-		<a href="http://www.nycos.co.uk/About-Us/Christopher-Bell" target="_blank">Christopher Bell</a>,
-		<a href="http://www.william-conway.com/" target="_blank">Willam Conway</a>,
-		<a href="http://www.boddice.fsnet.co.uk/" target="_blank">Nigel Boddice</a>,
-		<a href="http://www.ingpen.co.uk/artist/garry-walker/" target="_blank">Garry Walker</a>,
-		<a href="http://www.kennethwoods.net/" target="_blank">Kenneth Woods</a>,
-		<a href="http://www.aberdeenchamberorchestra.co.uk/Conductor.html" target="_blank">Gareth John</a>,
-		<a href="http://www.ollyandalex.com/" target="_blank">Oliver Rundell</a>, and
-		<a href="http://www.christopherswaffer.com/" target="_blank">Chris Swaffer</a>.
-</p>
-<!--
+    <p>
+        The Kelvin Ensemble was founded in 1991 by a group of students at <a href="http://www.gla.ac.uk" target="_blank">Glasgow University</a>.
+        This provided musicians from across the University with the opportunity to perform classical music concerts under the direction of professional conductors.
+    </p>
+    <hr class="primary">
+    <p>
+        In its first 10 years the Ensemble specialised in chamber music and was recognised as one of Scotland's leading non-professional chamber orchestras.
+        Due to a size increase of over three times, the Ensemble now performs symphonic works rather than chamber music, but has continued to have the goal of allowing as many university students as possible the opportunity to perform orchestral music.
+    </p>
+    <p>
+        The Ensemble's reputation has earned its musicians invitations to perform throughout the country, including representing Glasgow University in prestigious music festivals.
+        The Ensemble's own concerts in the University's magnificent Bute Hall and Chapel regularly attracts large audiences.
+    </p>
+    <hr class="primary">
+    <p>
+        The Kelvin Ensemble is ideally placed to promote local and young talent, whether it is among its own members on in its choice of conductors and soloists.
+        An impressive lineup of conductors has directed the Ensemble, including
+        <a href="http://www.osj.org.uk/about-us/about-john-lubbock/"
+           target="_blank">John Lubbock</a>,
+        <a href="http://www.nycos.co.uk/About-Us/Christopher-Bell"
+           target="_blank">Christopher Bell</a>,
+        <a href="http://www.william-conway.com/" target="_blank">Willam Conway</a>,
+        <a href="http://www.boddice.fsnet.co.uk/" target="_blank">Nigel Boddice</a>,
+        <a href="http://www.ingpen.co.uk/artist/garry-walker/" target="_blank">Garry Walker</a>,
+        <a href="http://www.kennethwoods.net/" target="_blank">Kenneth Woods</a>,
+        <a href="http://www.aberdeenchamberorchestra.co.uk/Conductor.html"
+           target="_blank">Gareth John</a>,
+        <a href="http://www.ollyandalex.com/" target="_blank">Oliver Rundell</a>, and
+        <a href="http://www.christopherswaffer.com/" target="_blank">Chris Swaffer</a>.
+    </p>
+    <!--
 <p>
 	The Ensemble has also been the recipient of numerous awards in recognition of its pioneering work. These have included:
 <ul>
@@ -80,12 +67,10 @@ The Ensemble has also produced five recordings:
 	was staged, with the combined orchestra performing Shostakovich's Symphony No. 5.
 </p>
 -->
-
-<hr class="primary">
-
-<p>
-	The 20th Anniversary was celebrated by the Ensemble in February 2011. To mark the event Stravinsky's Greeting Prelude,
-	a variation of "Happy Birthday," was performed. Former members of the Ensemble were invited to play during the concert,
-	doubling the number of musicians for the performance of The Planets Suite by Holst.
-</p>
+    <hr class="primary">
+    <p>
+        The 20th Anniversary was celebrated by the Ensemble in February 2011. To mark the event Stravinsky's Greeting Prelude,
+        a variation of "Happy Birthday," was performed. Former members of the Ensemble were invited to play during the concert,
+        doubling the number of musicians for the performance of The Planets Suite by Holst.
+    </p>
 {% endblock %}

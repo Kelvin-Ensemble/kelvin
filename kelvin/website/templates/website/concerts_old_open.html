@@ -1,8 +1,7 @@
 {% extends "website/base/subbase.html" %}
 {% load static %}
-
 {% block extrastyle %}
-<style>
+    <style>
     #page-header {
         background-image: url("{% static 'website/media/img/headers/concert.jpg' %}");
     }
@@ -42,43 +41,32 @@
             color: white;
         }
     }
-</style>
+    </style>
 {% endblock %}
-
-{% block title %}
-Upcoming Concerts
-{% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-music fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block header %}
-Upcoming Concerts
-{% endblock %}
-
-
+{% block title %}Upcoming Concerts{% endblock %}
+{% block page-icon %}<i class="fa fa-music fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}Upcoming Concerts{% endblock %}
 {% block content %}
-
-<!-- No Concert Announcement -->
-
-<h2> No Upcoming Concerts </h2>
-<p> &nbsp;&nbsp;&nbsp; </p>
-<p>
-Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert.  <br> We hope you enjoyed watching it as much as we did performing it! <br> Please keep an eye on this page for photos update! <!--<br> Photos are now available on our <a href="https://www.facebook.com/kelvinensemble">Facebook</a>. &#128247-->
-</p>
+    <!-- No Concert Announcement -->
+    <h2>No Upcoming Concerts</h2>
+    <p>&nbsp;&nbsp;&nbsp;</p>
+    <p>
+        Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert.
+        <br>
+        We hope you enjoyed watching it as much as we did performing it!
+        <br>
+        Please keep an eye on this page for photos update! <!--<br> Photos are now available on our <a href="https://www.facebook.com/kelvinensemble">Facebook</a>. &#128247-->
+    </p>
     <br>
-    <Br>
+    <br>
     <p>Details of our spring concert, once finalised will be shown here. Please check back again soon!</p>
     <!--
 <p>Our next concert, <b>Autumn 2023: The 3</b>, will be on 18th & 19th November 2023 &#8212; tickets will go on sale soon, please watch this space! </p>
 -->
-
-<!-- <p> We are currently having a break for the summer, and will return when term recommences with new members! </p>
+    <!-- <p> We are currently having a break for the summer, and will return when term recommences with new members! </p>
 -->
-
-<!-- Concert Announcement ANNOUNCEMENT -->
-<!--
+    <!-- Concert Announcement ANNOUNCEMENT -->
+    <!--
 <div>
     <h2> Autumn 2023 Concert: Around the UK</h2> <br>
     <p>
@@ -113,8 +101,7 @@ Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert
             </p>
             <p>
             <strong> Get Directions: </strong> <a href="https://goo.gl/maps/1ppK1t3AKqrJMkSj8"> Google Maps </a> |
-            <a
-                href="https://maps.apple.com/place?q=University%20of%20Glasgow&ll=55.871452573004944%2C-4.288519620895386&auid=6303513611846241548&lsp=9902&address=Glasgow%2C%20G12%208QQ%2C%20Scotland">
+            <a href="https://maps.apple.com/place?q=University%20of%20Glasgow&ll=55.871452573004944%2C-4.288519620895386&auid=6303513611846241548&lsp=9902&address=Glasgow%2C%20G12%208QQ%2C%20Scotland">
                 Apple Maps </a>
             </p>
             <p>
@@ -127,7 +114,7 @@ Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert
     </div>
 </div>
 -->
-<!-- TICKETS SECTION -->
+    <!-- TICKETS SECTION -->
     <!--
 <div class="highlight-section">
 <div class="bg-primary full-small-padding ticket-info text-white">
@@ -153,8 +140,7 @@ Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert
 
     </div>
 
-     Sold Out Form Section (uncomment to add support for Sold Out form)-->
-
+Sold Out Form Section (uncomment to add support for Sold Out form)-->
     <!-- <div>
         <h5><strong>SOLD OUT!</strong></h5>
          <p>
@@ -164,11 +150,13 @@ Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert
         <p>
             The form below could be filled in to be added in a waiting list in case a ticket holder can no longer attend the concert.
         </p>
-        </div> -->
-
-      <!-- <script async defer src="https://formfacade.com/include/108007679701008707894/form/1FAIpQLScL9wubGI6a8GUfuyxA5DvMyo-ymUvuoP37byWxhRpZS1kEOQ/classic.js?div=ff-compose"></script>
+</div> -->
+<!-- <script async
+         defer
+         src="https://formfacade.com/include/108007679701008707894/form/1FAIpQLScL9wubGI6a8GUfuyxA5DvMyo-ymUvuoP37byWxhRpZS1kEOQ/classic.js?div=ff-compose"></script>
         </div>
-        <div class="bg-primary full-small-padding ticket-info text-white"  id="ff-compose">
+        <div class="bg-primary full-small-padding ticket-info text-white"
+             id="ff-compose">
         <p style="font-size:0.875em">
         By submitting this form, you agree to allow for us to contact you at the email above if tickets
         become available.
@@ -176,17 +164,14 @@ Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert
         <p>
             <i>If the form doesn't work on your browser, try https://forms.gle/SAQnspSuyaCu5HkM7</i>
         </p>
-    </div> -->
-
-
-        <!-- PayPal Section (uncomment to add support for PayPal form)-->
-
-        <!--
+</div> -->
+<!-- PayPal Section (uncomment to add support for PayPal form)-->
+<!--
         <div class="bg-primary full-small-padding ticket-info text-white">
            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" align="center">
                 <input type="hidden" name="cmd" value="_s-xclick">
                     <input type="hidden" name="hosted_button_id" value="Y3KQZ98JY9E4E">
-                        <h5> Buy Tickets for 19<sup>th</sup> November (Sunday) </h5> <Br>
+                        <h5> Buy Tickets for 19<sup>th</sup> November (Sunday) </h5> <br>
                         <table align="center">
                             <tr align="center">
                                 <td align="center">
@@ -216,9 +201,9 @@ Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert
         </div>
 
         -->
-    <!--
+<!--
         <div class="bg-primary full-small-padding ticket-info text-white">
-            <h5>Waiting List</h5> <Br>
+            <h5>Waiting List</h5> <br>
             <p>Tickets for 18th November (Saturday) <strong>AND</strong> 19th November (Sunday) are now sold out. Please fill out the form below to be sent an email once a ticket has opened up.</p>
 
 
@@ -226,11 +211,11 @@ Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert
             <script async defer src="https://formfacade.com/include/108007679701008707894/form/1FAIpQLSf3ZpDSGfJEJtkF6ljiRHyypb4Ycp0zYqFnZ8blfdVKxktypQ/classic.js?div=ff-compose"></script>
 
 -->
-            <!--
+<!--
            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" align="center">
                 <input type="hidden" name="cmd" value="_s-xclick">
                     <input type="hidden" name="hosted_button_id" value="37CGXVPTS7K6U">
-                        <h5> Buy Tickets for 18<sup>th</sup> November (Saturday) </h5> <Br>
+                        <h5> Buy Tickets for 18<sup>th</sup> November (Saturday) </h5> <br>
                         <table align="center">
                             <tr align="center">
                                 <td align="center">
@@ -257,11 +242,8 @@ Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert
                     </input>
                 </input>
            </form> -->
-        <!--</div>-->
-
-
-
-        <!-- <div class="ticket-form">
+<!--</div>-->
+<!-- <div class="ticket-form">
             <h5> &#9888; Known Issues &#9888; </h5>
             <p style="font-size:0.875em">
             The Facebook/Instagram Web Browser does not support the cart; please open this page in Safari, Chrome, or Edge.
@@ -295,8 +277,7 @@ Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert
     library:
     </p>
     <div class="playlists">
-        <iframe src="https://open.spotify.com/embed/playlist/7MJIEOtYUEsHwyY3SBQcTk?utm_source=generator" width="100%"
-            height="450" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/7MJIEOtYUEsHwyY3SBQcTk?utm_source=generator" width="100%" height="450" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
     </div>
     <p style="font-size:0.875em">
@@ -325,7 +306,6 @@ Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert
     </p>
     </center>
 </div> -->
-
 <!-- <div>
   <center>
     <h3> Concert Programme </h3>
@@ -363,7 +343,7 @@ Thank you to everyone who came to our <b>Autumn 2023: Around the UK </b> concert
     </center>
 </div>
 
-<hr class="primary small-padding"/> -->
+<hr class="primary small-padding" /> -->
 <!-- <h3>Kelvin Tour</h3>
 <div class="left_align_text allow_bullets">
 <p>
@@ -380,23 +360,20 @@ We are going on tour to Northern Ireland!
 <p>If you are interested, or would like more information, please contact the <a href="mailto:tourmanager@kelvin-ensemble.co.uk">Tour Manager</a>.
 </p>
 </p> -->
-
 <!--
-<br/><br/>
+<br /><br />
 <div><b>Date:</b> Thursday 31st May</div>
 <div><b>Venue:</b> Kendal Parish Church</div>
 <div>Directions <a href="https://goo.gl/maps/rmUQcwdS4Bz" target='_blank'>here</a></div>
 
-<hr class="primary"/>
+<hr class="primary" />
 <div><b>Date:</b> Saturday 2nd June</div>
 <div><b>Venue:</b> Arran High School, Lamlash</div>
 <div>Directions <a href="https://goo.gl/maps/DaafivFttqv" target='_blank'>here</a></div>
 
-<hr class="primary"/>
+<hr class="primary" />
 <div><b>Date:</b> Sunday 3rd June</div>
 <div><b>Venue:</b> Glasgow University Memorial Chapel</div>
 <div>Directions <a href="https://goo.gl/maps/WKbX8tVqwUu" target='_blank'>here</a></div>
 -->
-
-
 {% endblock %}

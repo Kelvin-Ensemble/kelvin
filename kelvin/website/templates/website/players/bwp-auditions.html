@@ -1,75 +1,96 @@
 {% extends "website/base/subbase.html" %}
 {% load static %}
-
 {% block extrastyle %}
-<style>	
+    <style>
 	#page-header {
 		background-image: url("{% static 'website/media/img/headers/players/bwp-auditions.jpg' %}");
 	}
-</style>
+    </style>
 {% endblock %}
-
-{% block title %}
-BWP Auditions
-{% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-music fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block header %}
-BWP Auditions
-{% endblock %}
-
+{% block title %}BWP Auditions{% endblock %}
+{% block page-icon %}<i class="fa fa-music fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}BWP Auditions{% endblock %}
 {% block content %}
-<div class="left_align_text allow_bullets">
-<h2> About the audition </h2>
-<p> The audition will consist of:
-    <ol>
-        <li>one prepared piece of your own choice </li>
-        <li>an excerpt that<!--will be made available closer to the time--> can be found below </li>
-    </ol>
-</p>
-<p>Your chosen piece should be approximately 3-5 minutes long - the panel may stop you after this time. </p>
-
-<p>Weekend auditions will take place in the University Music Department, 14 University Gardens (<a href = "https://maps.apple.com/?address=14%20University%20Gardens,%20Glasgow,%20G12%208QH,%20Scotland&ll=55.873276,-4.290721&q=14%20University%20Gardens&_ext=EiQpvK4n00TkS0AxwB0to6TNEcA5Or2tXkP7S0BBIP6A18CFEMA%3D&t=m">Apple Maps</a>, <a href = "https://goo.gl/maps/omaW9XZrHfBeQJi16">Google Maps</a>) - just along from the Queen Margaret Union on the 28th and the 29th of September. <br>Tuesday evening auditions will be in the  <a href = "https://frontdoor.spa.gla.ac.uk/map/embedded.html#!/?to=1040216"> Concert Hall, Main Building</a> (next to Hunter Halls) on the 1st of October. 
-
-<hr class="primary"/>
-<h2> Excerpts </h2>
-<p>Please find the excerpts below:
-    <h5> Wind </h5>
-        <ul>
-            <li> <a href="{% static 'website/media/excerpts/BWP/Flute.pdf' %}">Flute excerpt</a> </li>
-            <li> <a href="{% static 'website/media/excerpts/BWP/Clarinet.pdf' %}">Clarinet excerpt</a></li>
-            <li> <a href="{% static 'website/media/excerpts/BWP/Oboe.pdf' %}">Oboe excerpt</a></li>
-            <li> <a href="{% static 'website/media/excerpts/BWP/Bassoon.pdf' %}">Bassoon excerpt</a></li>
-        </ul>
-    <h5> Brass </h5>
-    <ul>
-        <li> <a href="{% static 'website/media/excerpts/BWP/Trumpet.pdf' %}">Trumpet excerpt</a> </li>
-        <li> <a href="{% static 'website/media/excerpts/BWP/Horn.pdf' %}">French Horn excerpt</a></li>
-        <li> <a href="{% static 'website/media/excerpts/BWP/Tenor Trombone.pdf' %}">Tenor trombone excerpt</a></li>
-        <li> <a href="{% static 'website/media/excerpts/BWP/Bass Trombone.pdf' %}">Bass trombone excerpt</a></li>
-        <li> <a href="{% static 'website/media/excerpts/BWP/Tuba.pdf' %}">Tuba excerpt</a></li>
-        <li> <a href="{% static 'website/media/excerpts/BWP/Cor Anglais.pdf' %}">Cor anglais excerpt</a></li>
-    </ul>
-    <h5> Percussion </h5>
-    <ul>
-        <li> <a href="{% static 'website/media/excerpts/BWP/Percussion.pdf' %}">All excerpts</a> </li>
-        <li> <a href="{% static 'website/media/excerpts/BWP/Piano.pdf' %}">Piano excerpt</a></li>
-    </ul>
-    Players will be assessed on rhythmical and musical accuracy over tempo.
-</p>
-
-<hr class="primary"/>
-<h2> Bookings </h2>
-<p>To book an audition please select a time below and complete the booking process. Can percussionists please book auditions on the Tuesday evening. If you are having any difficulties, please contact <a href="mailto:webmaster&#64;kelvin-ensemble.co.uk">webmaster@kelvin-ensemble.co.uk</a>. Please can players arrive ten minutes before the time they have booked so they can warm up.</p>
-</div>
-<hr class="primary"/>
-<h4>Thank you and good luck!</h4>
-<br/><br/>
-<iframe class="audition-iframe" src="https://bwp-kelvin-ensemble-auditions.youcanbook.me/?noframe=true&skipHeaderFooter=true" onload="keepInView(this);"></iframe>
-<!--<script>function keepInView(item) {if((document.documentElement&&document.documentElement.scrollTop)||document.body.scrollTop>item.offsetTop)item.scrollIntoView();}</script>
--->
-
-{% endblock %}
+    <div class="left_align_text allow_bullets">
+        <h2>About the audition</h2>
+        <p>
+            The audition will consist of:
+            <ol>
+                <li>one prepared piece of your own choice</li>
+                <li>
+                    an excerpt that<!--will be made available closer to the time--> can be found below
+                </li>
+            </ol>
+        </p>
+        <p>Your chosen piece should be approximately 3-5 minutes long - the panel may stop you after this time.</p>
+        <p>
+            Weekend auditions will take place in the University Music Department, 14 University Gardens (<a href="https://maps.apple.com/?address=14%20University%20Gardens,%20Glasgow,%20G12%208QH,%20Scotland&ll=55.873276,-4.290721&q=14%20University%20Gardens&_ext=EiQpvK4n00TkS0AxwB0to6TNEcA5Or2tXkP7S0BBIP6A18CFEMA%3D&t=m">Apple Maps</a>, <a href = "https://goo.gl/maps/omaW9XZrHfBeQJi16">Google Maps</a>) - just along from the Queen Margaret Union on the 28th and the 29th of September.
+            <br>
+            Tuesday evening auditions will be in the  <a href="https://frontdoor.spa.gla.ac.uk/map/embedded.html#!/?to=1040216">Concert Hall, Main Building</a> (next to Hunter Halls) on the 1st of October.
+            <hr class="primary" />
+            <h2>Excerpts</h2>
+            <p>
+                Please find the excerpts below:
+                <h5>Wind</h5>
+                <ul>
+                    <li>
+                        <a href="{% static 'website/media/excerpts/BWP/Flute.pdf' %}">Flute excerpt</a>
+                    </li>
+                    <li>
+                        <a href="{% static 'website/media/excerpts/BWP/Clarinet.pdf' %}">Clarinet excerpt</a>
+                    </li>
+                    <li>
+                        <a href="{% static 'website/media/excerpts/BWP/Oboe.pdf' %}">Oboe excerpt</a>
+                    </li>
+                    <li>
+                        <a href="{% static 'website/media/excerpts/BWP/Bassoon.pdf' %}">Bassoon excerpt</a>
+                    </li>
+                </ul>
+                <h5>Brass</h5>
+                <ul>
+                    <li>
+                        <a href="{% static 'website/media/excerpts/BWP/Trumpet.pdf' %}">Trumpet excerpt</a>
+                    </li>
+                    <li>
+                        <a href="{% static 'website/media/excerpts/BWP/Horn.pdf' %}">French Horn excerpt</a>
+                    </li>
+                    <li>
+                        <a href="{% static 'website/media/excerpts/BWP/Tenor Trombone.pdf' %}">Tenor trombone excerpt</a>
+                    </li>
+                    <li>
+                        <a href="{% static 'website/media/excerpts/BWP/Bass Trombone.pdf' %}">Bass trombone excerpt</a>
+                    </li>
+                    <li>
+                        <a href="{% static 'website/media/excerpts/BWP/Tuba.pdf' %}">Tuba excerpt</a>
+                    </li>
+                    <li>
+                        <a href="{% static 'website/media/excerpts/BWP/Cor Anglais.pdf' %}">Cor anglais excerpt</a>
+                    </li>
+                </ul>
+                <h5>Percussion</h5>
+                <ul>
+                    <li>
+                        <a href="{% static 'website/media/excerpts/BWP/Percussion.pdf' %}">All excerpts</a>
+                    </li>
+                    <li>
+                        <a href="{% static 'website/media/excerpts/BWP/Piano.pdf' %}">Piano excerpt</a>
+                    </li>
+                </ul>
+                Players will be assessed on rhythmical and musical accuracy over tempo.
+            </p>
+            <hr class="primary" />
+            <h2>Bookings</h2>
+            <p>
+                To book an audition please select a time below and complete the booking process. Can percussionists please book auditions on the Tuesday evening. If you are having any difficulties, please contact <a href="mailto:webmaster&#64;kelvin-ensemble.co.uk">webmaster@kelvin-ensemble.co.uk</a>. Please can players arrive ten minutes before the time they have booked so they can warm up.
+            </p>
+        </div>
+        <hr class="primary" />
+        <h4>Thank you and good luck!</h4>
+        <br />
+        <br />
+        <iframe class="audition-iframe"
+                src="https://bwp-kelvin-ensemble-auditions.youcanbook.me/?noframe=true&skipHeaderFooter=true"
+                onload="keepInView(this);"></iframe>
+        <!--<script>function keepInView(item) {if((document.documentElement&&document.documentElement.scrollTop)||document.body.scrollTop>item.offsetTop)item.scrollIntoView();}</script>
+                        -->
+    {% endblock %}

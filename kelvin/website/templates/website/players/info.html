@@ -1,86 +1,73 @@
 {% extends "website/base/subbase.html" %}
 {% load static %}
-
 {% block extrastyle %}
-<style>	
+    <style>
   #page-header {
     background-image: url("{% static 'website/media/img/headers/players/infoo.jpg' %}");
   }
-</style>
+    </style>
 {% endblock %}
-
-{% block title %}
-Kelvin Info
-{% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-info fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block header %}
-Kelvin Info
-{% endblock %}
-
+{% block title %}Kelvin Info{% endblock %}
+{% block page-icon %}<i class="fa fa-info fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}Kelvin Info{% endblock %}
 {% block content %}
-
-<div class="left_align_text allow_bullets">
-    <!--<h2> COVID-19 Update </h2>
+    <div class="left_align_text allow_bullets">
+        <!--<h2> COVID-19 Update </h2>
     <p>
     Unfortunately, we won't be able to play as a full orchestra until it's safe and legal. Until then we plan on a strings only programme for first semester with brass, wind and percussion beginning to rehearse when it is allowed. We can't wait to get playing again.
     </p>-->
-    <h2> About Kelvin </h2>
-    <p>
-    The Kelvin Ensemble (commonly referred to as Kelvin) is the student-run orchestra for students at universities in Glasgow.  We are a very friendly group of people, studying a wide range of courses, and are passionate about music!
-    </p>
-    <p>
-    We usually start auditioning for members at the end of September, and hold one concert at the end of Semester 1 (November) and Semester 2 (March).  We also have a tour every May, after the end of exams.
-    </p>
-    <!-- <p>
+        <h2>About Kelvin</h2>
+        <p>
+            The Kelvin Ensemble (commonly referred to as Kelvin) is the student-run orchestra for students at universities in Glasgow.  We are a very friendly group of people, studying a wide range of courses, and are passionate about music!
+        </p>
+        <p>
+            We usually start auditioning for members at the end of September, and hold one concert at the end of Semester 1 (November) and Semester 2 (March).  We also have a tour every May, after the end of exams.
+        </p>
+        <!-- <p>
     The only member of the orchestra who is not a student is our professional conductor!  This year, we are lucky to have <a href = "/conductor"> John Grant</a>, who is returning to conduct Kelvin.
     </p> -->
-    <!-- <hr class="primary"/> -->
-    <h2> Music </h2>
-    We play a wide range of symphony music, chosen by the Kelvin <a href = "/committee">committee</a>.  Last year, our repertoire included the works of Tchaikovsky, 
-    Antonín Dvořák, Georges Bizet, Copland and more.  A full list of our previous concerts can be found on the <a href = "/past-concerts">Past Concerts</a> page.
-    <p>
-    </p>
-    <!-- <hr class="primary"/> -->
-    <h2> Rehearsals </h2>
-    <p>
-    We usually have regular rehearsals on Tuesday evenings in the Concert Hall — one of the rooms within the Main Building of the University of Glasgow.
-    We will often have additional rehearsals in the weekends during the run-up to concerts.
-    </p>
-    <!-- <hr class="primary"/> -->
-    <!-- <h2>Fresher's Week</h2>
+        <!-- <hr class="primary" /> -->
+        <h2>Music</h2>
+        We play a wide range of symphony music, chosen by the Kelvin <a href = "/committee">committee</a>.  Last year, our repertoire included the works of Tchaikovsky,
+        Antonín Dvořák, Georges Bizet, Copland and more.  A full list of our previous concerts can be found on the <a href = "/past-concerts">Past Concerts</a> page.
+        <p></p>
+        <!-- <hr class="primary" /> -->
+        <h2>Rehearsals</h2>
+        <p>
+            We usually have regular rehearsals on Tuesday evenings in the Concert Hall — one of the rooms within the Main Building of the University of Glasgow.
+            We will often have additional rehearsals in the weekends during the run-up to concerts.
+        </p>
+        <!-- <hr class="primary" /> -->
+        <!-- <h2>Fresher's Week</h2>
     <p>
     If you would like to find out more, we will be holding an open rehearsal during the Glasgow Uni Fresher's Week in September.   -->
-    <!-- This year, the open rehearsal is on Saturday 21st September 14:00 - 16:00 in the UofG <a href= "https://frontdoor.spa.gla.ac.uk/map/embedded.html#!/?to=1040216"> Concert Hall</a>.
+        <!-- This year, the open rehearsal is on Saturday 21st September 14:00 - 16:00 in the UofG <a href= "https://frontdoor.spa.gla.ac.uk/map/embedded.html#!/?to=1040216"> Concert Hall</a>.
     <br></br>
     We will also be part of the 2019 University of Glasgow Fresher's Fair on both Tuesday and Wednesday.  Feel free to talk to us and find out more. -->
-    <!-- </p> -->
-    <!-- <hr class="primary"/> -->
-    <div id="join">
-    <h2> Auditions </h2>
-    <p>
-    We have many people eager to join Kelvin, so we hold auditions at the beginning of each academic year.
-    For more information, please visit the <a href="join">Join</a> page.
-    </p>
-    
-   <!-- Auditions will be on 28th &amp; 29th of September (Brass/Woodwind), 1st of October (Percussion and Strings overflow), and 3rd &amp; 4th of October (Strings).
+        <!-- </p> -->
+        <!-- <hr class="primary" /> -->
+        <div id="join">
+            <h2>Auditions</h2>
+            <p>
+                We have many people eager to join Kelvin, so we hold auditions at the beginning of each academic year.
+                For more information, please visit the <a href="join">Join</a> page.
+            </p>
+            <!-- Auditions will be on 28th &amp; 29th of September (Brass/Woodwind), 1st of October (Percussion and Strings overflow), and 3rd &amp; 4th of October (Strings).
     </p>
     <p>
       To book an audition time, head over to the <a href="join">Join</a> page for information and the booking page.
     </p> -->
-</div>
-
-    <!-- <hr class="primary"/> -->
-<h2> Constitution </h2>
-<p>The Kelvin Ensemble's Constitution can be downloaded <a href="{% static 'website/media/KelvinConstitution2023.pdf' %}">here</a>.</p>
- </div>
-<hr class="primary"/>
-
-Scottish Charity No: SC022303<br/>
-The Department of Music, University of Glasgow <br/>
-14 University Gardens, Glasgow, G12 8QQ
-
+        </div>
+        <!-- <hr class="primary" /> -->
+        <h2>Constitution</h2>
+        <p>
+            The Kelvin Ensemble's Constitution can be downloaded <a href="{% static 'website/media/KelvinConstitution2023.pdf' %}">here</a>.
+        </p>
+    </div>
+    <hr class="primary" />
+    Scottish Charity No: SC022303
+    <br />
+    The Department of Music, University of Glasgow
+    <br />
+    14 University Gardens, Glasgow, G12 8QQ
 {% endblock %}
