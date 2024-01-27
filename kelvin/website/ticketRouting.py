@@ -76,7 +76,7 @@ def stripe_webhook(request):
     except:
         print('⚠️  Webhook error while parsing basic request. \n')
     if endpoint_secret:
-        sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+        sig_header = request.headers['stripe-signature']
         try:
             event = stripe.Webhook.construct_event(
                 payload, sig_header, endpoint_secret

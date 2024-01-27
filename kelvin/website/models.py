@@ -17,7 +17,7 @@ class Concert(models.Model):
 class Ticket_Type(models.Model):
     ticket_label = models.CharField(max_length=40)
     Ticket_ID = models.CharField(max_length=40)
-    Linked_Tickets = models.ForeignKey("Ticket_Type", blank=True, null=True)
+    Linked_Tickets = models.ForeignKey("Ticket_Type", on_delete=models.CASCADE, blank=True, null=True)
     def __str__(self):
         return self.ticket_label
 
