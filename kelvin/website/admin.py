@@ -14,9 +14,14 @@ class ticketsAdmin(ExportActionMixin, admin.ModelAdmin):
     search_help_text = "Search for matching name, email or transaction ID."
 
 
+class ticketTypesAdmin(admin.ModelAdmin):
+    readonly_fields = ["Quantity_available", "Linked_sold"]
+    filter_horizontal = ["Linked_Tickets"]
+
+
 admin.site.site_header = "Kelvin Ensemble Web Admin"
 admin.site.site_title = "Kelvin Ensemble Web Admin"
 
 admin.site.register(Concert)
-admin.site.register(TicketType)
+admin.site.register(TicketType, ticketTypesAdmin)
 admin.site.register(Ticket, ticketsAdmin)

@@ -85,6 +85,7 @@
 
   #selectorButtonL {
       background-color: #FCFCFC;
+      color: black;
       border: none;
       display: inline-block;
       height: 100%;
@@ -116,6 +117,7 @@
 
   #selectorButtonR {
       background-color: #FCFCFC;
+      color: black;
       border: none;
       display: inline-block;
       height: 100%;
@@ -144,16 +146,22 @@
     <script>
     tickets = []
 
-    {% for concert in settings.CONCERT_LIST %}
-        {% for ticket in concert.tickets %}
-            {% if ticket.qtyAvail|is_numeric %}
-                tickets.push({
-                    ticketID: '{{ ticket.ticketID }}',
-                    qtyAvail: {{ ticket.qtyAvail }},
-                    linkedProducts: {{ ticket.linkedProducts }},
-                    qtySelected: 0
-                })
+    {% for concert in concerts %}
+        {% for ticket in TicketTypes %}
+            var ticketInfo = {
+                ticketID: '{{ ticket.Price_ID }}',
+                qtyAvail: {{ ticket.Quantity_available }},
+                linkedProducts: [],
+                qtySelected: 0
+            }
+
+            {% if ticket.Linked_Tickets.count > 0 %}
+                {% for linked in ticket.Linked_Tickets.all %}
+                    ticketInfo.linkedProducts.push("{{ linked.Price_ID }}")
+                {% endfor %}
             {% endif %}
+
+            tickets.push(ticketInfo)
         {% endfor %}
     {% endfor %}
 
@@ -191,10 +199,11 @@
             linkedSelected = 0
             for (let i = 0; i<ticket.linkedProducts.length; i++) {
                 console.log("found linked: ", ticket.linkedProducts[i])
-                linkedSelected += tickets[ticket.linkedProducts[i]].qtySelected
+                linkedSelected += tickets[tickets.findIndex(p => p.ticketID == ticket.linkedProducts[i])].qtySelected
             }
 
             if (ticket.qtySelected + linkedSelected >= ticket.qtyAvail) {
+                console.log("rButtonContainer_"+ticket.ticketID)
                 document.getElementById("rButtonContainer_"+ticket.ticketID).children[0].disabled = true
             } else if (document.getElementById("rButtonContainer_"+ticket.ticketID).children[0].disabled) {
                 document.getElementById("rButtonContainer_"+ticket.ticketID).children[0].disabled = false
@@ -228,7 +237,7 @@
 
             for (let i = 0; i<ticket.linkedProducts.length; i++) {
                 console.log("found linked: ", ticket.linkedProducts[i])
-                linkedSelected += tickets[ticket.linkedProducts[i]].qtySelected
+                linkedSelected += tickets[tickets.findIndex(p => p.ticketID == ticket.linkedProducts[i])].qtySelected
             }
             console.log("Selected due to link: ", linkedSelected)
 
@@ -388,67 +397,68 @@
             </p>
             <p style="font-size:0.875em; padding-top:5%">Last Updated: 14/03/2023</p>
         </div>
-        {% for concert in settings.CONCERT_LIST %}
+        {% for concert in concerts %}
             <div class="bg-primary full-small-padding ticket-info text-white">
-                <h3>{{ concert.date }}</h3>
-                <p>Tickets for {{ concert.date }} are now available for purchase below:</p>
-                {# For every ticket type, it generates the form #}
-                {% for ticket in concert.tickets %}
-                    {% if ticket.qtyAvail %}
-                        {% if ticket.qtyAvail|is_numeric %}
-                            {% if ticket.qtyAvail > 0 %}
+                <h3>{{ concert.Concert_Date|date:"l dS F Y" }}</h3>
+                {% if concert.Concert_Status == "FS"  %}
+
+                    <p>Tickets for {{ concert.Concert_Date|date:"dS M Y" }} are now available for purchase below:</p>
+                    {# For every ticket type, it generates the form #}
+                    {% for ticket in TicketTypes %}
+                        {% if ticket.for_concert == concert and ticket.display_ticket %}
+                            {% if ticket.Quantity_available > 0 %}
                                 <div class="row" id="ticketRow">
                                     <div class="col-9">
-                                        <label for="ticketType">{{ ticket.ticketLabel }}</label>
+                                        <label for="ticketType">{{ ticket.ticket_label }}</label>
                                     </div>
                                     <div class="col-3" style="float:right; height: 100%; width:100%;">
                                         <div class="row" id="selector">
                                             <div class="col-4"
-                                                 id="lButtonContainer_{{ ticket.ticketID }}"
+                                                 id="lButtonContainer_{{ ticket.Price_ID }}"
                                                  style="height:100%;
                                                         width:100%;
                                                         padding: 0px 0px">
-                                                <button id="selectorButtonL" onclick="changeQty('-','{{ ticket.ticketID }}')">-</button>
+                                                <button id="selectorButtonL" onclick="changeQty('-','{{ ticket.Price_ID }}')">-</button>
                                             </div>
                                             <div class="col-4" style="height:100%; width:100%; padding: 0px 0px">
-                                                <label for="ticketQuantity" class="selectorQty" id="{{ ticket.ticketID }}">0</label>
+                                                <label for="ticketQuantity" class="selectorQty" id="{{ ticket.Price_ID }}">0</label>
                                             </div>
                                             <div class="col-4"
-                                                 id="rButtonContainer_{{ ticket.ticketID }}"
+                                                 id="rButtonContainer_{{ ticket.Price_ID }}"
                                                  style="height:100%;
                                                         width:100%;
                                                         padding: 0px 0px">
-                                                <button id="selectorButtonR" onclick="changeQty('+','{{ ticket.ticketID }}')">+</button>
+                                                <button id="selectorButtonR" onclick="changeQty('+','{{ ticket.Price_ID }}')">+</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             {% else %}
                                 <p>
-                                    <strong>{{ ticket.ticketLabel }}</strong> have now sold out. Please see other ticket options or check back again soon for a waitlist.
+                                    <strong>{{ ticket.ticket_label }}</strong> tickets have now sold out. Please see other ticket options or check back again soon for a waitlist.
                                 </p>
                             {% endif %}
                         {% endif %}
-                    {% endif %}
-                {% endfor %}
-                <p>
-                    <br>
-                    Please note: In the event that limited tickets remain, you may be unable to select your desired quantity.
-                    <br>
-                    Thank you for your understanding.
-                </p>
-                <div class="col-3"
-                     style="margin: auto;
-                            text-align: center;
-                            height: 100%;
-                            width: 100%;
-                            padding-top: 0.2rem;
-                            padding-bottom: 0.2rem">
-                    <input type="submit"
-                           id="purchaseButton"
-                           value="Purchase"
-                           onclick="sendPurchase()">
-                </div>
+                    {% endfor %}
+                    <p>
+                        <br>
+                        Please note: In the event that limited tickets remain, you may be unable to select your desired quantity and ticket availability is not guaranteed until the completion of the checkout process.
+                        <br>
+                        Thank you for your understanding.
+                    </p>
+                    <div class="col-3"
+                         style="margin: auto;
+                                text-align: center;
+                                height: 100%;
+                                width: 100%;
+                                padding-top: 0.2rem;
+                                padding-bottom: 0.2rem">
+                        <input type="submit"
+                               id="purchaseButton"
+                               value="Purchase"
+                               onclick="sendPurchase()">
+                    </div>
+                {% endif %}
                 <br>
                 <br>
             </div>

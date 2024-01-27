@@ -4,9 +4,17 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 import datetime
 from django.views.decorators.csrf import csrf_exempt
+from website.models import Concert, TicketType
+
+# This try thing is here because pyCharm sucks and I need it, so I get hints because im forgetful.
+try:
+    from kelvin.website.models import Concert, TicketType
+except Exception as e:
+    print("Exception: ", str(e))
 
 sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + "/")
 from ticketRouting import payment_page
+from ticketing import updateQuantities
 
 
 # home
@@ -20,7 +28,15 @@ def concerts(request):
         print("redirecting to payment")
         redirect("payment")
     else:
-        return render(request, "website/concerts.html")
+        updateQuantities()
+        return render(
+            request,
+            "website/concerts.html",
+            {
+                "concerts": Concert.objects.all(),
+                "TicketTypes": TicketType.objects.all(),
+            },
+        )
 
 
 # players

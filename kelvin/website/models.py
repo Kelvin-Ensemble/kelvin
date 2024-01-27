@@ -20,6 +20,7 @@ class Concert(models.Model):
     )
     Concert_Status = models.CharField(max_length=2, choices=status_choices)
     Concert_Date = models.DateTimeField(default=datetime.now, blank=True)
+    Concert_location = models.TextField(default="")
 
     def __str__(self):
         return self.Concert_Nickname
@@ -37,7 +38,7 @@ class TicketType(models.Model):
         default=None,
         null=True,
     )
-    Ticket_ID = models.CharField(
+    Price_ID = models.CharField(
         max_length=40,
         help_text="This will be the price ID supplied by STRIPE which you can obtain via the treasurer. Refer to the webmaster bible's payments section for more information",
     )
@@ -45,6 +46,33 @@ class TicketType(models.Model):
         "TicketType",
         blank=True,
         help_text="This should auto-populate when saving as long as the STRIPE products and prices are set up correctly. If this does not happen it may be done manually here. However it is not recommended.",
+    )
+    display_ticket = models.BooleanField(
+        default=False,
+        help_text="When ticked, this will show as a purchasable ticket. This should only be false for complimentary tickets.",
+    )
+    # Product_ID = models.CharField(max_length=40, blank=True, null=True, default="",
+    #                               help_text="This data is automatically taken from STRIPE")
+
+    Total_ticket_count = models.IntegerField(
+        blank=True,
+        null=True,
+        default=0,
+        help_text="This data is automatically taken from STRIPE metadata",
+    )
+
+    # ReadOnly Values
+    Quantity_sold = models.IntegerField(
+        blank=True, null=True, default=0, help_text="This populates automatically"
+    )
+    Linked_sold = models.IntegerField(
+        blank=True, null=True, default=0, help_text="This populates automatically"
+    )
+    Quantity_available = models.IntegerField(
+        blank=True,
+        null=True,
+        default=0,
+        help_text="This populates automatically (Total - sold - linked_sold)",
     )
 
     def __str__(self):

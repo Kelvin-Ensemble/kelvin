@@ -51,14 +51,12 @@
     <h2>Thanks, {{ customer.name }}!</h2>
     <p>&nbsp;&nbsp;&nbsp;</p>
     <p>
-        Thank you for purchasing tickets to the <b>{{ settings.CONCERT_NAME }}</b>. We will shortly be sending your tickets to your registered email address at: <strong>{{ customer.email }}</strong>.
+        Thank you for purchasing tickets to our concert! We will shortly be sending your tickets to your registered email address at: <strong>{{ customer.email }}</strong>.
         <br>
         We look forward to welcoming you on the day!
+        <br>
+        The programme can be found attached to the confirmation email.
     </p>
-    {% if settings.CONCERT_PROGRAMMELINK %}
-        <p>Please find the concert programme below:</p>
-        <iframe src={{ settings.CONCERT_PROGRAMMELINK }} width="100%" height="500px"></iframe>
-    {% endif %}
     <!-- Photos are now available on our <a href="https://www.facebook.com/kelvinensemble">Facebook</a>. &#128247; -->
 </p>
 <!-- <hr class="primary small-padding" /> -->
