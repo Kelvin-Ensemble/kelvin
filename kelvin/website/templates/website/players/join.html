@@ -1,45 +1,30 @@
 {% extends "website/base/subbase.html" %}
 {% load static %}
-
 {% block extrastyle %}
-<style>	
+    <style>
 	#page-header {
 		background-image: url("{% static 'website/media/img/headers/players/joinn.jpg' %}");
 	}
-</style>
+    </style>
 {% endblock %}
-
-{% block title %}
-Join Kelvin
-{% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-thumbs-o-up fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block header %}
-Join Kelvin
-{% endblock %}
-
+{% block title %}Join Kelvin{% endblock %}
+{% block page-icon %}<i class="fa fa-thumbs-o-up fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}Join Kelvin{% endblock %}
 {% block content %}
-<h2> Auditions Currently Closed </h2>
-<hr class="primary"/>
-<div class="left_align_text allow_bullets">
-	<p>
-		We’re really excited to see that you’re interested in applying for Kelvin.
-		At Kelvin we wish for the orchestra to be as satisfying and challenging as possible while
-		keeping things fair for all members.  To achieve this, the orchestra is auditioned new each
-		year, regardless if you are a new or previous member.
-	</p>
-
-	<p>
-		Auditions for 2023-2024 are now finished.  Thank you very much if you auditioned; we were delighted by the interest in the orchestra this year.  The standards of all auditions were exceptional.  As a consequence, unfortunately we were unable to accept every player this year.  We are really sorry if you were unsuccessful, and would like to encourage you to retry in the future.
-	</p>
-
-	<p>
-		More information about 2024-2025 auditions will be made available in September 2024.
-	</p>
-<!--	<hr class="primary"/>
+    <h2>Auditions Currently Closed</h2>
+    <hr class="primary" />
+    <div class="left_align_text allow_bullets">
+        <p>
+            We’re really excited to see that you’re interested in applying for Kelvin.
+            At Kelvin we wish for the orchestra to be as satisfying and challenging as possible while
+            keeping things fair for all members.  To achieve this, the orchestra is auditioned new each
+            year, regardless if you are a new or previous member.
+        </p>
+        <p>
+            Auditions for 2023-2024 are now finished.  Thank you very much if you auditioned; we were delighted by the interest in the orchestra this year.  The standards of all auditions were exceptional.  As a consequence, unfortunately we were unable to accept every player this year.  We are really sorry if you were unsuccessful, and would like to encourage you to retry in the future.
+        </p>
+        <p>More information about 2024-2025 auditions will be made available in September 2024.</p>
+        <!--	<hr class="primary" />
 	<h2 style='margin-bottom: 16px;'> About the Audition </h2>
 	<p>
 		We are pleased to inform you that we would be having face-to-face auditions this year!
@@ -51,11 +36,11 @@ Join Kelvin
 		ability in its best light. Don't worry if you have to cut the piece short.
 	</p> 
 
-	<p >Your auditions will be assessed by the audition panel.</p>
-	<p >Please check below in the applicable category to see the excerpts, sign up, and book your audition slots.</p>
+	<p>Your auditions will be assessed by the audition panel.</p>
+	<p>Please check below in the applicable category to see the excerpts, sign up, and book your audition slots.</p>
 
 	<p style='margin-top: -22px;'><strong>The closing date for auditions is the 27th September.</strong></p>
-    <hr class="primary"/>
+    <hr class="primary" />
 
     <h2>BWP (Brass, Wind & Percussion)</h2>
     <br>
@@ -65,11 +50,9 @@ Join Kelvin
         Brass & wind auditions will be held on <b>Saturday 30th September & Sunday 1st October</b> at <b>14 University Gardens</b>, from <b>9am-5pm</b>.
     </p>
     <p>Please fill <a href="https://forms.gle/i7T8j8Gxjco24Csx9">this form</a> before booking a slot below.</p>
-    <script src="https://embed.ycb.me"
-	async="true"
-	data-domain="bwp-kelvin-ensemble-auditions"></script>
+    <script src="https://embed.ycb.me" async="true" data-domain="bwp-kelvin-ensemble-auditions"></script>
 
-    <hr class="primary"/>
+    <hr class="primary" />
 
     <h2>Strings</h2>
     <br>
@@ -79,25 +62,23 @@ Join Kelvin
 
     </p>
     <p>Please fill <a href="https://forms.gle/i7T8j8Gxjco24Csx9">this form</a> before booking a slot below.</p>
-    <script src="https://embed.ycb.me"
-	async="true"
-	data-domain="string-kelvin-ensemble-auditions"></script>
+    <script src="https://embed.ycb.me" async="true" data-domain="string-kelvin-ensemble-auditions"></script>
 
-    <hr class="primary"/>
+    <hr class="primary" />
 
     <p>Please send us an email if you are not able to make these dates and we’ll try to accommodate.</p>
     <a href="mailto:bwp@kelvin-ensemble.co.uk">BWP Manager (bwp@kelvin-ensemble.co.uk)</a>
     <a href="mailto:stringmanager@kelvin-ensemble.co.uk">String Manager (stringmanager@kelvin-ensemble.co.uk)</a>
 -->
-    <!--
-<hr class="primary"/>
+        <!--
+<hr class="primary" />
 <h2 style='margin-bottom: 16px;'> Audition Dates and Venues </h2>
 <p> Percussion: 26th September at Concert Hall, Main Building </p>
 <p> Strings: 24th/25th September at 14 University Gardens </p>
 <p> Woodwind, Brass and Harp: 30th September & 1st October at 14 University Gardens </p>
 -->
-    <!--
-	<hr class="primary"/>
+        <!--
+	<hr class="primary" />
 <h2 style='margin-bottom: 16px;'> Excerpts </h2>
 <p>Please find the excerpts below:
     <h5> Strings </h5>
@@ -108,15 +89,14 @@ Join Kelvin
     <ul>
         <li> <a href="{% static 'website/media/excerpts/2023/BWPExcerpts.pdf' %}">All Excerpts</a></li>
     </ul> -->
-	<!-- 
+        <!--
 	<h5> Percussion </h5>
 	<p>	
-		Please register your interest in playing by emailing the <a href="mailto:bwp@kelvin-
-		ensemble.co.uk">BWP manager</a>.
+		Please register your interest in playing by emailing the <a href="mailto:bwp@kelvin- ensemble.co.uk">BWP manager</a>.
 	</p>
 -->
-<!--
-<hr class="primary"/>
+        <!--
+<hr class="primary" />
 <h2 style='margin-bottom: 16px;'> Audition Bookings </h2>
 <p> You could visit the following links to book auditions: </p>
 <ul>
@@ -125,7 +105,7 @@ Join Kelvin
 </ul>
 <p><strong>Please also fill out <a href="https://forms.gle/i7T8j8Gxjco24Csx9">this form</a> to complete your audition booking.</strong></p>
 <p>Please send us an email if you are not able to make these dates and we’ll try to accommodate.</p> -->
-	<!-- <hr class="primary"/>
+        <!-- <hr class="primary" />
 	<p>
 		Please message your video and a picture of the sheet music that you’re playing to the Kelvin
 		ensemble <a href="https://www.facebook.com/kelvinensemble">Facebook page</a>
@@ -134,16 +114,10 @@ Join Kelvin
 		either stringmanager@kelvin-ensemble.co.uk if you play strings or bwp@kelvin-ensemble.co.uk if
 		you play brass or woodwind. Please also share a picture of the sheet music you are playing from and
 		put your name in the title of the picture.
-	</p> -->
-
-	<!-- <p>
-		If you have any issues or questions please message us on <a href="https://www.facebook.com/kelvinensemble">Facebook</a> or email the <a href="mailto:bwp@kelvin-
-		ensemble.co.uk">BWP manager</a> or <a href="mailto:stringmanager@kelvin-ensemble.co.uk">string manager</a> and they will get back to you.
-	</p> -->
-	
-	<!-- <p><strong>Please remember to fill out <a href="https://forms.gle/bi4CVb8CnSj7br4GA">this form</a> to complete your audition.</strong></p> -->
-	
-</div>
-	
-	{% endblock %}
-	
+</p> -->
+        <!-- <p>
+		If you have any issues or questions please message us on <a href="https://www.facebook.com/kelvinensemble">Facebook</a> or email the <a href="mailto:bwp@kelvin- ensemble.co.uk">BWP manager</a> or <a href="mailto:stringmanager@kelvin-ensemble.co.uk">string manager</a> and they will get back to you.
+</p> -->
+        <!-- <p><strong>Please remember to fill out <a href="https://forms.gle/bi4CVb8CnSj7br4GA">this form</a> to complete your audition.</strong></p> -->
+    </div>
+{% endblock %}

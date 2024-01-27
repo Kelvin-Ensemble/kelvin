@@ -1,6 +1,8 @@
-
-
-{% extends "website/base/subbase.html" %} {% load static %} {% load my_filters %}  {% block extrastyle %} <style>
+{% extends "website/base/subbase.html" %}
+{% load static %}
+{% load my_filters %}
+{% block extrastyle %}
+    <style>
   #page-header {
     background-image: url("{% static 'website/media/img/headers/concert.jpg' %}");
   }
@@ -138,9 +140,8 @@
   }
 
 
-</style>
-
-<script>
+    </style>
+    <script>
     tickets = []
 
     {% for concert in settings.CONCERT_LIST %}
@@ -246,202 +247,235 @@
         updateButtons()
     }
 
-</script>
-
+    </script>
 {% endblock %}
-
-{% block title %} Upcoming Concerts {% endblock %}
-{% block page-icon %} <i class="fa fa-music fa-3x sr-contact text-white header-icon"></i> {% endblock %}
-{% block header %} Upcoming Concerts {% endblock %}
-
+{% block title %}Upcoming Concerts{% endblock %}
+{% block page-icon %}<i class="fa fa-music fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}Upcoming Concerts{% endblock %}
 {% block content %}
-
     <!-- CONCERT STATUSES CHANGE RELEVANT SECTION WHEN REQUIRED -->
-
     <!-- CONCERT OVER PAGE -->
     {% if settings.CONCERT_STATUS == 'over' %}
-        <h2> No Upcoming Concerts </h2>
-        <p> &nbsp;&nbsp;&nbsp; </p>
-        <p> Thank you to everyone who came to our <b>Autumn 2023 - Around the UK</b> concert. <br> We hope you enjoyed watching it as much as we did performing it!</p>
-
-        <br> <br>
-
-        <p>Please keep an eye on this page for photos update! <br> </p>
-
+        <h2>No Upcoming Concerts</h2>
+        <p>&nbsp;&nbsp;&nbsp;</p>
+        <p>
+            Thank you to everyone who came to our <b>Autumn 2023 - Around the UK</b> concert.
+            <br>
+            We hope you enjoyed watching it as much as we did performing it!
+        </p>
+        <br>
+        <br>
+        <p>
+            Please keep an eye on this page for photos update!
+            <br>
+        </p>
         <!--
         <p>Photos are now available <a href=>here</a>. &#128247; </p>
         -->
     {% endif %}
-
     <!-- CONCERT UPCOMING PAGE -->
     {% if settings.CONCERT_STATUS == 'upcoming' %}
-        <h2> Tickets available soon! </h2>
-        <p> &nbsp;&nbsp;&nbsp; </p>
-        <p> Tickets will soon be available to purchase for:<br> <br> <b>Autumn 2023 - Around the UK</b> <br> <br> Please
+        <h2>Tickets available soon!</h2>
+        <p>&nbsp;&nbsp;&nbsp;</p>
+        <p>
+            Tickets will soon be available to purchase for:
+            <br>
+            <br>
+            <b>Autumn 2023 - Around the UK</b>
+            <br>
+            <br>
+            Please
             visit this page again soon to check if tickets are on sale. This will also be announced on our facebook
-            which you can find at the bottom of this page</p>
+            which you can find at the bottom of this page
+        </p>
     {% endif %}
-
     <!-- TICKETS FOR SALE PAGE -->
     {% if settings.CONCERT_STATUS == 'forsale' %}
         <div>
-            <h2> Autumn 2023 Concert: Around the UK</h2> <br>
+            <h2>Autumn 2023 Concert: Around the UK</h2>
+            <br>
             <p>
-            <strong> We are happy to announce our next concert will be on 18<sup>th</sup> <b>AND</b> 19<sup>th</sup> November 2023 with the theme Around the UK! </strong>
-
-                <br>The concert programme can be found below!
+                <strong> We are happy to announce our next concert will be on 18<sup>th</sup> <b>AND</b> 19<sup>th</sup> November 2023 with the theme Around the UK! </strong>
+                <br>
+                The concert programme can be found below!
             </p>
             <div class="grid-container">
                 <div class="grid-item">
-                    <img src="{% static 'website/media/img/concerts/nov23.jpg' %}" alt="November 2023 Concert" width="100%">
-                    </img>
-                </div>
-                <div class="grid-item">
-                    <h4> Dates </h4>
-                    <p>
-                        1. Saturday 18<sup>th</sup> November 2023, 19:30
-                    </p>
-                    <p>
-                        2. Sunday 19<sup>th</sup> November 2023, 14:30
-                        </p>
-                    <h4> Location </h4>
-                    <p>
-                    Bute Hall<br>
-                    The University of Glasgow,<br>
-                    University Avenue,<br>
-                    Glasgow,<br>
+                    <img src="{% static 'website/media/img/concerts/nov23.jpg' %}"
+                         alt="November 2023 Concert"
+                         width="100%">
+                </img>
+            </div>
+            <div class="grid-item">
+                <h4>Dates</h4>
+                <p>
+                    1. Saturday 18<sup>th</sup> November 2023, 19:30
+                </p>
+                <p>
+                    2. Sunday 19<sup>th</sup> November 2023, 14:30
+                </p>
+                <h4>Location</h4>
+                <p>
+                    Bute Hall
+                    <br>
+                    The University of Glasgow,
+                    <br>
+                    University Avenue,
+                    <br>
+                    Glasgow,
+                    <br>
                     G12 8QQ
-                    </p>
-                    <p>
-                    <strong> Get Directions: </strong> <a href="https://goo.gl/maps/1ppK1t3AKqrJMkSj8"> Google Maps </a> |
-                    <a
-                        href="https://maps.apple.com/place?q=University%20of%20Glasgow&ll=55.871452573004944%2C-4.288519620895386&auid=6303513611846241548&lsp=9902&address=Glasgow%2C%20G12%208QQ%2C%20Scotland">
-                        Apple Maps </a>
-                    </p>
-                    <p>
-                    The university is easily accessible from the Subway.  The nearest station is Hillhead.
-                    </p>
-                    <p>
-                    There is limited free parking available on the UofG campus during the weekend.  For more information, please see the <a href = "https://www.gla.ac.uk/myglasgow/estates/parkingattheuniversity/visitorparking/">UofG website</a>.
-                    </p>
-                </div>
-            </div>
-        </div>
-    {% endif %}
-
-    <!-- TICKETS SOLD OUT PAGE -->
-    {% if settings.CONCERT_STATUS == 'soldout' %}
-        <div class="highlight-section">
-            <!-- Sold Out Form Section (uncomment to add support for Sold Out form)-->
-            <div>
-                <h5>
-                    <strong>SOLD OUT!</strong>
-                </h5>
-                <p> Unfortunately, tickets for this concert are no longer available for purchase online. Tickets may still be available at the door. </p>
-                <p> The form below could be filled in to be added in a waiting list in case a ticket holder can no longer attend the concert. </p>
-            </div>
-            <script async defer src="https://formfacade.com/include/108007679701008707894/form/1FAIpQLScL9wubGI6a8GUfuyxA5DvMyo-ymUvuoP37byWxhRpZS1kEOQ/classic.js?div=ff-compose"></script>
-            <br>
-            <div class="bg-primary full-small-padding ticket-info text-white" id="ff-compose">
-                <p style="font-size:0.875em"> By submitting this form, you agree to allow for us to contact you at the email above if tickets become available. </p>
+                </p>
                 <p>
-                    <i>If the form doesn't work on your browser, try https://forms.gle/SAQnspSuyaCu5HkM7</i>
+                    <strong>Get Directions:</strong> <a href="https://goo.gl/maps/1ppK1t3AKqrJMkSj8">Google Maps</a> |
+                    <a href="https://maps.apple.com/place?q=University%20of%20Glasgow&ll=55.871452573004944%2C-4.288519620895386&auid=6303513611846241548&lsp=9902&address=Glasgow%2C%20G12%208QQ%2C%20Scotland">
+                    Apple Maps </a>
+                </p>
+                <p>The university is easily accessible from the Subway.  The nearest station is Hillhead.</p>
+                <p>
+                    There is limited free parking available on the UofG campus during the weekend.  For more information, please see the <a href="https://www.gla.ac.uk/myglasgow/estates/parkingattheuniversity/visitorparking/">UofG website</a>.
                 </p>
             </div>
-            <br>
         </div>
-    {% endif %}
-
-
+    </div>
+{% endif %}
+<!-- TICKETS SOLD OUT PAGE -->
+{% if settings.CONCERT_STATUS == 'soldout' %}
+    <div class="highlight-section">
+        <!-- Sold Out Form Section (uncomment to add support for Sold Out form)-->
+        <div>
+            <h5>
+                <strong>SOLD OUT!</strong>
+            </h5>
+            <p>
+                Unfortunately, tickets for this concert are no longer available for purchase online. Tickets may still be available at the door.
+            </p>
+            <p>
+                The form below could be filled in to be added in a waiting list in case a ticket holder can no longer attend the concert.
+            </p>
+        </div>
+        <script async
+                defer
+                src="https://formfacade.com/include/108007679701008707894/form/1FAIpQLScL9wubGI6a8GUfuyxA5DvMyo-ymUvuoP37byWxhRpZS1kEOQ/classic.js?div=ff-compose"></script>
+        <br>
+        <div class="bg-primary full-small-padding ticket-info text-white"
+             id="ff-compose">
+            <p style="font-size:0.875em">
+                By submitting this form, you agree to allow for us to contact you at the email above if tickets become available.
+            </p>
+            <p>
+                <i>If the form doesn't work on your browser, try https://forms.gle/SAQnspSuyaCu5HkM7</i>
+            </p>
+        </div>
+        <br>
+    </div>
+{% endif %}
 <!-- CONCERT PAGE PART 2 -->
-
-    {% if settings.CONCERT_STATUS == 'forsale' %}
-        <div class="highlight-section">
+{% if settings.CONCERT_STATUS == 'forsale' %}
+    <div class="highlight-section">
+        <div class="bg-primary full-small-padding ticket-info text-white">
+            <h3>Tickets</h3>
+            <p>
+                Tickets are available for purchase below. Please <a href="mailto:treasurer@kelvin-ensemble.co.uk" style="color: white">let us know</a> if you have any issues.
+            </p>
+            <p>
+                <strong>Standard:</strong> &pound;10
+                <br>
+                <strong>Concession (Students/Under 18s/Seniors):</strong> &pound;5
+            </p>
+            <p>
+                Upon purchase you will be sent a confirmation email. This is not your ticket, which will be sent to you closer to the date.
+            </p>
+            <p style="font-size:0.875em; padding-top:5%">Last Updated: 14/03/2023</p>
+        </div>
+        {% for concert in settings.CONCERT_LIST %}
             <div class="bg-primary full-small-padding ticket-info text-white">
-                <h3>Tickets</h3>
-                <p> Tickets are available for purchase below. Please <a href="mailto:treasurer@kelvin-ensemble.co.uk" style="color: white">let us know</a> if you have any issues. </p>
-                <p>
-                    <strong>Standard:</strong> &pound;10 <br>
-                    <strong>Concession (Students/Under 18s/Seniors):</strong> &pound;5
-                </p>
-                <p>Upon purchase you will be sent a confirmation email. This is not your ticket, which will be sent to you closer to the date.</p>
-
-
-
-                <p style="font-size:0.875em; padding-top:5%"> Last Updated: 14/03/2023 </p>
-            </div>
-
-            {% for concert in settings.CONCERT_LIST %}
-                <div class="bg-primary full-small-padding ticket-info text-white">
-                    <h3>{{ concert.date }}</h3>
-                    <p>Tickets for {{ concert.date }} are now available for purchase below:</p>
-                    {# For every ticket type, it generates the form #}
-                    {% for ticket in concert.tickets %}
-                    {% if ticket.qtyAvail  %}
-                    {% if ticket.qtyAvail|is_numeric %}
-                    {% if ticket.qtyAvail > 0 %}
-                    <div class="row" id="ticketRow">
-                        <div class="col-9">
-                            <label for="ticketType">{{ ticket.ticketLabel }}</label>
-                        </div>
-                        <div class="col-3" style="float:right; height: 100%; width:100%;">
-                            <div class="row" id="selector">
-                                <div class="col-4" id="lButtonContainer_{{ ticket.ticketID }}" style="height:100%; width:100%; padding: 0px 0px">
-                                    <button id="selectorButtonL" onclick="changeQty('-','{{ ticket.ticketID }}')">-</button>
+                <h3>{{ concert.date }}</h3>
+                <p>Tickets for {{ concert.date }} are now available for purchase below:</p>
+                {# For every ticket type, it generates the form #}
+                {% for ticket in concert.tickets %}
+                    {% if ticket.qtyAvail %}
+                        {% if ticket.qtyAvail|is_numeric %}
+                            {% if ticket.qtyAvail > 0 %}
+                                <div class="row" id="ticketRow">
+                                    <div class="col-9">
+                                        <label for="ticketType">{{ ticket.ticketLabel }}</label>
+                                    </div>
+                                    <div class="col-3" style="float:right; height: 100%; width:100%;">
+                                        <div class="row" id="selector">
+                                            <div class="col-4"
+                                                 id="lButtonContainer_{{ ticket.ticketID }}"
+                                                 style="height:100%;
+                                                        width:100%;
+                                                        padding: 0px 0px">
+                                                <button id="selectorButtonL" onclick="changeQty('-','{{ ticket.ticketID }}')">-</button>
+                                            </div>
+                                            <div class="col-4" style="height:100%; width:100%; padding: 0px 0px">
+                                                <label for="ticketQuantity" class="selectorQty" id="{{ ticket.ticketID }}">0</label>
+                                            </div>
+                                            <div class="col-4"
+                                                 id="rButtonContainer_{{ ticket.ticketID }}"
+                                                 style="height:100%;
+                                                        width:100%;
+                                                        padding: 0px 0px">
+                                                <button id="selectorButtonR" onclick="changeQty('+','{{ ticket.ticketID }}')">+</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-4" style="height:100%; width:100%; padding: 0px 0px">
-                                    <label for="ticketQuantity" class="selectorQty" id="{{ ticket.ticketID }}">0</label>
-                                </div>
-                                <div class="col-4" id="rButtonContainer_{{ ticket.ticketID }}" style="height:100%; width:100%; padding: 0px 0px">
-                                    <button id="selectorButtonR" onclick="changeQty('+','{{ ticket.ticketID }}')">+</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    {% else %}
-                    <p><strong>{{ ticket.ticketLabel }}</strong> have now sold out. Please see other ticket options or check back again soon for a waitlist.</p>
-                    {% endif %}
-                    {% endif %}
+                            {% else %}
+                                <p>
+                                    <strong>{{ ticket.ticketLabel }}</strong> have now sold out. Please see other ticket options or check back again soon for a waitlist.
+                                </p>
+                            {% endif %}
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
-                    <p><br>Please note: In the event that limited tickets remain, you may be unable to select your desired quantity.<br>Thank you for your understanding.</p>
-                    <div class="col-3" style="margin: auto; text-align: center; height: 100%; width: 100%; padding-top: 0.2rem; padding-bottom: 0.2rem">
-                    <input type="submit" id="purchaseButton" value="Purchase" onclick="sendPurchase()">
-                    </div>
-                    <br><br>
+                <p>
+                    <br>
+                    Please note: In the event that limited tickets remain, you may be unable to select your desired quantity.
+                    <br>
+                    Thank you for your understanding.
+                </p>
+                <div class="col-3"
+                     style="margin: auto;
+                            text-align: center;
+                            height: 100%;
+                            width: 100%;
+                            padding-top: 0.2rem;
+                            padding-bottom: 0.2rem">
+                    <input type="submit"
+                           id="purchaseButton"
+                           value="Purchase"
+                           onclick="sendPurchase()">
                 </div>
-
-            {% endfor %}
-
-        </div>
-    {% endif %}
-    <!-- Playlists -->
-    <!--
+                <br>
+                <br>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+<!-- Playlists -->
+<!--
     <div><center>
 
             If you would like to familiarise yourself with the music beforehand, feel free to add these playlists to your
             library:
-            </p><div class="playlists"><iframe src= width="100%"
-                    height="450" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe><iframe src=
-                    height="450px" frameborder="0"
-                    sandbox="allow-forms allow-popups allow-same-origin allow-ticketing allow-top-navigation-by-user-activation"
-                    allow="autoplay *; encrypted-media *;"
-                    style="width: 100%; max-width: 900px; overflow: hidden; border-radius: 10px; background: transparent;"></iframe></div><p style="font-size:0.875em">
+            </p><div class="playlists"><iframe src= width="100%" height="450" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe><iframe src= height="450px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-ticketing allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *;" style="width: 100%; max-width: 900px; overflow: hidden; border-radius: 10px; background: transparent;"></iframe></div><p style="font-size:0.875em">
             &#8592; Scroll to switch between Spotify and Apple Music &#8594;
         </p></center></div>
     -->
-    {%  if settings.CONCERT_STATUS == "notyet" %}
-        <p>Details about our upcoming concert have not yet been released. We will update this page as soon as we are ready.<br><br>Please check back again soon!</p>
-        <br><br>
-    {%  endif %}
-
-
-
-
-
-
-      <!-- <div><center><h3> Facebook Event </h3><p>
+{% if settings.CONCERT_STATUS == "notyet" %}
+    <p>
+        Details about our upcoming concert have not yet been released. We will update this page as soon as we are ready.
+        <br>
+        <br>
+        Please check back again soon!
+    </p>
+    <br>
+    <br>
+{% endif %}
+<!-- <div><center><h3> Facebook Event </h3><p>
     The Facebook event for the concert is available <a href="https://www.facebook.com/events/749505646782458/749526153447074?acontext=%7B%22event_action_history%22%3A[%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22surface%22%2C%22surface%22%3A%22permalink%22%7D%2C%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22surface%22%2C%22surface%22%3A%22permalink%22%7D%2C%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22surface%22%2C%22surface%22%3A%22permalink%22%7D]%2C%22ref_notif_type%22%3Anull%7D">here</a>.
     </p><p>
     Concert updates will be posted on Facebook.  In the event of a major change to the concert, we will email everyone who has purchased tickets.
@@ -450,8 +484,7 @@
     </p></center><p>
         The Facebook event would be posted soon!
     </p></center></div> -->
-      <!-- <div><center><h3> Concert Programme </h3><p>Please find the concert programme below, or download <a href="{% static 'website/media/programme/spring23.pdf' %}">here</a>.</p><script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script><div id="adobe-dc-view" style="height: 450px; width: 100%;"></div><script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script><script type="text/javascript">
-
+<!-- <div><center><h3> Concert Programme </h3><p>Please find the concert programme below, or download <a href="{% static 'website/media/programme/spring23.pdf' %}">here</a>.</p><script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script><div id="adobe-dc-view" style="height: 450px; width: 100%;"></div><script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script><script type="text/javascript">
   document.addEventListener("adobe_dc_view_sdk.ready", function(){
 
     var adobeDCView = new AdobeDC.View({clientId: "b448788912c846d6a846e9e8408b6453", divId: "adobe-dc-view"});
@@ -467,18 +500,19 @@
   });
 
 </script></center></div> -->
-      <div>
-        <center>
-          <p>
+<div>
+    <center>
+        <p>
             <b>Please do not hesitate to <a href="mailto:webmaster@kelvin-ensemble.co.uk" style="color: black">reach out</a> if there are any questions. </b>
-          </p>
-        </center>
-      </div>
-      <!-- <hr class="primary small-padding"/> -->
-      <!-- <h3>Kelvin Tour</h3><div class="left_align_text allow_bullets"><p>
+        </p>
+    </center>
+</div>
+<!-- <hr class="primary small-padding" /> -->
+<!-- <h3>Kelvin Tour</h3><div class="left_align_text allow_bullets"><p>
 We are going on tour to Northern Ireland!
 </p><p>We are looking for:</p><p><ul><li> 1 horn </li><li> 1 violin </li><li> 1 viola </li></ul></p><p>If you are interested, or would like more information, please contact the <a href="mailto:tourmanager@kelvin-ensemble.co.uk">Tour Manager</a>.
 </p></p> -->
-      <!--
-<br/><br/><div><b>Date:</b> Thursday 31st May</div><div><b>Venue:</b> Kendal Parish Church</div><div>Directions <a href="https://goo.gl/maps/rmUQcwdS4Bz" target='_blank'>here</a></div><hr class="primary"/><div><b>Date:</b> Saturday 2nd June</div><div><b>Venue:</b> Arran High School, Lamlash</div><div>Directions <a href="https://goo.gl/maps/DaafivFttqv" target='_blank'>here</a></div><hr class="primary"/><div><b>Date:</b> Sunday 3rd June</div><div><b>Venue:</b> Glasgow University Memorial Chapel</div><div>Directions <a href="https://goo.gl/maps/WKbX8tVqwUu" target='_blank'>here</a></div>
---> {% endblock %}
+<!--
+<br /><br /><div><b>Date:</b> Thursday 31st May</div><div><b>Venue:</b> Kendal Parish Church</div><div>Directions <a href="https://goo.gl/maps/rmUQcwdS4Bz" target='_blank'>here</a></div><hr class="primary" /><div><b>Date:</b> Saturday 2nd June</div><div><b>Venue:</b> Arran High School, Lamlash</div><div>Directions <a href="https://goo.gl/maps/DaafivFttqv" target='_blank'>here</a></div><hr class="primary" /><div><b>Date:</b> Sunday 3rd June</div><div><b>Venue:</b> Glasgow University Memorial Chapel</div><div>Directions <a href="https://goo.gl/maps/WKbX8tVqwUu" target='_blank'>here</a></div>
+-->
+{% endblock %}

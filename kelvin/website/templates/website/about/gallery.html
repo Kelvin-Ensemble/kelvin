@@ -1,346 +1,365 @@
 {% extends "website/base/subbase.html" %}
 {% load static %}
-
 {% block extrastyle %}
-<link rel="stylesheet" href="{% static 'website/vendor/bootstrap-gallery-fluid/baguetteBox.min.css' %}">
-<link rel="stylesheet" href="{% static 'website/vendor/bootstrap-gallery-fluid/fluid-gallery.css' %}">
-
-<style>	
+    <link rel="stylesheet"
+          href="{% static 'website/vendor/bootstrap-gallery-fluid/baguetteBox.min.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'website/vendor/bootstrap-gallery-fluid/fluid-gallery.css' %}">
+    <style>
 	#page-header {
 		background-image: url("{% static 'website/media/img/headers/about/gallery.jpg' %}");
 	}
-</style>
+    </style>
 {% endblock %}
-
-{% block title %}
-Gallery
-{% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-picture-o fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block header %}
-Gallery
-{% endblock %}
-
+{% block title %}Gallery{% endblock %}
+{% block page-icon %}<i class="fa fa-picture-o fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}Gallery{% endblock %}
 {% block content %}
-
-<h4>Ball 2020</h4>
-<div class="container gallery-container">
-  <div class="tz-gallery">
-    <div class="row">
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_ball/1.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_ball/1.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_ball/2.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_ball/2.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_ball/3.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_ball/3.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-12 col-md-6">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_ball/4.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_ball/4.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-12 col-md-6">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_ball/5.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_ball/5.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_ball/6.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_ball/6.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_ball/7.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_ball/7.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_ball/8.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_ball/8.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_ball/9.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_ball/9.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_ball/10.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_ball/10.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_ball/11.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_ball/11.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
+    <h4>Ball 2020</h4>
+    <div class="container gallery-container">
+        <div class="tz-gallery">
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_ball/1.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_ball/1.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_ball/2.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_ball/2.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_ball/3.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_ball/3.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_ball/4.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_ball/4.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_ball/5.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_ball/5.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_ball/6.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_ball/6.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_ball/7.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_ball/7.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_ball/8.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_ball/8.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_ball/9.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_ball/9.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_ball/10.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_ball/10.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_ball/11.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_ball/11.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
-<hr class="primary">
-
-<h4>Spring 2020</h4>
-<div class="container gallery-container">
-  <div class="tz-gallery">
-    <div class="row">
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_spring/1.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_spring/1.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_spring/2.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_spring/2.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_spring/3.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_spring/3.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-12 col-md-6">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_spring/4.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_spring/4.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-12 col-md-6">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_spring/5.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_spring/5.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_spring/6.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_spring/6.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_spring/7.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_spring/7.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_spring/8.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_spring/8.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_spring/9.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_spring/9.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_spring/10.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_spring/10.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2020_spring/11.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2020_spring/11.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
+    <hr class="primary">
+    <h4>Spring 2020</h4>
+    <div class="container gallery-container">
+        <div class="tz-gallery">
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_spring/1.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_spring/1.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_spring/2.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_spring/2.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_spring/3.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_spring/3.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_spring/4.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_spring/4.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_spring/5.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_spring/5.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_spring/6.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_spring/6.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_spring/7.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_spring/7.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_spring/8.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_spring/8.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_spring/9.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_spring/9.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_spring/10.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_spring/10.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2020_spring/11.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2020_spring/11.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
-<hr class="primary">
-
-
-<h4>Autmn 2019</h4>
-<div class="container gallery-container">
-  <div class="tz-gallery">
-    <div class="row">
-
-      <div class="col-sm-12 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2019_autmn/1.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2019_autmn/1.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2019_autmn/2.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2019_autmn/2.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2019_autmn/3.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2019_autmn/3.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-12 col-md-6">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2019_autmn/4.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2019_autmn/4.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-12 col-md-6">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2019_autmn/5.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2019_autmn/5.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2019_autmn/6.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2019_autmn/6.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2019_autmn/7.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2019_autmn/7.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2019_autmn/8.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2019_autmn/8.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2019_autmn/9.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2019_autmn/9.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2019_autmn/10.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2019_autmn/10.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/2019_autmn/11.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/2019_autmn/11.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
+    <hr class="primary">
+    <h4>Autmn 2019</h4>
+    <div class="container gallery-container">
+        <div class="tz-gallery">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2019_autmn/1.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2019_autmn/1.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2019_autmn/2.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2019_autmn/2.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2019_autmn/3.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2019_autmn/3.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2019_autmn/4.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2019_autmn/4.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2019_autmn/5.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2019_autmn/5.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2019_autmn/6.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2019_autmn/6.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2019_autmn/7.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2019_autmn/7.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2019_autmn/8.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2019_autmn/8.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2019_autmn/9.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2019_autmn/9.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2019_autmn/10.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2019_autmn/10.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/2019_autmn/11.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/2019_autmn/11.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
-<hr class="primary">
-
-<h4>Older</h4>
-<div class="container gallery-container">
-  <div class="tz-gallery">
-    <div class="row">
-
-      <div class="col-sm-12 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/older/1.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/older/thumbnail/1.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/older/2.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/older/thumbnail/2.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/older/3.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/older/thumbnail/3.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-12 col-md-6">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/older/4.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/older/thumbnail/4.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-12 col-md-6">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/older/5.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/older/thumbnail/5.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/older/6.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/older/thumbnail/6.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/older/7.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/older/thumbnail/7.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/older/8.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/older/thumbnail/8.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/older/9.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/older/thumbnail/9.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/older/10.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/older/thumbnail/10.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
-      <div class="col-sm-6 col-md-4">
-        <a class="lightbox" href="{% static 'website/media/img/gallery/older/11.jpg' %}">
-          <img src="{% static 'website/media/img/gallery/older/thumbnail/11.jpg' %}" alt="Sticks">
-        </a>
-      </div>
-
+    <hr class="primary">
+    <h4>Older</h4>
+    <div class="container gallery-container">
+        <div class="tz-gallery">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/older/1.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/older/thumbnail/1.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/older/2.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/older/thumbnail/2.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/older/3.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/older/thumbnail/3.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/older/4.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/older/thumbnail/4.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/older/5.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/older/thumbnail/5.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/older/6.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/older/thumbnail/6.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/older/7.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/older/thumbnail/7.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/older/8.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/older/thumbnail/8.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/older/9.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/older/thumbnail/9.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/older/10.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/older/thumbnail/10.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <a class="lightbox"
+                       href="{% static 'website/media/img/gallery/older/11.jpg' %}">
+                        <img src="{% static 'website/media/img/gallery/older/thumbnail/11.jpg' %}"
+                             alt="Sticks">
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
-<!-- Author -->
-<h4>Photos by <a href="https://www.stuch-photo.com">Neil Stuchbury</a></h4>
-
+    <!-- Author -->
+    <h4>
+        Photos by <a href="https://www.stuch-photo.com">Neil Stuchbury</a>
+    </h4>
 {% endblock %}
-
 {% block extrascripts %}
-<script src="{% static 'website/vendor/bootstrap-gallery-fluid/baguetteBox.min.js' %}"></script>
-<script>
-  baguetteBox.run('.tz-gallery');
-</script>
+    <script src="{% static 'website/vendor/bootstrap-gallery-fluid/baguetteBox.min.js' %}"></script>
+    <script>baguetteBox.run('.tz-gallery');</script>
 {% endblock %}

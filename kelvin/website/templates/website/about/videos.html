@@ -1,71 +1,63 @@
 {% extends "website/base/subbase.html" %}
 {% load static %}
-
 {% block extrastyle %}
-<style>	
+    <style>
 	#page-header {
 		background-image: url("{% static 'website/media/img/headers/about/video.jpg' %}");
 	}
-</style>
+    </style>
 {% endblock %}
-
-{% block title %}
-Videos
-{% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-video-camera fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block header %}
-Videos
-{% endblock %}
-
+{% block title %}Videos{% endblock %}
+{% block page-icon %}<i class="fa fa-video-camera fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}Videos{% endblock %}
 {% block content %}
-
-<p>Bizet - Carmen</p>
-<div class="row">
-  <div class="col-lg-8 col-md-8 col-centered">
-    <iframe class="video-iframe-big" src="https://www.youtube.com/embed/EEVYNUBuBHA" allowfullscreen></iframe>
-  </div>
-</div>
-
-<hr class="primary">
-
-<p>Saint-Sa&euml;ns - Piano Concerto No. 2 with Alexa Stier</p>
-<div class="row">
-  <div class="col-lg-8 col-md-8 col-centered">
-    <iframe class="video-iframe-big" src="https://www.youtube-nocookie.com/embed/w57NcTnKshM" allowfullscreen></iframe>
-  </div>
-</div>
-
-<hr class="primary">
-
-<p>Tchaikovsky - 1812 Overture</p>
-<div class="row">
-  <div class="col-lg-8 col-md-8 col-centered">
-    <iframe class="video-iframe-big" src="//www.youtube-nocookie.com/embed/WKvvUP7__sQ" allowfullscreen></iframe>
-  </div>
-</div>
-
-<hr class="primary">
-
-<p>Kelvin Ensemble's newest video recordings can be found on our YouTube channel <a href="https://www.youtube.com/channel/UCr2-_bhHmy1GCkXIBB33q0A" target="_blank">here</a>.
-
-<hr class="primary">
-
-<p>Our Spring 2014 concert can be viewed in HD in 3 parts: </p>
-
-<div class="row">
-  <div class="col-lg-4 col-md-6">
-    <iframe class="video-iframe-small" src="//www.youtube-nocookie.com/embed/OL3V2dytb4Y" allowfullscreen></iframe>
-  </div>
-  <div class="col-lg-4 col-md-6">
-    <iframe class="video-iframe-small" src="//www.youtube-nocookie.com/embed/axxSrfTrCCg" allowfullscreen></iframe>
-  </div>
-  <div class="col-lg-4 col-md-6">
-    <iframe class="video-iframe-small" src="//www.youtube-nocookie.com/embed/_tSONSNQvDU" allowfullscreen></iframe>
-  </div>
-</div>
-
-{% endblock %}
+    <p>Bizet - Carmen</p>
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-centered">
+            <iframe class="video-iframe-big"
+                    src="https://www.youtube.com/embed/EEVYNUBuBHA"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+    <hr class="primary">
+    <p>Saint-Sa&euml;ns - Piano Concerto No. 2 with Alexa Stier</p>
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-centered">
+            <iframe class="video-iframe-big"
+                    src="https://www.youtube-nocookie.com/embed/w57NcTnKshM"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+    <hr class="primary">
+    <p>Tchaikovsky - 1812 Overture</p>
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-centered">
+            <iframe class="video-iframe-big"
+                    src="//www.youtube-nocookie.com/embed/WKvvUP7__sQ"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+    <hr class="primary">
+    <p>
+        Kelvin Ensemble's newest video recordings can be found on our YouTube channel <a href="https://www.youtube.com/channel/UCr2-_bhHmy1GCkXIBB33q0A"
+    target="_blank">here</a>.
+        <hr class="primary">
+        <p>Our Spring 2014 concert can be viewed in HD in 3 parts:</p>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <iframe class="video-iframe-small"
+                        src="//www.youtube-nocookie.com/embed/OL3V2dytb4Y"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <iframe class="video-iframe-small"
+                        src="//www.youtube-nocookie.com/embed/axxSrfTrCCg"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <iframe class="video-iframe-small"
+                        src="//www.youtube-nocookie.com/embed/_tSONSNQvDU"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    {% endblock %}

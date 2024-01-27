@@ -1,35 +1,34 @@
-
 {% load static %}
-
 {% block navbar %}
-
-<!-- Footer -->
-<footer class="footer bg-primary">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 ml-auto text-center">
-        <a class="text-white" href="https://www.facebook.com/kelvinensemble/">
-          <i class="fa fa-facebook-square fa-3x sr-contact text-white"></i>
-          <p>Kelvin's Facebook Page</p>
-        </a>
-      </div>
-      <div class="col-md-3 ml-auto text-center">
-        <a class="text-white" href="https://www.instagram.com/kelvinensemble/">
-          <i class="fa fa-instagram fa-3x sr-contact text-white"></i>
-          <p>Kelvin's Instagram</p>
-        </a>
-      </div>
-      <div class="col-md-3 ml-auto text-center">
-        <a class="text-white" href="http://www.rsno.org.uk/">
-          <img class="sr-contact border-radius-med" src="{% static 'website/media/img/sponsors/rsno-footer.jpg' %}" alt="rsno logo"/>
-          <p>Affiliated with the RSNO</p>
-        </a>
-      </div>
-      <div class="col-md-3 ml-auto text-center">
-        <i class="fa fa-copyright fa-3x sr-contact text-white"></i>
-        <p class="text-white">Kelvin Ensemble {% now "Y" %}</p>
-      </div>
-    </div>
-  </div>
-</footer>
+    <!-- Footer -->
+    <footer class="footer bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 ml-auto text-center">
+                    <a class="text-white" href="https://www.facebook.com/kelvinensemble/">
+                        <i class="fa fa-facebook-square fa-3x sr-contact text-white"></i>
+                        <p>Kelvin's Facebook Page</p>
+                    </a>
+                </div>
+                <div class="col-md-3 ml-auto text-center">
+                    <a class="text-white" href="https://www.instagram.com/kelvinensemble/">
+                        <i class="fa fa-instagram fa-3x sr-contact text-white"></i>
+                        <p>Kelvin's Instagram</p>
+                    </a>
+                </div>
+                <div class="col-md-3 ml-auto text-center">
+                    <a class="text-white" href="http://www.rsno.org.uk/">
+                        <img class="sr-contact border-radius-med"
+                             src="{% static 'website/media/img/sponsors/rsno-footer.jpg' %}"
+                             alt="rsno logo" />
+                        <p>Affiliated with the RSNO</p>
+                    </a>
+                </div>
+                <div class="col-md-3 ml-auto text-center">
+                    <i class="fa fa-copyright fa-3x sr-contact text-white"></i>
+                    <p class="text-white">Kelvin Ensemble {% now "Y" %}</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 {% endblock %}

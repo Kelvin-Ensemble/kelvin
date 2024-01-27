@@ -1,39 +1,22 @@
 {% extends "website/base/subbase.html" %}
 {% load static %}
-
 {% block extrastyle %}
-<style>	
+    <style>
 	#page-header {
 		background-image: url("{% static 'website/media/img/headers/players/joinn.jpg' %}");
 	}
-</style>
+    </style>
 {% endblock %}
-
-{% block title %}
-Composition Competition
-{% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-pencil fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block header %}
-Composition Competition
-{% endblock %}
-
+{% block title %}Composition Competition{% endblock %}
+{% block page-icon %}<i class="fa fa-pencil fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}Composition Competition{% endblock %}
 {% block content %}
-
-<div class="left_align_text allow_bullets">
-
-
-    <h2 style="text-align: center"> No competition planned </h2>
-
-    <hr class="primary"/>
-    <p style="text-align: center">There is currently no composition competition planned.</p>
-<p style="text-align: center">Stay updated by following us on our socials, to find out when the next one of these competitions will be.</p>
-
-
-</div>
-
-	{% endblock %}
-	
+    <div class="left_align_text allow_bullets">
+        <h2 style="text-align: center">No competition planned</h2>
+        <hr class="primary" />
+        <p style="text-align: center">There is currently no composition competition planned.</p>
+        <p style="text-align: center">
+            Stay updated by following us on our socials, to find out when the next one of these competitions will be.
+        </p>
+    </div>
+{% endblock %}
