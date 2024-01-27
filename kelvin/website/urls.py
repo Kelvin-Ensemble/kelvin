@@ -1,53 +1,49 @@
-
-from django.conf.urls import url
+from django.urls import path, re_path
 
 from . import views
 from . import ticketRouting
 from django.contrib import admin
 
-import os,sys
-sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + '/')
+import os, sys
+
+sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + "/")
 
 urlpatterns = [
-    #home
-    url(r'^$', views.home, name='home'),
-
-    #concerts
-    url(r'^concerts$', views.concerts, name='concerts'),
-
-    #payments
-    url(r'^payment_successful$', ticketRouting.payment_successful, name='payment_successful'),
+    # home
+    path("", views.home, name="home"),
+    # concerts
+    path("concerts", views.concerts, name="concerts"),
+    # payments
+    path(
+        "payment_successful",
+        ticketRouting.payment_successful,
+        name="payment_successful",
+    ),
     # url(r'^payment_cancelled$', ticketRouting.payment_cancelled, name='payment_cancelled'),
-    url(r'^stripe_webhook$', ticketRouting.stripe_webhook, name='stripe_webhook'),
-    url(r'^payment$', ticketRouting.payment_page, name='payment'),
-
-    #players
-    url(r'^info$', views.info, name='info'),
-    url(r'^calendar$', views.calendar, name='calendar'),
-    url(r'^join$', views.join, name='join'),
-    url(r'^composition$', views.composition, name='composition'),
+    path("stripe_webhook", ticketRouting.stripe_webhook, name="stripe_webhook"),
+    path("payment", ticketRouting.payment_page, name="payment"),
+    # players
+    path("info", views.info, name="info"),
+    path("calendar", views.calendar, name="calendar"),
+    path("join", views.join, name="join"),
+    path("composition", views.composition, name="composition"),
     # Comment out lines below to deactivate URLs when auditions are not taking place.
     # url(r'^string-auditions$', views.stringAuditions, name='string-auditions'),
     # url(r'^bwp-auditions$', views.bwpAuditions, name='bwp-auditions'),
-
-    #about
-    url(r'^past-concerts$', views.pastConcerts, name='past-concerts'),
-    url(r'^history$', views.history, name='history'),
-    url(r'^gallery$', views.gallery, name='gallery'),
-    url(r'^videos$', views.videos, name='videos'),
-    url(r'^committee$', views.committee, name='committee'),
-    url(r'^associates$', views.associates, name='associates'),
-    url(r'^conductor$', views.conductor, name='conductor'),
-    
-    #contact
-    url(r'^contact$', views.contact, name='contact'),
-    url(r'^mailing-list$', views.mailingList, name='mailing-list'),
-    url(r'^support$', views.support, name='support'),
-
-    #404
-    url(r'^', views.notFound, name='404'),
-
-        
+    # about
+    path("past-concerts", views.pastConcerts, name="past-concerts"),
+    path("history", views.history, name="history"),
+    path("gallery", views.gallery, name="gallery"),
+    path("videos", views.videos, name="videos"),
+    path("committee", views.committee, name="committee"),
+    path("associates", views.associates, name="associates"),
+    path("conductor", views.conductor, name="conductor"),
+    # contact
+    path("contact", views.contact, name="contact"),
+    path("mailing-list", views.mailingList, name="mailing-list"),
+    path("support", views.support, name="support"),
+    # 404
+    re_path(r"^", views.notFound, name="404"),
 ]
 
 # import timedFunctions
