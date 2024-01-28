@@ -12,7 +12,8 @@ urlpatterns = [
     # home
     path("", views.home, name="home"),
     # concerts
-    path("concerts", views.concerts, name="concerts"),
+    path("concerts_new", views.concerts, name="concerts"),
+    path("concerts", views.concerts_old, name="concerts"),
     # payments
     path(
         "payment_successful",

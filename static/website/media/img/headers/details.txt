@@ -1,1 +1,0 @@
-images are 1920x300, and have a layer on top of them, filled with rgb(25,25,25) opacity 50

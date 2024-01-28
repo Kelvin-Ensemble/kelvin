@@ -38,6 +38,9 @@ def concerts(request):
             },
         )
 
+def concerts_old(request):
+    return render(request, "website/no_concert.html")
+
 
 # players
 def info(request):
