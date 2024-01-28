@@ -1,39 +1,31 @@
 {% extends "website/base/subbase.html" %}
-{% load static from staticfiles %}
-
+{% load static %}
 {% block extrastyle %}
-<style>	
+    <style>
 	#page-header {
 		background-image: url("{% static 'website/media/img/headers/about/associatess.jpg' %}");
 	}
-</style>
+    </style>
 {% endblock %}
-
-{% block title %}
-Associates
-{% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-info-circle fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block header %}
-Associates
-{% endblock %}
-
+{% block title %}Associates{% endblock %}
+{% block page-icon %}<i class="fa fa-info-circle fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}Associates{% endblock %}
 {% block content %}
-
-<p>Photographer: Neil Stuchbury<br/>
-<a href="https://www.stuch-photo.com">www.stuch-photo.com</a></p>
-
-<hr class="primary">
-
-<p>Sound Engineer: Lewis Lyall<br/>
-From the moment he completed his studies at Glasgow's Riverside Music Complex, Lewis had been looking for a good excuse to buy loads of really expensive recording equipment. Thankfully he became involved with the ensemble not long after, and has since been desperately trying to justify his spending by capturing their wonderful performances in digital audio form.  Usually found working in the background and pretending to know what's going on, Lewis is living proof that being part of an orchestra does not require any musical talent whatsoever.</p>
-
-<hr class="primary">
-
-<p>Poster Designer: Eve Campbell<br/>
-You can see some of Eve's work on <a href="https://www.instagram.com/evecampbelltextiles/" target="_blank">Instagram</a> and contact her at <a href="mailto:evecampbell1@hotmail.co.uk" target="_blank">evecampbell1@hotmail.co.uk </a>.</p>
-
+    <p>
+        Photographer: Neil Stuchbury
+        <br />
+        <a href="https://www.stuch-photo.com">www.stuch-photo.com</a>
+    </p>
+    <hr class="primary">
+    <p>
+        Sound Engineer: Lewis Lyall
+        <br />
+        From the moment he completed his studies at Glasgow's Riverside Music Complex, Lewis had been looking for a good excuse to buy loads of really expensive recording equipment. Thankfully he became involved with the ensemble not long after, and has since been desperately trying to justify his spending by capturing their wonderful performances in digital audio form.  Usually found working in the background and pretending to know what's going on, Lewis is living proof that being part of an orchestra does not require any musical talent whatsoever.
+    </p>
+    <hr class="primary">
+    <p>
+        Poster Designer: Eve Campbell
+        <br />
+        You can see some of Eve's work on <a href="https://www.instagram.com/evecampbelltextiles/" target="_blank">Instagram</a> and contact her at <a href="mailto:evecampbell1@hotmail.co.uk" target="_blank">evecampbell1@hotmail.co.uk</a>.
+    </p>
 {% endblock %}

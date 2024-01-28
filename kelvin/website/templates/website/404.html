@@ -1,26 +1,13 @@
 {% extends "website/base/subbase.html" %}
-{% load static from staticfiles %}
-
+{% load static %}
 {% block extrastyle %}
-<style>	
+    <style>
 	#page-header {
 		background-image: url("{% static 'website/media/img/headers/404.jpg' %}");
 	}
-</style>
+    </style>
 {% endblock %}
-
-{% block title %}
-Page Not Found!
-{% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-exclamation-triangle fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block header %}
-This page doesn't exist - Sorry!
-{% endblock %}
-
-{% block content %}
-Please navigate back using any of the links above!
-{% endblock %}
+{% block title %}Page Not Found!{% endblock %}
+{% block page-icon %}<i class="fa fa-exclamation-triangle fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}This page doesn't exist - Sorry!{% endblock %}
+{% block content %}Please navigate back using any of the links above!{% endblock %}

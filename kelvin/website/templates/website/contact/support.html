@@ -1,149 +1,166 @@
 {% extends "website/base/subbase.html" %}
-{% load static from staticfiles %}
-
+{% load static %}
 {% block extrastyle %}
-<style>	
+    <style>
 	#page-header {
 		background-image: url("{% static 'website/media/img/headers/contact/supportt.jpg' %}");
 	}
-</style>
+    </style>
 {% endblock %}
-
-{% block title %}
-Support Kelvin
-{% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-heart fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block header %}
-Support Kelvin
-{% endblock %}
-
+{% block title %}Support Kelvin{% endblock %}
+{% block page-icon %}<i class="fa fa-heart fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}Support Kelvin{% endblock %}
 {% block content %}
-<p>
-  The Kelvin Ensemble was founded as a chamber orchestra in 1991 by a group of enterprising students. It as since grown into a full-scale symphony orchestra. By becoming a Friend of the Kelvin Ensemble you can help us to continue and expand our much-loved institution, which provides fantastic opportunities for young people at Glasgow University.
-</p>
-<p>
-We offer several different support packages, starting from just £20 per season (September-September).
-</p>
-
-<div class="panel-group support-accordion" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Friends &#163;20-49
-        </a>
-      </h4>
+    <p>
+        The Kelvin Ensemble was founded as a chamber orchestra in 1991 by a group of enterprising students. It as since grown into a full-scale symphony orchestra. By becoming a Friend of the Kelvin Ensemble you can help us to continue and expand our much-loved institution, which provides fantastic opportunities for young people at Glasgow University.
+    </p>
+    <p>We offer several different support packages, starting from just £20 per season (September-September).</p>
+    <div class="panel-group support-accordion"
+         id="accordion"
+         role="tablist"
+         aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button"
+                       data-toggle="collapse"
+                       href="#collapseOne"
+                       aria-expanded="true"
+                       aria-controls="collapseOne">Friends &#163;20-49</a>
+                </h4>
+            </div>
+            <div id="collapseOne"
+                 class="panel-collapse collapse in"
+                 role="tabpanel"
+                 aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <p>&#8226; Two discounted tickets to all concerts</p>
+                    <p>&#8226; Priority seating</p>
+                    <p>&#8226; Named acknowledgement in both concert programmes</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                    <a class="collapsed"
+                       role="button"
+                       data-toggle="collapse"
+                       href="#collapseTwo"
+                       aria-expanded="false"
+                       aria-controls="collapseTwo">Maestro Friends &#163;50-99</a>
+                </h4>
+            </div>
+            <div id="collapseTwo"
+                 class="panel-collapse collapse"
+                 role="tabpanel"
+                 aria-labelledby="headingTwo">
+                <div class="panel-body">
+                    <p>&#8226; Four discounted tickets to all concerts</p>
+                    <p>&#8226; Priority seating</p>
+                    <p>&#8226; Named acknowledgement in concert programmes</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed"
+                       role="button"
+                       data-toggle="collapse"
+                       href="#collapseThree"
+                       aria-expanded="false"
+                       aria-controls="collapseThree">Patron &#163;100+</a>
+                </h4>
+            </div>
+            <div id="collapseThree"
+                 class="panel-collapse collapse"
+                 role="tabpanel"
+                 aria-labelledby="headingThree">
+                <div class="panel-body">
+                    <p>&#8226; Four free tickets</p>
+                    <p>&#8226; A further two discounted tickets</p>
+                    <p>&#8226; Priority seating</p>
+                    <p>&#8226; Named acknowledgement in concert programmes</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingFour">
+                <h4 class="panel-title">
+                    <a class="collapsed"
+                       role="button"
+                       data-toggle="collapse"
+                       href="#collapseFour"
+                       aria-expanded="false"
+                       aria-controls="collapseFour">Corporate Sponsorship</a>
+                </h4>
+            </div>
+            <div id="collapseFour"
+                 class="panel-collapse collapse"
+                 role="tabpanel"
+                 aria-labelledby="headingFour">
+                <div class="panel-body">
+                    <p>&#8226; Logo and link on our website</p>
+                    <p>&#8226; Full page advertisement in both concert programmes</p>
+                    <p>&#8226; Logos on all posters and other promotional material</p>
+                    <p>&#8226; 15 minute talk or video at our annual ball</p>
+                    <p>&#8226; Free tickets for up to four people</p>
+                    <p>&#8226; Priority seating</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-        <p>&#8226; Two discounted tickets to all concerts</p>
-        <p>&#8226; Priority seating</p>
-        <p>&#8226; Named acknowledgement in both concert programmes</p>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Maestro Friends &#163;50-99
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        <p>&#8226; Four discounted tickets to all concerts</p>
-        <p>&#8226; Priority seating</p>
-        <p>&#8226; Named acknowledgement in concert programmes</p>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Patron &#163;100+
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        <p>&#8226; Four free tickets</p>
-        <p>&#8226; A further two discounted tickets</p>
-        <p>&#8226; Priority seating</p>
-        <p>&#8226; Named acknowledgement in concert programmes</p>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingFour">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          Corporate Sponsorship
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-      <div class="panel-body">
-        <p>&#8226; Logo and link on our website</p>
-        <p>&#8226; Full page advertisement in both concert programmes</p>
-        <p>&#8226; Logos on all posters and other promotional material</p>
-        <p>&#8226; 15 minute talk or video at our annual ball</p>
-        <p>&#8226; Free tickets for up to four people</p>
-        <p>&#8226; Priority seating</p>
-      </div>
-    </div>
-  </div>
-</div>
-<br/>
-
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-  <p>Become a Friend of the Kelvin Ensemble today!</p>
-  <input type="hidden" name="cmd" value="_s-xclick">
-  <input type="hidden" name="hosted_button_id" value="V7SJS5JAKUYZL">
-  <input type="image" src="https://images.squarespace-cdn.com/content/v1/5d83da7b9c37be379c469f7c/1569357298346-VSTAKCGT7RRENNFR4UBN/ke17ZwdGBToddI8pDm48kClSyYvJWtwzCnvPxxdKZskUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2dgy8Pmv__qayvaEtEv9Q44LwHRNdzj4hXdHdfKB-zyb1CjLISwBs8eEdxAxTptZAUg/Donate.gif" border="0" name="submit" alt="PayPal � The safer, easier way to pay online.">
-  <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
-</form>
-
-<hr class="primary small-padding"/>
-
-<p><b>Our current sponsors are:</b></p>
-<div class="container sponsors">
-  <div class="row">
-    <div class="col-md-4 col-centered">
-      <a href="http://www.gla.ac.uk/">
-        <img src="{% static 'website/media/img/sponsors/UoG.jpg' %}" alt="UoG Logo"/>
-        <p>www.gla.ac.uk</p>
-      </a>
-    </div>
-    <!-- <div class="col-md-4">
+    <br />
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <p>Become a Friend of the Kelvin Ensemble today!</p>
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="V7SJS5JAKUYZL">
+        <input type="image"
+               src="https://images.squarespace-cdn.com/content/v1/5d83da7b9c37be379c469f7c/1569357298346-VSTAKCGT7RRENNFR4UBN/ke17ZwdGBToddI8pDm48kClSyYvJWtwzCnvPxxdKZskUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2dgy8Pmv__qayvaEtEv9Q44LwHRNdzj4hXdHdfKB-zyb1CjLISwBs8eEdxAxTptZAUg/Donate.gif"
+               border="0"
+               name="submit"
+               alt="PayPal � The safer, easier way to pay online.">
+        <img alt=""
+             border="0"
+             src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif"
+             width="1"
+             height="1">
+    </form>
+    <hr class="primary small-padding" />
+    <p>
+        <b>Our current sponsors are:</b>
+    </p>
+    <div class="container sponsors">
+        <div class="row">
+            <div class="col-md-4 col-centered">
+                <a href="http://www.gla.ac.uk/">
+                    <img src="{% static 'website/media/img/sponsors/UoG.jpg' %}"
+                         alt="UoG Logo" />
+                    <p>www.gla.ac.uk</p>
+                </a>
+            </div>
+            <!-- <div class="col-md-4">
       <a href="http://www.rsno.org.uk/">
-        <img src="{% static 'website/media/img/sponsors/rsno.jpg' %}" alt="RSNO Logo"/>
+        <img src="{% static 'website/media/img/sponsors/rsno.jpg' %}" alt="RSNO Logo" />
         <p>www.rsno.org.uk</p>
       </a>
     </div> -->
-    <!-- <div class="col-md-4">
+            <!-- <div class="col-md-4">
       <a href="http://www.glasgowsviolinshop.co.uk/">
-        <img src="{% static 'website/media/img/sponsors/violin-shop.jpg' %}" alt="Violin Shop Logo"/>
+        <img src="{% static 'website/media/img/sponsors/violin-shop.jpg' %}" alt="Violin Shop Logo" />
         <p>www.glasgowsviolinshop.co.uk</p>
       </a>
     </div>
   </div> -->
-  <!--<div class="row">
+            <!--<div class="row">
     <div class="col-md-4 col-centered">
       <a href="https://embargoglasgow.co.uk/">
-        <img src="{% static 'website/media/img/sponsors/embargo.jpg' %}" width="auto" height="130" alt="Emabrgo Logo"/>
+        <img src="{% static 'website/media/img/sponsors/embargo.jpg' %}" width="auto" height="130" alt="Emabrgo Logo" />
         <p>www.embargoglasgow.co.uk</p>
       </a>
     </div>
   </div> -->
-  </div>
-</div>
-
-
-
+        </div>
+    </div>
 {% endblock %}

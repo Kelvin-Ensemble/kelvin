@@ -1,48 +1,29 @@
 {% extends "website/base/subbase.html" %}
-{% load static from staticfiles %}
-
+{% load static %}
 {% block extrastyle %}
-<style>	
+    <style>
   #page-header {
     background-image: url("{% static 'website/media/img/headers/contact/contact.jpg' %}");
   }
-</style>
+    </style>
 {% endblock %}
-
-{% block title %}
-Contact Us
-{% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-envelope fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block header %}
-Contact us
-{% endblock %}
-
+{% block title %}Contact Us{% endblock %}
+{% block page-icon %}<i class="fa fa-envelope fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}Contact us{% endblock %}
 {% block content %}
-
-
-<!-- Contact form -->
-
-<form id="my-form"
-action="https://formspree.io/xjvoljoq"
-method="POST"
->
-<label>Name:</label>
-<input type="name" name="name" placeholder="Hermione Granger">
-<label>Email:</label>
-<input type="email" name="email" placeholder="hermione@hogwarts.uk">
-<!-- <label>Message:</label> -->
-<textarea type="text" name="message" placeholder="Write something..."></textarea>
-<input type="submit" id="my-form-button">
-<p id="my-form-status"></p>
-</form>
-
-<!-- Place this script at the end of the body tag -->
-
-<script>
+    <!-- Contact form -->
+    <form id="my-form" action="https://formspree.io/xjvoljoq" method="POST">
+        <label>Name:</label>
+        <input type="name" name="name" placeholder="Hermione Granger">
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="hermione@hogwarts.uk">
+        <!-- <label>Message:</label> -->
+        <textarea type="text" name="message" placeholder="Write something..."></textarea>
+        <input type="submit" id="my-form-button">
+        <p id="my-form-status"></p>
+    </form>
+    <!-- Place this script at the end of the body tag -->
+    <script>
   window.addEventListener("DOMContentLoaded", function() {
     
     // get the form elements defined in your form HTML above
@@ -88,12 +69,8 @@ method="POST"
     };
     xhr.send(data);
   }
-</script>
-
-
-
-
-<!-- <p>
+    </script>
+    <!-- <p>
   The most appropriate addresses for a number of common queries are below.  The Ensemble also has a postbox in the University's Music Faculty.
 </p>
 
@@ -110,5 +87,4 @@ method="POST"
 <hr class="primary">
 
 A full list of the Kelvin Ensemble Committee is listed in the <a href="committee">committee</a> page. -->
-
 {% endblock %}

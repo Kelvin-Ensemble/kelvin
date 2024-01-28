@@ -1,63 +1,66 @@
 {% extends "website/base/subbase.html" %}
-{% load static from staticfiles %}
-
+{% load static %}
 {% block extrastyle %}
-<style>	
+    <style>
 	#page-header {
 		background-image: url("{% static 'website/media/img/headers/players/string-auditions.jpg' %}");
 	}
-</style>
+    </style>
 {% endblock %}
-
-{% block title %}
-String Auditions
-{% endblock %}
-
-{% block page-icon %}
-<i class="fa fa-music fa-3x sr-contact text-white header-icon"></i>
-{% endblock %}
-
-{% block header %}
-String Auditions
-{% endblock %}
-
+{% block title %}String Auditions{% endblock %}
+{% block page-icon %}<i class="fa fa-music fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}String Auditions{% endblock %}
 {% block content %}
-<div class="left_align_text allow_bullets">
-<h2> About the audition </h2>
-<p> The audition will consist of:
-    <ol>
-        <li>one prepared piece of your own choice </li>
-        <li>an excerpt that<!--will be made available closer to the time--> can be found below </li>
-    </ol>
-</p>
-<p>Your chosen piece should be approximately 3-5 minutes long - the panel may stop you after this time.
-</p>
-
-<p>Weekend auditions will take place in the University Music Department, 14 University Gardens (<a href = "https://maps.apple.com/?address=14%20University%20Gardens,%20Glasgow,%20G12%208QH,%20Scotland&ll=55.873276,-4.290721&q=14%20University%20Gardens&_ext=EiQpvK4n00TkS0AxwB0to6TNEcA5Or2tXkP7S0BBIP6A18CFEMA%3D&t=m">Apple Maps</a>, <a href = "https://goo.gl/maps/omaW9XZrHfBeQJi16">Google Maps</a>) - just along from the Queen Margaret Union on the 5th and 6th of October.<br>Tuesday evening auditions will be in the  <a href = "https://frontdoor.spa.gla.ac.uk/map/embedded.html#!/?to=1040216"> Concert Hall, Main Building</a> (next to Hunter Halls) on the 1st of October.
-</p>
-
-<hr class="primary"/>
-<h2> Excerpts </h2>
-<p>Please find the excerpts below:
-    <ul>
-        <li> <a href="{% static 'website/media/excerpts/String/Violin.pdf' %}">Violin excerpt</a> </li>
-        <li> <a href="{% static 'website/media/excerpts/String/Viola.pdf' %}">Viola excerpt</a> </li>
-        <li> <a href="{% static 'website/media/excerpts/String/Cello.pdf' %}">Cello excerpt</a> </li>
-        <li> <a href="{% static 'website/media/excerpts/String/Bass.pdf' %}">Double bass excerpt</a> </li>
-    </ul>
-    Players will be assessed on rhythmical and musical accuracy over tempo.
-</p>
-
-<hr class="primary"/>
-<h2> Bookings </h2>
-<p>To book an audition please select a time below, and complete the booking process. If you are having any difficulties, please contact <a href="mailto:webmaster&#64;kelvin-ensemble.co.uk">webmaster@kelvin-ensemble.co.uk</a>. Please can players arrive ten minutes before the time they have booked so they can warm up.</p>
-</div>
-<hr class="primary"/>
-<h4>Thank you and good luck!</h4>
-
-<br/><br/>
-<iframe class="audition-iframe" src="https://string-kelvin-ensemble-auditions.youcanbook.me/?noframe=true&skipHeaderFooter=true" onload="keepInView(this);"></iframe>
-<!--<script>function keepInView(item) {if((document.documentElement&&document.documentElement.scrollTop)||document.body.scrollTop>item.offsetTop)item.scrollIntoView();}</script>
--->
-
+    <div class="left_align_text allow_bullets">
+        <h2>About the audition</h2>
+        <p>
+            The audition will consist of:
+            <ol>
+                <li>one prepared piece of your own choice</li>
+                <li>
+                    an excerpt that<!--will be made available closer to the time--> can be found below
+                </li>
+            </ol>
+        </p>
+        <p>Your chosen piece should be approximately 3-5 minutes long - the panel may stop you after this time.</p>
+        <p>
+            Weekend auditions will take place in the University Music Department, 14 University Gardens (<a href="https://maps.apple.com/?address=14%20University%20Gardens,%20Glasgow,%20G12%208QH,%20Scotland&ll=55.873276,-4.290721&q=14%20University%20Gardens&_ext=EiQpvK4n00TkS0AxwB0to6TNEcA5Or2tXkP7S0BBIP6A18CFEMA%3D&t=m">Apple Maps</a>, <a href = "https://goo.gl/maps/omaW9XZrHfBeQJi16">Google Maps</a>) - just along from the Queen Margaret Union on the 5th and 6th of October.
+            <br>
+            Tuesday evening auditions will be in the  <a href="https://frontdoor.spa.gla.ac.uk/map/embedded.html#!/?to=1040216">Concert Hall, Main Building</a> (next to Hunter Halls) on the 1st of October.
+        </p>
+        <hr class="primary" />
+        <h2>Excerpts</h2>
+        <p>
+            Please find the excerpts below:
+            <ul>
+                <li>
+                    <a href="{% static 'website/media/excerpts/String/Violin.pdf' %}">Violin excerpt</a>
+                </li>
+                <li>
+                    <a href="{% static 'website/media/excerpts/String/Viola.pdf' %}">Viola excerpt</a>
+                </li>
+                <li>
+                    <a href="{% static 'website/media/excerpts/String/Cello.pdf' %}">Cello excerpt</a>
+                </li>
+                <li>
+                    <a href="{% static 'website/media/excerpts/String/Bass.pdf' %}">Double bass excerpt</a>
+                </li>
+            </ul>
+            Players will be assessed on rhythmical and musical accuracy over tempo.
+        </p>
+        <hr class="primary" />
+        <h2>Bookings</h2>
+        <p>
+            To book an audition please select a time below, and complete the booking process. If you are having any difficulties, please contact <a href="mailto:webmaster&#64;kelvin-ensemble.co.uk">webmaster@kelvin-ensemble.co.uk</a>. Please can players arrive ten minutes before the time they have booked so they can warm up.
+        </p>
+    </div>
+    <hr class="primary" />
+    <h4>Thank you and good luck!</h4>
+    <br />
+    <br />
+    <iframe class="audition-iframe"
+            src="https://string-kelvin-ensemble-auditions.youcanbook.me/?noframe=true&skipHeaderFooter=true"
+            onload="keepInView(this);"></iframe>
+    <!--<script>function keepInView(item) {if((document.documentElement&&document.documentElement.scrollTop)||document.body.scrollTop>item.offsetTop)item.scrollIntoView();}</script>
+            -->
 {% endblock %}

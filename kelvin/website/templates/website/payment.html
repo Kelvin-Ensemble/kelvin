@@ -1,0 +1,34 @@
+{% extends "website/base/subbase.html" %}
+{% load static %}
+{% load my_filters %}
+{% block extrastyle %}
+    <style>
+        #page-header {
+            background-image: url("{% static 'website/media/img/headers/concert.jpg' %}");
+        }
+
+        body {
+            background-color: #222222;
+        }
+    </style>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        initialize()
+        async function initialize() {
+            const stripe = Stripe("{{ stripePKey|safe }}");
+            const checkout = await stripe.initEmbeddedCheckout({
+                clientSecret: "{{ clientSecret }}"
+            });
+            // Mount Checkout
+            checkout.mount('#checkout');
+        }
+    </script>
+{% endblock %}
+{% block title %}Ticket Payment{% endblock %}
+{% block page-icon %}<i class="fa fa-music fa-3x sr-contact text-white header-icon"></i>{% endblock %}
+{% block header %}Ticket Payment{% endblock %}
+{% block content %}
+    <div id="checkout">
+        <!-- Checkout will insert the payment form here -->
+    </div>
+{% endblock %}
