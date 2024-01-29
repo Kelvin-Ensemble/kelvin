@@ -24,11 +24,6 @@ def createEmail(customerDetails, items, template):
         template, {"customerDetails": customerDetails, "items": items}
     )
 
-    # with open("output/"+vars["name"]+ ".html", "w", encoding="utf-8") as text_file:
-    #     text_file.write(output)
-
-    # webbrowser.open("file://" + os.path.realpath("output/"+vars["name"]+ ".html"))
-
     return rendered
 
 

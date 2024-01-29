@@ -132,7 +132,7 @@ def processWebhookRequest(request):
         templateDir = os.getcwd() + "\\website\\templates\\ticketing\\"
 
         sendEmail(
-            customer_info, items, "ticketing\\template.html", "Concert_Programme.pdf"
+            customer_info, items, "ticketing/template.html", "Concert_Programme.pdf"
         )
         # sendConfirmation(items, customer_info, paymentID)
     else:
