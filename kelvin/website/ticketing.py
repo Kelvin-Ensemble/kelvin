@@ -110,6 +110,8 @@ def processWebhookRequest(request):
                 if item["price_id"] == ticket.Price_ID:
                     print("Found ticket and adding concert to details")
                     ticketType = ticket
+                    ticket.Quantity_sold += item["qty"]
+                    ticket.save()
                     customer_info["concertDate"] = ticket.for_concert.Concert_Date
                     customer_info["concertLoc"] = ticket.for_concert.Concert_location
                     break
