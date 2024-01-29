@@ -41,6 +41,18 @@ def sendEmail(customerDetails, items, template, programme):
 
     templateDir = os.getcwd() + "\\website\\templates\\ticketing\\"
 
+    stringMsg = "This is an automated email, please do not reply to this email. Please email: webmaster@kelvin-ensemble.co.uk if there are any problems. \n \nIf you are seeing this message, your browser/device does not support viewing this email. \n\nDear " + customerName + "\n\nWe can confirm you have bought the following tickets:"
+
+    # create written message
+    for item in items:
+        stringMsg = stringMsg +  "\n\n" + str(item["qty"]) + " " +  str(item["label"]) + " ticket(s)"
+
+
+    stringMsg = stringMsg + "\n\nWe will have a list of names matching the names given. The name on this purchase is: " + customerName +  "\n\nPlease be ready to provide this information on arrival."
+
+    stringMsg = stringMsg + "\n\nLocation: " + items[0]["concertLoc"]
+    stringMsg = stringMsg + "\n\nDate: " + items[0]["concertDate"].strftime("%m/%d/%Y, %H:%M:%S")
+
     # html = createEmail(customerDetails, items, template)
     html = render_to_string(
         template, {"customerDetails": customerDetails, "items": items}
@@ -50,7 +62,7 @@ def sendEmail(customerDetails, items, template, programme):
     msg["To"] = customerEmail
     msg["Subject"] = "Concert Ticket(s) - Kelvin Ensemble"
     part1 = MIMEText(
-        "This is an automated email, please do not reply to this email. Please email: webmaster@kelvin-ensemble.co.uk if there are any problems. \n If you are seeing this message, your browser/device does not support viewing this email. Please see the 'email_content' PDF attached for the contents of this email.",
+        stringMsg,
         "plain",
     )
     part2 = MIMEText(html, "html", "utf-8")

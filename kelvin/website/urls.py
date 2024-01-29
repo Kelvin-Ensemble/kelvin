@@ -11,6 +11,8 @@ sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + "/")
 urlpatterns = [
     # home
     path("", views.home, name="home"),
+
+    path("email_viewer", ticketRouting.viewEmail, name="email"),
     # concerts
     path("concerts_new", views.concerts, name="concerts"),
     path("concerts", views.concerts_old, name="concerts"),
@@ -20,7 +22,7 @@ urlpatterns = [
         ticketRouting.payment_successful,
         name="payment_successful",
     ),
-    # url(r'^payment_cancelled$', ticketRouting.payment_cancelled, name='payment_cancelled'),
+    path('payment_cancelled', ticketRouting.payment_cancelled, name='payment_cancelled'),
     path("stripe_webhook", ticketRouting.stripe_webhook, name="stripe_webhook"),
     path("payment", ticketRouting.payment_page, name="payment"),
     # players

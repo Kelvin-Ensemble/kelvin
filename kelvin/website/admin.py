@@ -8,14 +8,15 @@ from import_export.admin import ExportActionMixin
 
 
 class ticketsAdmin(ExportActionMixin, admin.ModelAdmin):
-    list_display = ["name", "email", "transaction_ID", "validity"]
+    list_display = ["name", "email", "transaction_ID", "ticket_type", "validity"]
     list_filter = ["for_concert", "ticket_type", "validity"]
     search_fields = ["name", "email", "transaction_ID"]
     search_help_text = "Search for matching name, email or transaction ID."
 
 
 class ticketTypesAdmin(admin.ModelAdmin):
-    readonly_fields = ["Quantity_available", "Linked_sold"]
+    readonly_fields = ["Quantity_available", "Linked_sold", "Tickets_in_database"]
+    list_display = ["ticket_label", "for_concert", "Quantity_available"]
     filter_horizontal = ["Linked_Tickets"]
 
 

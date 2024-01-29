@@ -60,6 +60,8 @@ def processWebhookRequest(request):
     # print(payload['request']['type'])
     print("checking for event type")
 
+
+
     if event and event["type"] == "checkout.session.completed":
         print("Order Success")
         orderDetails = event["data"]  # contains a stripe.PaymentIntent
@@ -97,7 +99,7 @@ def processWebhookRequest(request):
                     print("Found correct id")
                     if item["quantity"] > ticket.Quantity_available:
                         print("INVALID QUANTITY FOUND")
-                        return HttpResponse(400)
+                        return False
 
         print("checkout accepted")
 
@@ -112,17 +114,18 @@ def processWebhookRequest(request):
                     customer_info["concertLoc"] = ticket.for_concert.Concert_location
                     break
 
-            newEntry = Ticket(
-                name=customer_info["name"],
-                email=customer_info["email"],
-                transaction_ID=event["data"]["object"]["id"],
-                for_concert=ticketType.for_concert,
-                ticket_type=ticketType,
-                validity=True,
-                change_log="[{}] - Payment Accepted".format(datetime.datetime.utcnow()),
-            )
-            newEntry.save()
-            print("Saved ticket")
+            for i in range(int(item["qty"])):
+                newEntry = Ticket(
+                    name=customer_info["name"],
+                    email=customer_info["email"],
+                    transaction_ID=event["data"]["object"]["id"],
+                    for_concert=ticketType.for_concert,
+                    ticket_type=ticketType,
+                    validity=True,
+                    change_log="[{}] - Payment Accepted".format(datetime.datetime.utcnow()),
+                )
+                newEntry.save()
+                print("Saved ticket")
 
         # print(customer_info)
 
@@ -136,4 +139,4 @@ def processWebhookRequest(request):
         # Unexpected event type
         print("Unhandled event type {}".format(event["type"]))
 
-    return HttpResponse(200)
+    return True

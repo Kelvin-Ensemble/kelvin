@@ -399,10 +399,10 @@
         </div>
         {% for concert in concerts %}
             <div class="bg-primary full-small-padding ticket-info text-white">
-                <h3>{{ concert.Concert_Date|date:"l dS F Y" }}</h3>
+                <h3>{{ concert.Concert_Date|date:"l jS F Y" }}</h3>
                 {% if concert.Concert_Status == "FS"  %}
 
-                    <p>Tickets for {{ concert.Concert_Date|date:"dS M Y" }} are now available for purchase below:</p>
+                    <p>Tickets for {{ concert.Concert_Date|date:"jS M Y" }} are now available for purchase below:</p>
                     {# For every ticket type, it generates the form #}
                     {% for ticket in TicketTypes %}
                         {% if ticket.for_concert == concert and ticket.display_ticket %}
@@ -458,6 +458,14 @@
                                value="Purchase"
                                onclick="sendPurchase()">
                     </div>
+                {% endif %}
+                {% if concert.Concert_Status == "NY" %}
+                    <p> <br>Tickets for {{ concert.Concert_Date|date:"jS M Y" }} are not yet on sale. Please check back again later.</p>
+                {% endif %}
+                {% if concert.Concert_Status == "SO" %}
+                    <p> <br>Tickets for {{ concert.Concert_Date|date:"jS M Y" }} have sold out.</p>
+                    <p>Please check back again soon for a waitlist</p> <!-- No waitlist -->
+                    <!-- <p>Please join this waitlist to be notified when a ticket becomes available.</p> -->
                 {% endif %}
                 <br>
                 <br>

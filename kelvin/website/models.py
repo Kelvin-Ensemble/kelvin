@@ -1,6 +1,28 @@
 from django.db import models
 from datetime import datetime
 
+def updateTicketType(self, **kwargs):  # Function to check whether the variables relevant in stock counting exist or not
+    print("Updating Quantites")
+    linked_sold = 0
+
+    for linked in self.Linked_Tickets.all():
+        print("Linked object as sold", linked.Quantity_sold, "numebr of tix")
+        linked_sold += linked.Quantity_sold
+
+    self.Linked_sold = linked_sold
+    self.Quantity_available = (
+        self.Total_ticket_count - linked_sold - self.Quantity_sold
+    )
+    tID = 0
+    for ticket in Ticket.objects.all():
+        print(ticket.ticket_type.id)
+        print(self.id)
+        if ticket.ticket_type.id == self.id:
+            tID += 1
+    print("Setting tID = ",tID)
+    self.Tickets_in_database = tID
+    return self
+
 
 # Create your models here.
 class Concert(models.Model):
@@ -12,7 +34,7 @@ class Concert(models.Model):
         ("NY", "Not Yet"),
     )
     Concert_Nickname = models.CharField(
-        max_length=15,
+        max_length=40,
         help_text="This is just a nickname for this concert to make it easier for you to distinguish in the admin page.",
         null=False,
         blank=False,
@@ -27,6 +49,7 @@ class Concert(models.Model):
 
 
 class TicketType(models.Model):
+    position = models.IntegerField(help_text="(Lower value shows first)", default=0)
     ticket_label = models.CharField(
         max_length=40,
         help_text="This will be the ticket name shown to the audience (i.e. 'Standard Seating' or 'Concession Seating' or 'Restricted View')",
@@ -45,7 +68,7 @@ class TicketType(models.Model):
     Linked_Tickets = models.ManyToManyField(
         "TicketType",
         blank=True,
-        help_text="This should auto-populate when saving as long as the STRIPE products and prices are set up correctly. If this does not happen it may be done manually here. However it is not recommended.",
+        help_text="Use this to select which tickets should have their ticket quantities synced. (Make sure they are selected on all linked tickets)",
     )
     display_ticket = models.BooleanField(
         default=False,
@@ -74,9 +97,20 @@ class TicketType(models.Model):
         default=0,
         help_text="This populates automatically (Total - sold - linked_sold)",
     )
+    Tickets_in_database = models.IntegerField(
+        blank=True,
+        null=True,
+        default=0,
+        help_text="This populates automatically by counting the number of tickets in the database.",
+    )
 
     def __str__(self):
-        return self.ticket_label
+        return self.ticket_label + " - " + self.for_concert.Concert_Nickname
+
+    def save(self, **kwargs):
+        super().save(**kwargs)  # Call the "real" save() method.
+        self = updateTicketType(self, **kwargs)
+        super().save(**kwargs)  # Call the "real" save() method.
 
 
 class Ticket(models.Model):
@@ -102,3 +136,7 @@ class Ticket(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, **kwargs):
+        super().save(**kwargs)  # Call the "real" save() method.
+        self.ticket_type.save()

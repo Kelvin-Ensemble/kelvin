@@ -33,8 +33,8 @@ def concerts(request):
             request,
             "website/concerts.html",
             {
-                "concerts": Concert.objects.all(),
-                "TicketTypes": TicketType.objects.all(),
+                "concerts": Concert.objects.order_by('Concert_Date').all(),
+                "TicketTypes": TicketType.objects.order_by('position').all(),
             },
         )
 
