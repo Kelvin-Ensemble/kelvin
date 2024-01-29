@@ -4,7 +4,8 @@ __pycache__/
 *$py.class
 
 static/
-
+client_secrets.json
+db.sqlite3.zip
 # C extensions
 *.so
 
