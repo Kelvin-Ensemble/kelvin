@@ -35,12 +35,27 @@ def backupDatabase():
         gauth.SaveCredentialsFile("mycreds.txt")
 
     def googleAuthentication():
-        # gauth.DEFAULT_SETTINGS['client_config_file'] = "client_secrets.json"
         gauth = GoogleAuth()
-        gauth.GetFlow()
-        gauth.flow.params.update({'access_type': 'offline'})
-        gauth.flow.params.update({'approval_prompt': 'force'})
-        gauth.LocalWebserverAuth()  # Creates local webserver and auto handles authentication.
+        gauth.LoadCredentialsFile("mycreds.txt")
+        if gauth.credentials is None:
+            gauth.GetFlow()
+            gauth.flow.params.update({'access_type': 'offline'})
+            gauth.flow.params.update({'approval_prompt': 'force'})
+            auth_url = gauth.GetAuthUrl()
+            print("Please use this link to obtain the code and paste it below. It can be found in the redirect link.", auth_url)
+            code = input("CODE: ")
+            gauth.Auth(code)
+        elif gauth.access_token_expired:
+            # Refresh them if expired
+            gauth.Refresh()
+        else:
+            # Initialize the saved creds
+            gauth.Authorize()
+        # Save the current credentials to a file
+        gauth.SaveCredentialsFile("mycreds.txt")
+
+
+
         return gauth, GoogleDrive(gauth)
 
     def upload_backup(drive, path, file_name):
