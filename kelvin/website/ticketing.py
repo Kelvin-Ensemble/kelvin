@@ -129,7 +129,7 @@ def processWebhookRequest(request):
 
         # print(customer_info)
 
-        templateDir = os.getcwd() + "\\website\\templates\\ticketing\\"
+        templateDir = os.getcwd() + "/kelvin/kelvin/website/templates/ticketing/"
 
         sendEmail(
             customer_info, items, "ticketing/template.html", "Concert_Programme.pdf"

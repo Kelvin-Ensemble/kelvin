@@ -48,6 +48,8 @@ def sendEmail(customerDetails, items, template, programme):
     stringMsg = stringMsg + "\n\nLocation: " + items[0]["concertLoc"]
     stringMsg = stringMsg + "\n\nDate: " + items[0]["concertDate"].strftime("%m/%d/%Y, %H:%M:%S")
 
+    stringMsg = stringMsg + "\n\nPlease use the following link to view the original email in your web browser: \nhttps://www.kelvin-ensemble.co.uk/email_viewer"
+
     # html = createEmail(customerDetails, items, template)
     html = render_to_string(
         template, {"customerDetails": customerDetails, "items": items}
