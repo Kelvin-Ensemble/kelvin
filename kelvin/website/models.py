@@ -81,7 +81,7 @@ class TicketType(models.Model):
         blank=True,
         null=True,
         default=0,
-        help_text="This data is automatically taken from STRIPE metadata",
+        help_text="This is the total number of tickets that should be available for this type. This should be the same across linked tickets.",
     )
 
     # ReadOnly Values
