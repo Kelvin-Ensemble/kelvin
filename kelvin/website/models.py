@@ -107,6 +107,7 @@ class TicketType(models.Model):
     def __str__(self):
         return self.ticket_label + " - " + self.for_concert.Concert_Nickname
 
+
     def save(self, **kwargs):
         super().save(**kwargs)  # Call the "real" save() method.
         self = updateTicketType(self, **kwargs)
@@ -137,6 +138,11 @@ class Ticket(models.Model):
     def __str__(self):
         return self.name
 
+    def dehydrate_for_concert(self):
+        return self.for_concert.Concert_Nickname
+
+    def dehydrate_ticket_type(self):
+        return self.ticket_type.ticket_label
     def save(self, **kwargs):
         super().save(**kwargs)  # Call the "real" save() method.
         self.ticket_type.save()
