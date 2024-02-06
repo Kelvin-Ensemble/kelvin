@@ -2,12 +2,12 @@ from django.contrib import admin
 from .models import Ticket
 from .models import Concert
 from .models import TicketType
-from import_export.admin import ExportActionMixin
+from import_export.admin import ExportMixin
 
 # Register your models here.
 
 
-class ticketsAdmin(ExportActionMixin, admin.ModelAdmin):
+class ticketsAdmin(ExportMixin, admin.ModelAdmin):
     list_display = ["name", "email", "transaction_ID", "ticket_type", "validity"]
     list_filter = ["for_concert", "ticket_type", "validity"]
     search_fields = ["name", "email", "transaction_ID"]
