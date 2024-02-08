@@ -34,7 +34,7 @@ def sendEmail(customerDetails, items, template, programme):
     customerName = customerDetails["name"]
     customerEmail = customerDetails["email"]
 
-    templateDir = os.getcwd() + "\\kelvin\\kelvin\\website\\templates\\ticketing\\"
+    templateDir = os.getcwd() + "/kelvin/kelvin/website/templates/ticketing/"
 
     stringMsg = "This is an automated email, please do not reply to this email. Please email: webmaster@kelvin-ensemble.co.uk if there are any problems. \n \nIf you are seeing this message, your browser/device does not support viewing this email. \n\nDear " + customerName + "\n\nWe can confirm you have bought the following tickets:"
 
