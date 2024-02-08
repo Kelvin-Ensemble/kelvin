@@ -146,8 +146,9 @@
     <script>
     tickets = []
 
-    {% for concert in concerts %}
+
         {% for ticket in TicketTypes %}
+            console.log("adding ticket: "+'{{ ticket.Price_ID }}')
             var ticketInfo = {
                 ticketID: '{{ ticket.Price_ID }}',
                 qtyAvail: {{ ticket.Quantity_available }},
@@ -163,9 +164,10 @@
 
             tickets.push(ticketInfo)
         {% endfor %}
-    {% endfor %}
 
     console.log(tickets)
+
+
     window.onload = updateButtons
 
 
@@ -195,26 +197,33 @@
         console.log("Updating buttons")
         ticketsSelected = 0
         for (let i = 0; i<tickets.length; i++) {
-            ticket = tickets[i]
-            linkedSelected = 0
-            for (let i = 0; i<ticket.linkedProducts.length; i++) {
-                console.log("found linked: ", ticket.linkedProducts[i])
-                linkedSelected += tickets[tickets.findIndex(p => p.ticketID == ticket.linkedProducts[i])].qtySelected
+            console.log("Updating buttons with id: "+tickets[i].ticketID)
+            if (tickets[i].ticketID.substring(0,6) == "price_") {
+                ticket = tickets[i]
+                linkedSelected = 0
+                for (let i = 0; i<ticket.linkedProducts.length; i++) {
+                    console.log("found linked: ", ticket.linkedProducts[i])
+                    linkedSelected += tickets[tickets.findIndex(p => p.ticketID == ticket.linkedProducts[i])].qtySelected
+                }
+
+                console.log(ticket.qtySelected)
+
+                if (ticket.qtySelected + linkedSelected >= ticket.qtyAvail) {
+                    console.log("rButtonContainer_"+ticket.ticketID)
+                    document.getElementById("rButtonContainer_"+ticket.ticketID).children[0].disabled = true
+                } else if (document.getElementById("rButtonContainer_"+ticket.ticketID).children[0].disabled) {
+                    document.getElementById("rButtonContainer_"+ticket.ticketID).children[0].disabled = false
+                }
+
+                if (ticket.qtySelected == 0) {
+                    console.log("No tix selected!")
+                    document.getElementById("lButtonContainer_"+ticket.ticketID).children[0].disabled = true
+                } else if (document.getElementById("lButtonContainer_"+ticket.ticketID).children[0].disabled) {
+                    document.getElementById("lButtonContainer_"+ticket.ticketID).children[0].disabled = false
+                }
+                ticketsSelected += ticket.qtySelected
             }
 
-            if (ticket.qtySelected + linkedSelected >= ticket.qtyAvail) {
-                console.log("rButtonContainer_"+ticket.ticketID)
-                document.getElementById("rButtonContainer_"+ticket.ticketID).children[0].disabled = true
-            } else if (document.getElementById("rButtonContainer_"+ticket.ticketID).children[0].disabled) {
-                document.getElementById("rButtonContainer_"+ticket.ticketID).children[0].disabled = false
-            }
-
-            if (ticket.qtySelected == 0) {
-                document.getElementById("lButtonContainer_"+ticket.ticketID).children[0].disabled = true
-            } else if (document.getElementById("lButtonContainer_"+ticket.ticketID).children[0].disabled) {
-                document.getElementById("lButtonContainer_"+ticket.ticketID).children[0].disabled = false
-            }
-            ticketsSelected += ticket.qtySelected
         }
 
         console.log("Tickets selected: " + ticketsSelected.toString())
@@ -301,27 +310,27 @@
     <!-- TICKETS FOR SALE PAGE -->
     {% if settings.CONCERT_STATUS == 'forsale' %}
         <div>
-            <h2>Autumn 2023 Concert: Around the UK</h2>
+            <h2>Spring 2024 Concert</h2>
             <br>
             <p>
-                <strong> We are happy to announce our next concert will be on 18<sup>th</sup> <b>AND</b> 19<sup>th</sup> November 2023 with the theme Around the UK! </strong>
+                <strong> We are happy to announce our next concerts will be on 2<sup>nd</sup> <b>AND</b> 3<sup>rd</sup> March 2024! </strong>
                 <br>
-                The concert programme can be found below!
+                The concert programme will be uploaded here closer to the time.
             </p>
-            <div class="grid-container">
+            <div class="grid-container" style="grid-gap: 1rem">
                 <div class="grid-item">
-                    <img src="{% static 'website/media/img/concerts/nov23.jpg' %}"
-                         alt="November 2023 Concert"
+                    <img src="{% static 'website/media/img/concerts/mar24.jpg' %}"
+                         alt="Spring 2024 Concert"
                          width="100%">
                 </img>
             </div>
             <div class="grid-item">
                 <h4>Dates</h4>
                 <p>
-                    1. Saturday 18<sup>th</sup> November 2023, 19:30
+                    1. Saturday 2<sup>nd</sup> March 2024, 19:30
                 </p>
                 <p>
-                    2. Sunday 19<sup>th</sup> November 2023, 14:30
+                    2. Sunday 3<sup>rd</sup> March 2024, 14:30
                 </p>
                 <h4>Location</h4>
                 <p>
@@ -392,11 +401,9 @@
                 <br>
                 <strong>Concession (Students/Under 18s/Seniors):</strong> &pound;5
             </p>
-            <p>
-                Upon purchase you will be sent a confirmation email. This is not your ticket, which will be sent to you closer to the date.
-            </p>
-            <p style="font-size:0.875em; padding-top:5%">Last Updated: 14/03/2023</p>
+            <p style="font-size:0.875em;">Last Updated: 08/02/2024</p>
         </div>
+        <p style="color: red">Please note: Purchases must be done 1 concert at a time, as such the purchase button only applies for the box of which it is in.</p>
         {% for concert in concerts %}
             <div class="bg-primary full-small-padding ticket-info text-white">
                 <h3>{{ concert.Concert_Date|date:"l jS F Y" }}</h3>
@@ -474,15 +481,14 @@
     </div>
 {% endif %}
 <!-- Playlists -->
-<!--
+{#<!--#}
     <div><center>
 
-            If you would like to familiarise yourself with the music beforehand, feel free to add these playlists to your
+            If you would like to familiarise yourself with the music beforehand, feel free to add this playlists to your
             library:
-            </p><div class="playlists"><iframe src= width="100%" height="450" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe><iframe src= height="450px" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-ticketing allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *;" style="width: 100%; max-width: 900px; overflow: hidden; border-radius: 10px; background: transparent;"></iframe></div><p style="font-size:0.875em">
-            &#8592; Scroll to switch between Spotify and Apple Music &#8594;
-        </p></center></div>
-    -->
+            </p><div class="playlists"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5VymcyJ2pBz0LNAPbuoWSp?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+    </center></div>
+{#    -->#}
 {% if settings.CONCERT_STATUS == "notyet" %}
     <p>
         Details about our upcoming concert have not yet been released. We will update this page as soon as we are ready.

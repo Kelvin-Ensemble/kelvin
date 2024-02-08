@@ -50,7 +50,7 @@ def payment_page(request):
                 ui_mode="embedded",
                 line_items=items,
                 mode="payment",
-                return_url="http://127.0.0.1:8000"
+                return_url="https://www.kelvin-ensemble.co.uk"
                 + "/payment_successful?session_id={CHECKOUT_SESSION_ID}",
                 custom_fields=[
                     {

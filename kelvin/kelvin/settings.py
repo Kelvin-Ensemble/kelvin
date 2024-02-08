@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 # CONCERT SETTINGS #######
 
-CONCERT_STATUS = "upcoming"  # upcoming, over, soldout, forsale, notyet # are the options *case sensitive*
+CONCERT_STATUS = "forsale"  # upcoming, over, soldout, forsale, notyet # are the options *case sensitive*
 
 # CONCERT SETTINGS END HERE DO NOT CHANGE ANYTHING BELOW UNLESS CONFIDENT ######
 
@@ -58,7 +58,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", ".kelvin-ensemble.co.uk", "yukisuter.pythonanywhere.com"]
 
