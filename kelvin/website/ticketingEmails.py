@@ -88,5 +88,6 @@ def sendEmail(customerDetails, items, template, programme):
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
         server.login(sender_address, sender_password)
         server.sendmail(msg["From"], msg["To"], email_string)
+        server.quit()
 
     print("Email sent!")
