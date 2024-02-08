@@ -1,12 +1,16 @@
+activate_this_file = "/home/ExoBen/.virtualenvs/kelvin-venv/bin/activate_this.py"
+
+exec(open(activate_this_file).read(), {'__file__': activate_this_file})
+
 import datetime
 import shutil,os,sys
 
 from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
-from dotenv import load_dotenv
 
-dotenv_file = ".env"
-load_dotenv(dotenv_file)
+print("Loaded venv")
+
+os.chdir("/home/ExoBen/kelvin")
 
 
 def backupDatabase():
@@ -74,5 +78,6 @@ def backupDatabase():
     auth, drive = googleAuthentication()
 
     upload_backup(drive, os.getcwd(), 'backup/db.sqlite3.zip')
+    print("Backup success!")
 
 backupDatabase()
