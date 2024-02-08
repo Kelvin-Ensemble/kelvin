@@ -64,10 +64,10 @@ def sendEmail(customerDetails, items, template, programme):
     )
     part2 = MIMEText(html, "html", "utf-8")
 
-    with open(templateDir + programme, "rb") as f:
-        attach = MIMEApplication(f.read(), _subtype="pdf")
-    attach.add_header("Content-Disposition", "attachment", filename=str(programme))
-    msg.attach(attach)
+    # with open(templateDir + programme, "rb") as f:
+    #     attach = MIMEApplication(f.read(), _subtype="pdf")
+    # attach.add_header("Content-Disposition", "attachment", filename=str(programme))
+    # msg.attach(attach)
     # pdf = createPDFofEmail(html)
     # attach = MIMEApplication(pdf, _subtype="pdf")
     # attach.add_header('Content-Disposition', 'attachment', filename="email_content")
