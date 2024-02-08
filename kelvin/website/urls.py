@@ -14,8 +14,8 @@ urlpatterns = [
 
     path("email_viewer", ticketRouting.viewEmail, name="email"),
     # concerts
-    path("concerts_new", views.concerts, name="concerts"),
-    path("concerts", views.concerts_old, name="concerts"),
+    # path("concerts_new", views.concerts, name="concerts"),
+    path("concerts", views.concerts, name="concerts"),
     # payments
     path(
         "payment_successful",
