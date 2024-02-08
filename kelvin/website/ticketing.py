@@ -27,11 +27,12 @@ def updateQuantities():  # Function to check whether the variables relevant in s
             print("Linked object as sold", linked.Quantity_sold, "numebr of tix")
             linked_sold += linked.Quantity_sold
 
-        ticket.Linked_sold = linked_sold
-        ticket.Quantity_available = (
-            ticket.Total_ticket_count - linked_sold - ticket.Quantity_sold
-        )
-        ticket.save()
+        qtyAvail = ticket.Total_ticket_count - linked_sold - ticket.Quantity_sold
+
+        if (ticket.Linked_sold != linked_sold) or (ticket.Quantity_available != qtyAvail):
+            ticket.Linked_sold = linked_sold
+            ticket.Quantity_available = qtyAvail
+            ticket.save()
 
 
 def processWebhookRequest(request):
