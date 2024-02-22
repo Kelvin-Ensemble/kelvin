@@ -467,11 +467,19 @@
                     </div>
                 {% endif %}
                 {% if concert.Concert_Status == "NY" %}
-                    <p> <br>Tickets for {{ concert.Concert_Date|date:"jS M Y" }} are not yet on sale. Please check back again later.</p>
+                    <p> <br>Tickets for {{ concert.Concert_Date|date:"jS F Y" }} are not yet on sale. Please check back again later.</p>
                 {% endif %}
                 {% if concert.Concert_Status == "SO" %}
-                    <p> <br>Tickets for {{ concert.Concert_Date|date:"jS M Y" }} have sold out.</p>
+                    <p> <br>Tickets for {{ concert.Concert_Date|date:"jS F Y" }} have sold out.</p>
+                    {% if concert.Concert_waitlist == "" %}
                     <p>Please check back again soon for a waitlist</p> <!-- No waitlist -->
+                    {% else %}
+                        <p>Please use the form below to add your name to the waitlist. You will be contacted if tickets become available.</p>
+                        {% autoescape off %}
+                            {{ concert.Concert_waitlist }}
+                        {% endautoescape %}
+
+                    {% endif %}
                     <!-- <p>Please join this waitlist to be notified when a ticket becomes available.</p> -->
                 {% endif %}
                 <br>

@@ -44,6 +44,8 @@ class Concert(models.Model):
     Concert_Date = models.DateTimeField(default=datetime.now, blank=True)
     Concert_location = models.TextField(default="")
 
+    Concert_waitlist = models.TextField(default="", blank=True)
+
     def __str__(self):
         return self.Concert_Nickname
 
