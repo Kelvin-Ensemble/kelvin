@@ -64,6 +64,7 @@ def processWebhookRequest(request):
 
 
     if event and event["type"] == "checkout.session.completed":
+
         print("Order Success")
         orderDetails = event["data"]  # contains a stripe.PaymentIntent
         paymentID = event["data"]["object"]["id"]
@@ -72,72 +73,77 @@ def processWebhookRequest(request):
         customer_info["name"] = event["data"]["object"]["custom_fields"][0]["text"][
             "value"
         ]
-        # print(event)
-        # print(orderDetails)
-        # print(paymentID)
-        # print(line_items)
-        # print(type(line_items))
-        print(event["data"])
-        print(customer_info)
 
-        items = []
+        if Ticket.objects.filter(transaction_ID = event["data"]["object"]["id"]).exists():
+            print("ALREADY PROCESSED THIS TRANSACTION")
+            return True
+        else:
+            # print(event)
+            # print(orderDetails)
+            # print(paymentID)
+            # print(line_items)
+            # print(type(line_items))
+            print(event["data"])
+            print(customer_info)
 
-        print("Itemised line items")
-        for ticket in TicketType.objects.all():
-            print("Looking for ticket")
-            for item in line_items:
-                print("Finding item id in ticket")
-                if item["price"]["id"] == ticket.Price_ID:
-                    items.append(
-                        {
-                            "price_id": item["price"]["id"],
-                            "qty": item["quantity"],
-                            "label": ticket.ticket_label,
-                            "concertDate": ticket.for_concert.Concert_Date,
-                            "concertLoc": ticket.for_concert.Concert_location,
-                        }
-                    )
-                    print("Found correct id")
-                    if item["quantity"] > ticket.Quantity_available:
-                        print("OVERSELLING!!!!!")
-                        # return False
+            items = []
 
-        print("checkout accepted")
-
-        print(items)
-        for item in items:
-            ticketType = None
+            print("Itemised line items")
             for ticket in TicketType.objects.all():
-                if item["price_id"] == ticket.Price_ID:
-                    print("Found ticket and adding concert to details")
-                    ticketType = ticket
-                    ticket.Quantity_sold += item["qty"]
-                    ticket.save()
-                    customer_info["concertDate"] = ticket.for_concert.Concert_Date
-                    customer_info["concertLoc"] = ticket.for_concert.Concert_location
-                    break
+                print("Looking for ticket")
+                for item in line_items:
+                    print("Finding item id in ticket")
+                    if item["price"]["id"] == ticket.Price_ID:
+                        items.append(
+                            {
+                                "price_id": item["price"]["id"],
+                                "qty": item["quantity"],
+                                "label": ticket.ticket_label,
+                                "concertDate": ticket.for_concert.Concert_Date,
+                                "concertLoc": ticket.for_concert.Concert_location,
+                            }
+                        )
+                        print("Found correct id")
+                        if item["quantity"] > ticket.Quantity_available:
+                            print("OVERSELLING!!!!!")
+                            # return False
 
-            for i in range(int(item["qty"])):
-                newEntry = Ticket(
-                    name=customer_info["name"],
-                    email=customer_info["email"],
-                    transaction_ID=event["data"]["object"]["id"],
-                    for_concert=ticketType.for_concert,
-                    ticket_type=ticketType,
-                    validity=True,
-                    change_log="[{}] - Payment Accepted".format(datetime.datetime.utcnow()),
-                )
-                newEntry.save()
-                print("Saved ticket")
+            print("checkout accepted")
 
-        # print(customer_info)
+            print(items)
+            for item in items:
+                ticketType = None
+                for ticket in TicketType.objects.all():
+                    if item["price_id"] == ticket.Price_ID:
+                        print("Found ticket and adding concert to details")
+                        ticketType = ticket
+                        ticket.Quantity_sold += item["qty"]
+                        ticket.save()
+                        customer_info["concertDate"] = ticket.for_concert.Concert_Date
+                        customer_info["concertLoc"] = ticket.for_concert.Concert_location
+                        break
 
-        templateDir = os.getcwd() + "/kelvin/kelvin/website/templates/ticketing/"
+                for i in range(int(item["qty"])):
+                    newEntry = Ticket(
+                        name=customer_info["name"],
+                        email=customer_info["email"],
+                        transaction_ID=event["data"]["object"]["id"],
+                        for_concert=ticketType.for_concert,
+                        ticket_type=ticketType,
+                        validity=True,
+                        change_log="[{}] - Payment Accepted".format(datetime.datetime.utcnow()),
+                    )
+                    newEntry.save()
+                    print("Saved ticket")
 
-        sendEmail(
-            customer_info, items, "ticketing/template.html", "Concert_Programme.pdf"
-        )
-        # sendConfirmation(items, customer_info, paymentID)
+            # print(customer_info)
+
+            templateDir = os.getcwd() + "/kelvin/kelvin/website/templates/ticketing/"
+
+            sendEmail(
+                customer_info, items, "ticketing/template.html", "Concert_Programme.pdf"
+            )
+            # sendConfirmation(items, customer_info, paymentID)
     else:
         # Unexpected event type
         print("Unhandled event type {}".format(event["type"]))
