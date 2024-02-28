@@ -99,8 +99,8 @@ def processWebhookRequest(request):
                     )
                     print("Found correct id")
                     if item["quantity"] > ticket.Quantity_available:
-                        print("INVALID QUANTITY FOUND")
-                        return False
+                        print("OVERSELLING!!!!!")
+                        # return False
 
         print("checkout accepted")
 
