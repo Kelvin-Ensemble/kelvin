@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 # CONCERT SETTINGS #######
 
-CONCERT_STATUS = "forsale"  # upcoming, over, soldout, forsale, notyet # are the options *case sensitive*
+CONCERT_STATUS = "over"  # upcoming, over, soldout, forsale, notyet # are the options *case sensitive*
 
 # CONCERT SETTINGS END HERE DO NOT CHANGE ANYTHING BELOW UNLESS CONFIDENT ######
 
