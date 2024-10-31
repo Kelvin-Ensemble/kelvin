@@ -299,7 +299,7 @@
             Tickets will soon be available to purchase for:
             <br>
             <br>
-            <b>Spring 2024</b>
+            <b>Autumn 2024</b>
             <br>
             <br>
             Please
@@ -310,27 +310,27 @@
     <!-- TICKETS FOR SALE PAGE -->
     {% if settings.CONCERT_STATUS == 'forsale' %}
         <div>
-            <h2>Spring 2024 Concert</h2>
+            <h2>Autumn 2024 Concert</h2>
             <br>
             <p>
-                <strong> We are happy to announce our next concerts will be on 2<sup>nd</sup> <b>AND</b> 3<sup>rd</sup> March 2024! </strong>
+                <strong> We are happy to announce our next concerts will be on 16<sup>th</sup> November 2024! </strong>
                 <br>
-                The concert programme can be found below.
+                {% comment %} The concert programme can be found below. {% endcomment %}
             </p>
             <div class="grid-container" style="grid-gap: 1rem">
                 <div class="grid-item">
-                    <img src="{% static 'website/media/img/concerts/mar24.jpg' %}"
-                         alt="Spring 2024 Concert"
+                    <img src="{% static 'website/media/img/concerts/nov24.jpg' %}"
+                         alt="Autumn 2024 Concert"
                          width="100%">
                 </img>
             </div>
             <div class="grid-item">
-                <h4>Dates</h4>
+                <h4>Concerts</h4>
                 <p>
-                    1. Saturday 2<sup>nd</sup> March 2024, 19:30
+                    1. Saturday 16<sup>th</sup> March 2024, 14:30
                 </p>
                 <p>
-                    2. Sunday 3<sup>rd</sup> March 2024, 14:30
+                    2. Saturday 16<sup>th</sup> March 2024, 19:30
                 </p>
                 <h4>Location</h4>
                 <p>
@@ -356,10 +356,10 @@
             </div>
         </div>
 
-            <div>
+            {% comment %} <div>
                 <br><h2>Concert Programme</h2><br>
                 <iframe src="https://drive.google.com/file/d/1XQ8gaaAODt93Xieslix4N8PA4np91Cgm/preview" width="100%" height="480" allow="autoplay"></iframe>
-            </div>
+            </div> {% endcomment %}
     </div>
 {% endif %}
 <!-- TICKETS SOLD OUT PAGE -->
