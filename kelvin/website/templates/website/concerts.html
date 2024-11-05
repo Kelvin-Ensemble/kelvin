@@ -327,10 +327,10 @@
             <div class="grid-item">
                 <h4>Concerts</h4>
                 <p>
-                    1. Saturday 16<sup>th</sup> March 2024, 14:00
+                    1. Saturday 16<sup>th</sup> November 2024, 14:00
                 </p>
                 <p>
-                    2. Saturday 16<sup>th</sup> March 2024, 19:30
+                    2. Saturday 16<sup>th</sup> November 2024, 19:30
                 </p>
                 <h4>Location</h4>
                 <p>
@@ -411,10 +411,10 @@
         <p style="color: red">Please note: Purchases must be done 1 concert at a time, as such the purchase button only applies for the box of which it is in.</p>
         {% for concert in concerts %}
             <div class="bg-primary full-small-padding ticket-info text-white">
-                <h3>{{ concert.Concert_Date|date:"l jS F Y" }}</h3>
+                <h3>{{ concert.Concert_Date|date:"l jS F Y, G:i" }}</h3>
                 {% if concert.Concert_Status == "FS"  %}
 
-                    <p>Tickets for {{ concert.Concert_Date|date:"jS M Y" }} are now available for purchase below:</p>
+                    <p>Tickets for {{ concert.Concert_Date|date:"jS M Y, G:i" }} are now available for purchase below:</p>
                     {# For every ticket type, it generates the form #}
                     {% for ticket in TicketTypes %}
                         {% if ticket.for_concert == concert and ticket.display_ticket %}
