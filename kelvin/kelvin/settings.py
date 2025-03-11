@@ -25,7 +25,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 COOKIE_DATA = {}
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", ".kelvin-ensemble.co.uk", "yukisuter.pythonanywhere.com"]
 
@@ -33,6 +33,8 @@ ALLOWED_HOSTS = ["127.0.0.1", ".kelvin-ensemble.co.uk", "yukisuter.pythonanywher
 INSTALLED_APPS = [
     "kelvin",
     "website",
+    "website.apps.CustomConstance",
+    'constance.backends.database',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -115,6 +117,11 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Media Files
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -147,3 +154,30 @@ LOGGING = {
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Constance Configuration
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+CONSTANCE_DBS = ['default']
+
+CONSTANCE_CONFIG = {
+    'Concert_Page_Status': ('-----', 'Select status for the concert page', 'concert_page_select'),
+    'Concert_Series_Name': ('', 'The name of the concert series, usually "Spring/Autumn 20XX".'),
+    'Concert_Series_Headliner': ('', 'The bold text that goes below the subtitle.'),
+    'Concert_List': ('', 'The list of concerts dates.'),
+    'Concert_Location': ('', 'The concert location.'),
+    'Concert_Poster': ('', 'Concert poster.', 'image_field'),
+    'Concert_Programme': ('', 'Concert programme.'),
+    'Concert_Playlist': ('', 'Repetoire spotify playlist.')
+}
+
+CONSTANCE_CONFIG_FIELDSETS = {
+    'Concert Series Options': ('Concert_Page_Status','Concert_Series_Name', 'Concert_Series_Headliner', 'Concert_List', 'Concert_Location', 'Concert_Poster', 'Concert_Programme', 'Concert_Playlist')
+}
+
+CONSTANCE_ADDITIONAL_FIELDS = {
+    'concert_page_select': ['django.forms.fields.ChoiceField', {
+        'widget': 'django.forms.Select',
+        'choices': (("-----", "-----"), ("upcoming", "Upcoming"), ("info_only", "Information Only"), ("for_sale", "For Sale"), ("sold_out", "Sold Out"), ("over", "Over"))
+    }],
+    'image_field': ['django.forms.ImageField', {}],
+}

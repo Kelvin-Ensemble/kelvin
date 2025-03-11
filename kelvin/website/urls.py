@@ -1,5 +1,7 @@
 from django.urls import path, re_path
 
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 from . import ticketRouting
 from django.contrib import admin
@@ -46,9 +48,13 @@ urlpatterns = [
     path("mailing-list", views.mailingList, name="mailing-list"),
     path("support", views.support, name="support"),
     # 404
-    re_path(r"^", views.notFound, name="404"),
 ]
 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += re_path(r"^", views.notFound, name="404"),
 # import timedFunctions
 #
 # timedFunctions.beginTimed()

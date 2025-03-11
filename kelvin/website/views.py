@@ -10,6 +10,7 @@ sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + "/")
 from ticketRouting import payment_page
 from ticketing import updateQuantities
 
+from constance import config
 
 # home
 def home(request):
@@ -29,6 +30,7 @@ def concerts(request):
             {
                 "concerts": Concert.objects.order_by('Concert_Date').all(),
                 "TicketTypes": TicketType.objects.order_by('position').all(),
+                'config': config,
             },
         )
 

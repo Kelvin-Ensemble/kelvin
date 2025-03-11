@@ -23,3 +23,4 @@ urlpatterns = [
     re_path(r"^admin/", admin.site.urls),
     path("", include("website.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

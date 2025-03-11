@@ -273,11 +273,11 @@
 {% block content %}
     <!-- CONCERT STATUSES CHANGE RELEVANT SECTION WHEN REQUIRED -->
     <!-- CONCERT OVER PAGE -->
-    {% if settings.CONCERT_STATUS == 'over' %}
+    {% if config.Concert_Page_Status == 'over' %}
         <h2>No Upcoming Concerts</h2>
         <p>&nbsp;&nbsp;&nbsp;</p>
         <p>
-            Thank you to everyone who came to our <b>Spring 2025</b> concert.
+            Thank you to everyone who came to our <b>{{config.Concert_Series_Name |safe }}</b> concert.
             <br>
             We hope you enjoyed watching it as much as we did performing it!
         </p>
@@ -292,108 +292,51 @@
         -->
     {% endif %}
     <!-- CONCERT UPCOMING PAGE -->
-    {% if settings.CONCERT_STATUS == 'upcoming' %}
+    {% if config.Concert_Page_Status == 'upcoming' %}
         <h2>Tickets available soon!</h2>
         <p>&nbsp;&nbsp;&nbsp;</p>
         <p>
             Tickets will soon be available to purchase for:
             <br>
             <br>
-            <b>Spring 2025</b>
+            <b>{{config.Concert_Series_Name |safe }}</b>
             <br>
             <br>
-            Please
-            visit this page again soon to check if tickets are on sale. This will also be announced on our facebook
+            Please visit this page again soon to check if tickets are on sale. This will also be announced on our facebook
             which you can find at the bottom of this page
         </p>
     {% endif %}
-    <!-- TICKETS FOR SALE PAGE -->
-    {% if settings.CONCERT_STATUS == 'forsale' %}
+    <!-- TICKETS INFO PAGE -->
+    {% get_media_prefix as MEDIA_URL %}
+    {% if config.Concert_Page_Status == 'for_sale' or config.Concert_Page_Status == "info_only" %}
         <div>
-            <h2>Spring 2025 Concert</h2>
+            <h2>{{config.Concert_Series_Name |safe }}</h2>
             <br>
-            <p>
-                <strong> We are happy to announce our next concerts will be on 8<sup>th</sup> March 2025! </strong>
-                <br>
-                The concert programme can be found below.
-            </p>
+            <p>{{config.Concert_Series_Headliner |safe }}</p>
             <div class="grid-container" style="grid-gap: 1rem">
                 <div class="grid-item">
-                    <img src="{% static 'website/media/img/concerts/mar25.png' %}"
-                         alt="March 2025 Concert"
+                    <img src="{{ MEDIA_URL }}{{ config.Concert_Poster }}"
+                         alt="Concert Poster"
                          width="100%">
                 </img>
             </div>
             <div class="grid-item">
-                <h4>Concerts</h4>
-                <p>
-                    1. Saturday 8<sup>th</sup> March 2025, 14:00
-                </p>
-                <p>
-                    2. Saturday 8<sup>th</sup> March 2025, 19:30
-                </p>
+                <h4>Concert(s)</h4>
+                {{config.Concert_List |safe }}
                 <h4>Location</h4>
-                <p>
-                    Bute Hall
-                    <br>
-                    The University of Glasgow,
-                    <br>
-                    University Avenue,
-                    <br>
-                    Glasgow,
-                    <br>
-                    G12 8QQ
-                </p>
-                <p>
-                    <strong>Get Directions:</strong> <a href="https://goo.gl/maps/1ppK1t3AKqrJMkSj8">Google Maps</a> |
-                    <a href="https://maps.apple.com/place?q=University%20of%20Glasgow&ll=55.871452573004944%2C-4.288519620895386&auid=6303513611846241548&lsp=9902&address=Glasgow%2C%20G12%208QQ%2C%20Scotland">
-                    Apple Maps </a>
-                </p>
-                <p>The university is easily accessible from the Subway.  The nearest station is Hillhead.</p>
-                <p>
-                    There is limited free parking available on the UofG campus during the weekend.  For more information, please see the <a href="https://www.gla.ac.uk/myglasgow/estates/parkingattheuniversity/visitorparking/">UofG website</a>.
-                </p>
+                {{config.Concert_Location |safe }}
             </div>
         </div>
-            <div>
-                <br><h2>Concert Programme</h2><br>
-                <iframe src="https://drive.google.com/file/d/1RjxZHAzqM3b91jrXGdMLm0JMKFyyu0gz/preview" width="100%" height="480" allow="autoplay"></iframe>
-            </div> 
-    </div>
-{% endif %}
-<!-- TICKETS SOLD OUT PAGE -->
-{% if settings.CONCERT_STATUS == 'soldout' %}
-    <div class="highlight-section">
-        <!-- Sold Out Form Section (uncomment to add support for Sold Out form)-->
-        <div>
-            <h5>
-                <strong>SOLD OUT!</strong>
-            </h5>
-            <p>
-                Unfortunately, tickets for this concert are no longer available for purchase online. Tickets may still be available at the door.
-            </p>
-            <p>
-                The form below could be filled in to be added in a waiting list in case a ticket holder can no longer attend the concert.
-            </p>
-        </div>
-        <script async
-                defer
-                src="https://formfacade.com/include/108007679701008707894/form/1FAIpQLScL9wubGI6a8GUfuyxA5DvMyo-ymUvuoP37byWxhRpZS1kEOQ/classic.js?div=ff-compose"></script>
-        <br>
-        <div class="bg-primary full-small-padding ticket-info text-white"
-             id="ff-compose">
-            <p style="font-size:0.875em">
-                By submitting this form, you agree to allow for us to contact you at the email above if tickets become available.
-            </p>
-            <p>
-                <i>If the form doesn't work on your browser, try https://forms.gle/SAQnspSuyaCu5HkM7</i>
-            </p>
-        </div>
-        <br>
+            {% if config.Concert_Programme != "" %}
+                <div>
+                    <br><h2>Concert Programme</h2><br>
+                    {{config.Concert_Programme  |safe }}
+                </div> 
+            {% endif %}
     </div>
 {% endif %}
 <!-- CONCERT PAGE PART 2 -->
-{% if settings.CONCERT_STATUS == 'forsale' %}
+{% if config.Concert_Page_Status == 'for_sale' %}
     <div class="highlight-section">
         <div class="bg-primary full-small-padding ticket-info text-white">
             <h3>Tickets</h3>
@@ -492,51 +435,14 @@
         {% endfor %}
     </div>
 
-    {% comment %} <div><center>
+    <!-- Playlist -->
+    {% if config.Concert_Playlist != "" %} <div><center>
 
             If you would like to familiarise yourself with the music beforehand, feel free to add this playlists to your
             library:
-            </p><div class="playlists"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0FvIjERXuBfCQCDp229wnm?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
-    </center></div> {% endcomment %}
+            </p><div class="playlists">{{ config.Concert_Playlist |safe}}</div>
+    </center></div> {% endif %}
 {% endif %}
-<!-- Playlists -->
-{#<!--#}
-{#    -->#}
-{% if settings.CONCERT_STATUS == "notyet" %}
-    <p>
-        Details about our upcoming concert have not yet been released. We will update this page as soon as we are ready.
-        <br>
-        <br>
-        Please check back again soon!
-    </p>
-    <br>
-    <br>
-{% endif %}
-<!-- <div><center><h3> Facebook Event </h3><p>
-    The Facebook event for the concert is available <a href="https://www.facebook.com/events/749505646782458/749526153447074?acontext=%7B%22event_action_history%22%3A[%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22surface%22%2C%22surface%22%3A%22permalink%22%7D%2C%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22surface%22%2C%22surface%22%3A%22permalink%22%7D%2C%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22surface%22%2C%22surface%22%3A%22permalink%22%7D]%2C%22ref_notif_type%22%3Anull%7D">here</a>.
-    </p><p>
-    Concert updates will be posted on Facebook.  In the event of a major change to the concert, we will email everyone who has purchased tickets.
-    </p><p>
-    We would be very grateful if you would mark yourself as going and invite friends, in order to to maximise our reach.
-    </p></center><p>
-        The Facebook event would be posted soon!
-    </p></center></div> -->
-<!-- <div><center><h3> Concert Programme </h3><p>Please find the concert programme below, or download <a href="{% static 'website/media/programme/spring23.pdf' %}">here</a>.</p><script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script><div id="adobe-dc-view" style="height: 450px; width: 100%;"></div><script src="https://documentservices.adobe.com/view-sdk/viewer.js"></script><script type="text/javascript">
-  document.addEventListener("adobe_dc_view_sdk.ready", function(){
-
-    var adobeDCView = new AdobeDC.View({clientId: "b448788912c846d6a846e9e8408b6453", divId: "adobe-dc-view"});
-
-    adobeDCView.previewFile({
-
-      content:{location: {url: "{% static 'website/media/programme/spring23.pdf' %}"}},
-
-      metaData:{fileName: "{% static 'website/media/programme/spring23.pdf' %}"}
-
-    }, { embedMode: "SIZED_CONTAINER", showFullScreen: true });
-
-  });
-
-</script></center></div> -->
 <div>
     <center>
         <p>
