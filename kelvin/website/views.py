@@ -6,12 +6,6 @@ import datetime
 from django.views.decorators.csrf import csrf_exempt
 from website.models import Concert, TicketType
 
-# This try thing is here because pyCharm sucks and I need it, so I get hints because im forgetful.
-try:
-    from kelvin.website.models import Concert, TicketType
-except Exception as e:
-    print("Exception: ", str(e))
-
 sys.path.insert(1, os.path.dirname(os.path.realpath(__file__)) + "/")
 from ticketRouting import payment_page
 from ticketing import updateQuantities

@@ -8,14 +8,8 @@ from django.shortcuts import render, redirect
 from ticketingEmails import sendEmail
 from website.models import Concert, TicketType, Ticket
 
-# This try thing is here because pyCharm sucks and I need it, so I get hints because im forgetful.
-try:
-    from kelvin.website.models import Concert, TicketType, Ticket
-except Exception as e:
-    print("Exception: ", str(e))
-
 ticketGenDir = (os.path.dirname(os.path.realpath(__file__))) + "/"
-stripe.api_key = settings.STRIPE_SECRET_KEY
+stripe.api_key = os.environ["STRIPE_SECRET_KEY"]
 
 
 def updateQuantities():  # Function to check whether the variables relevant in stock counting exist or not
@@ -37,8 +31,8 @@ def updateQuantities():  # Function to check whether the variables relevant in s
 
 def processWebhookRequest(request):
     print("Webhook triggerrededededed")
-    stripe.api_key = settings.STRIPE_SECRET_KEY
-    endpoint_secret = settings.STRIPE_ENDPOINT_SECRET
+    stripe.api_key = os.environ["STRIPE_SECRET_KEY"]
+    endpoint_secret = os.environ["STRIPE_ENDPOINT_KEY"]
     print("is this still working?")
 
     payload = request.body

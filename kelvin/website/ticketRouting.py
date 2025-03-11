@@ -10,12 +10,6 @@ from django.views.decorators.csrf import csrf_exempt
 from ticketing import processWebhookRequest
 from website.models import Concert, TicketType
 
-# This try thing is here because pyCharm sucks and I need it, so I get hints because im forgetful.
-try:
-    from kelvin.website.models import Concert, TicketType
-except Exception as e:
-    print("Exception: ", str(e))
-
 
 def viewEmail(request):
     return render(request, "ticketing/empty_template.html")
@@ -68,7 +62,7 @@ def payment_page(request):
                 "website/payment.html",
                 {
                     "clientSecret": session.client_secret,
-                    "stripePKey": settings.STRIPE_PUBLIC_SECRET,
+                    "stripePKey": os.environ["STRIPE_PUBLIC_SECRET"],
                 },
             )
 
@@ -79,7 +73,7 @@ def payment_page(request):
                 "website/payment.html",
                 {
                     "clientSecret": session.client_secret,
-                    "stripePKey": settings.STRIPE_PUBLIC_SECRET,
+                    "stripePKey": os.environ["STRIPE_PUBLIC_SECRET"],
                 },
             )
 
@@ -91,7 +85,7 @@ def payment_page(request):
 
 
 def payment_successful(request):
-    stripe.api_key = settings.STRIPE_SECRET_KEY
+    stripe.api_key = os.environ["STRIPE_SECRET_KEY"]
     checkout_session_id = request.GET.get("session_id", None)
     print(checkout_session_id)
     session = stripe.checkout.Session.retrieve(checkout_session_id)

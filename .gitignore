@@ -9,9 +9,14 @@ db.sqlite3.zip
 # C extensions
 *.so
 
+kelvin/db.sqlite3
+kelvin/.env
+kelvin/static
+
 # Distribution / packaging
 .Python
 env/
+envs/
 build/
 develop-eggs/
 dist/

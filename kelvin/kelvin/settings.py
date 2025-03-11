@@ -9,62 +9,27 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
-# CONCERT SETTINGS #######
-
-CONCERT_STATUS = "over"  # upcoming, over, soldout, forsale, notyet # are the options *case sensitive*
-
-# CONCERT SETTINGS END HERE DO NOT CHANGE ANYTHING BELOW UNLESS CONFIDENT ######
-
 import os, sys
-
-PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = os.path.dirname(PROJECT_DIR)
-
-
 from dotenv import load_dotenv
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(PROJECT_DIR)
+
+# Environment Variables (load .env) - If no .env file found, find .env file on pythonanywhere, or contact previous webmaster.
 dotenv_file = os.path.join(BASE_DIR, ".env")
 load_dotenv(dotenv_file)
 
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ["SECRET_KEY"]
-STRIPE_SECRET_KEY = os.environ["STRIPE_SECRET_KEY"]
-STRIPE_PUBLIC_SECRET = os.environ["STRIPE_PUBLIC_SECRET"]
-STRIPE_ENDPOINT_SECRET = os.environ['STRIPE_ENDPOINT_SECRET']
-
-# STRIPE_ENDPOINT_SECRET = (
-#     "whsec_7390c4a8a79fc04e2a50f24b2fdd39809814f7e8686a0c74306d0a6a38095320"
-# )
-
-TICKETS_PASSWORD = os.environ["tickets_password"]
-
 COOKIE_DATA = {}
-
-# STRIPE SETTINGS ######
-# REDIRECT_DOMAIN = 'http://yukisuter.pythonanywhere.com'
-REDIRECT_DOMAIN = "http://127.0.0.1:8000"
-
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-
-PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = os.path.dirname(PROJECT_DIR)
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", ".kelvin-ensemble.co.uk", "yukisuter.pythonanywhere.com"]
 
-
 # Application definition
-
 INSTALLED_APPS = [
     "kelvin",
     "website",
@@ -102,21 +67,13 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "django_settings_export.settings_export",
             ],
         },
     },
 ]
 
-SETTINGS_EXPORT = [
-    "CONCERT_STATUS",
-    "STRIPE_SECRET_KEY",
-    "REDIRECT_DOMAIN",
-]
-
 
 WSGI_APPLICATION = "kelvin.wsgi.application"
-
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -156,7 +113,6 @@ TIME_ZONE = "UTC"
 
 USE_I18N = True
 
-
 USE_TZ = True
 
 
@@ -167,7 +123,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_DIR, 'website/static')
+    os.path.join(BASE_DIR, 'website/static')
 ]
 
 LOGGING = {

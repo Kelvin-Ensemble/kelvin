@@ -28,7 +28,7 @@ def createEmail(customerDetails, items, template):
 
 
 def sendEmail(customerDetails, items, template, programme):
-    sender_password = settings.TICKETS_PASSWORD
+    sender_password = os.environ["TICKETS_PASSWORD"]
     sender_address = "tickets@kelvin-ensemble.co.uk"
 
     customerName = customerDetails["name"]
