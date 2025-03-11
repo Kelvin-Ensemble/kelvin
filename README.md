@@ -1,5 +1,7 @@
-# kelvin
-## The New Kelvin Site 2.0, using Python Django.
+# The Kelvin Website v2.2
+Welcome to the Kelvin Website repository! This repository is where the website is maintained.
+
+This version uses stripe as a payment method, with a bespoke ticketing system written (poorly) in the python backend. The website is currently in the process of having commonly changed parts of the websites transitioned into being maintained using the admin portal. 
 
 ### How it works.
 The main files that need to be cared about that are python related are kelvin/website/urls.py and kelvin/website/views.py, which is where all the urls are defined, and pages are rendered.
@@ -24,3 +26,12 @@ Adding your own machines local IP address to kelvin/kelvin/settings.py ALLOWED_H
 ---
 
 To put the site into production, ensure all changes are commited and pushed, and then enter pythonanywhere, open a bash console, and git pull, and then go to the web tab, and reload the server. Ensure DEBUG in kelvin/kelvin/settings.py is False in production.
+
+## The admin portal
+
+This website uses the default Django admin system. Here, certain parameters can be edited to show differently on the website. The ticketing system uses this as a base with the majority of the ticket set up on this portal. The list below shows the different things currently implemented using the admin portal.
+
+- Ticketing
+- Concert information configuration
+
+A guide to using this will be in the webmaster bible.
