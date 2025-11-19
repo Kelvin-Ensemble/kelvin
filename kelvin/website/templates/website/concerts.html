@@ -141,9 +141,140 @@
       text-align: center;
   }
 
+    /* Donation Modal Styles */
+    .donation-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .donation-modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 30px;
+        border: 1px solid #888;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .donation-modal-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .donation-modal-header h3 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .donation-modal-header p {
+        color: #666;
+        font-size: 0.9em;
+    }
+
+    .donation-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .donation-btn {
+        padding: 15px 10px;
+        background-color: #008888;
+        color: white;
+        border: 2px solid #008888;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1em;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .donation-btn:hover {
+        background-color: #006666;
+        border-color: #006666;
+        transform: translateY(-2px);
+    }
+
+    .donation-btn.selected {
+        background-color: #005555;
+        border-color: #005555;
+        box-shadow: 0 0 10px rgba(0, 136, 136, 0.5);
+    }
+
+    .donation-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .donation-actions button {
+        flex: 1;
+        padding: 12px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .continue-btn {
+        background-color: #008888;
+        color: white;
+    }
+
+    .continue-btn:hover {
+        background-color: #006666;
+    }
+
+    .skip-btn {
+        background-color: #e0e0e0;
+        color: #333;
+    }
+
+    .skip-btn:hover {
+        background-color: #d0d0d0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+    .donation-modal-content {
+        background-color: #2e3133;
+        border-color: #444;
+    }
+
+    .donation-modal-header h3 {
+        color: #fff;
+    }
+
+    .donation-modal-header p {
+        color: #ccc;
+    }
+    }
+
 
     </style>
     <script>
+        // Donation price IDs - replace these with your actual Stripe price IDs
+    const DONATION_PRICE_IDS = {
+        1: 'price_1SUueKJsBv7g4PXsw3IY782q',    // Replace with actual price_id
+        3: 'price_1SUufuJsBv7g4PXsQr7ltgIx',   // Replace with actual price_id
+        5: 'price_1SUufuJsBv7g4PXsp9IG1QRs',   // Replace with actual price_id
+        10: 'price_1SUufvJsBv7g4PXs1XrvDscx', // Replace with actual price_id
+        20: 'price_1SUufuJsBv7g4PXsdA83dJti'  // Replace with actual price_id  
+    };
+
+    let selectedDonation = null;
+
     tickets = []
 
 
@@ -173,24 +304,39 @@
 
 
     function sendPurchase(){
-        cartContents = []
-
+        // Check if any tickets are selected
+        let hasTickets = false;
         for (let i = 0; i < tickets.length; i++) {
-            console.log("Ticket ID: " + tickets[i].ticketID + " has this many tickets selected: " + tickets[i].qtySelected)
-            if (tickets[i].qtySelected !== 0) {
-                cartContents.push({
-                    ticketID: tickets[i].ticketID,
-                    qtySelected: tickets[i].qtySelected
-                })
+            if (tickets[i].qtySelected > 0) {
+                hasTickets = true;
+                break;
             }
         }
-        console.log(cartContents)
-        params = {cart: JSON.stringify(cartContents)}
+        
+        // Only show donation modal if tickets are selected
+        if (hasTickets) {
+            showDonationModal();
+        } else {
+            alert("Please select at least one ticket before proceeding to checkout.");
+        }
+        // cartContents = []
 
-        queryString = new URLSearchParams((params)).toString();
-        urlWithParams = "../payment?" + queryString;
+        // for (let i = 0; i < tickets.length; i++) {
+        //     console.log("Ticket ID: " + tickets[i].ticketID + " has this many tickets selected: " + tickets[i].qtySelected)
+        //     if (tickets[i].qtySelected !== 0) {
+        //         cartContents.push({
+        //             ticketID: tickets[i].ticketID,
+        //             qtySelected: tickets[i].qtySelected
+        //         })
+        //     }
+        // }
+        // console.log(cartContents)
+        // params = {cart: JSON.stringify(cartContents)}
 
-        window.location.href = urlWithParams
+        // queryString = new URLSearchParams((params)).toString();
+        // urlWithParams = "../payment?" + queryString;
+
+        // window.location.href = urlWithParams
     }
 
     function updateButtons() {
@@ -263,6 +409,74 @@
             }
         }
         updateButtons()
+    }
+
+    function showDonationModal() {
+        document.getElementById('donationModal').style.display = 'block';
+        selectedDonation = null;
+        // Reset all donation button selections
+        document.querySelectorAll('.donation-btn').forEach(btn => {
+            btn.classList.remove('selected');
+        });
+    }
+
+    function closeDonationModal() {
+        document.getElementById('donationModal').style.display = 'none';
+    }
+
+    function selectDonation(amount) {
+        selectedDonation = amount;
+        // Remove selected class from all buttons
+        document.querySelectorAll('.donation-btn').forEach(btn => {
+            btn.classList.remove('selected');
+        });
+        // Add selected class to clicked button
+        event.target.classList.add('selected');
+    }
+
+    function skipDonation() {
+        selectedDonation = null;
+        closeDonationModal();
+        proceedToCheckout();
+    }
+
+    function proceedToCheckout() {
+        closeDonationModal();
+    
+        cartContents = []
+
+        for (let i = 0; i < tickets.length; i++) {
+            if (tickets[i].qtySelected !== 0) {
+                cartContents.push({
+                    ticketID: tickets[i].ticketID,
+                    qtySelected: tickets[i].qtySelected
+                })
+            }
+        }
+
+        // Add donation if selected
+        if (selectedDonation !== null) {
+            cartContents.push({
+                ticketID: DONATION_PRICE_IDS[selectedDonation],
+                qtySelected: 1
+            });
+        }
+
+        console.log(cartContents)
+        params = {cart: JSON.stringify(cartContents)}
+
+        queryString = new URLSearchParams((params)).toString();
+        urlWithParams = "../payment?" + queryString;
+
+        window.location.href = urlWithParams
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById('donationModal');
+        if (event.target == modal) {
+            closeDonationModal();
+        }
     }
 
     </script>
@@ -552,4 +766,24 @@ We are going on tour to Northern Ireland!
 <!--
 <br /><br /><div><b>Date:</b> Thursday 31st May</div><div><b>Venue:</b> Kendal Parish Church</div><div>Directions <a href="https://goo.gl/maps/rmUQcwdS4Bz" target='_blank'>here</a></div><hr class="primary" /><div><b>Date:</b> Saturday 2nd June</div><div><b>Venue:</b> Arran High School, Lamlash</div><div>Directions <a href="https://goo.gl/maps/DaafivFttqv" target='_blank'>here</a></div><hr class="primary" /><div><b>Date:</b> Sunday 3rd June</div><div><b>Venue:</b> Glasgow University Memorial Chapel</div><div>Directions <a href="https://goo.gl/maps/WKbX8tVqwUu" target='_blank'>here</a></div>
 -->
+
+<div id="donationModal" class="donation-modal">
+    <div class="donation-modal-content">
+        <div class="donation-modal-header">
+            <h3>Support Our Ensemble</h3>
+            <p>Would you like to add a donation to support our concerts?</p>
+        </div>
+        <div class="donation-options">
+            <button class="donation-btn" onclick="selectDonation(1)">£1</button>
+            <button class="donation-btn" onclick="selectDonation(3)">£3</button>
+            <button class="donation-btn" onclick="selectDonation(5)">£5</button>
+            <button class="donation-btn" onclick="selectDonation(10)">£10</button>
+            <button class="donation-btn" onclick="selectDonation(20)">£20</button>
+        </div>
+        <div class="donation-actions">
+            <button class="skip-btn" onclick="skipDonation()">No Thanks</button>
+            <button class="continue-btn" onclick="proceedToCheckout()">Continue</button>
+        </div>
+    </div>
+</div>
 {% endblock %}
