@@ -524,31 +524,28 @@
     <!-- TICKETS FOR SALE PAGE -->
     {% if settings.CONCERT_STATUS == 'forsale' %}
         <div>
-            <h2>Spring 2026 Concert</h2>
+            <h2>2026 Fundraising Concert</h2>
             <br>
             <p>
-                <strong> We are happy to announce our next concerts will be on 7<sup>th</sup> March 2026 and 14<sup>th</sup> March 2026! </strong>
+                <strong>We are happy to announce we will be hosting a fundraising concert!</strong>
                 <br>
                 <!-- The concert programme can be found below. -->
             </p>
             <div class="grid-container" style="grid-gap: 1rem">
                 <div class="grid-item">
-                    <img src="{% static 'website/media/img/concerts/mar26.jpg' %}"
-                         alt="March 2026 Concert"
+                    <img src="{% static 'website/media/img/concerts/fund26.jpg' %}"
+                         alt="2026 Fundraising Concert"
                          width="100%">
                 </img>
             </div>
             <div class="grid-item">
-                <h4>Concerts</h4>
+                <h4>Date & Time</h4>
                 <p>
-                    1. Saturday 7<sup>th</sup> March 2026, 19:30
-                </p>
-                <p>
-                    2. Saturday 14<sup>th</sup> March 2026, 14:30
+                    Tuesday 24<sup>th</sup> March 2026, 19:00
                 </p>
                 <h4>Location</h4>
                 <p>
-                    Bute Hall
+                    Concert Hall
                     <br>
                     The University of Glasgow,
                     <br>
@@ -612,16 +609,16 @@
         <div class="bg-primary full-small-padding ticket-info text-white">
             <h3>Tickets</h3>
             <p>
-                Tickets are available for purchase below. Please <a href="mailto:treasurer@kelvin-ensemble.co.uk" style="color: white">let us know</a> if you have any issues.
+                Tickets for the fundraising concert are free, but we'd appreciate any and all donations you'd be willing to make! Please reserve a ticket below (you will not be charged unless you choose to donate).
             </p>
-            <p>
-                <strong>Standard:</strong> &pound;12
-                <br>
-                <strong>Concession (Students/Under 18s/Seniors):</strong> &pound;7
-            </p>
-            <p style="font-size:0.875em;">Last Updated: 04/11/2025</p>
+{#            <p>#}
+{#                <strong>Standard:</strong> Free!#}
+{#                <br>#}
+{#                <strong>Concession (Students/Under 18s/Seniors):</strong> &pound;7#}
+{#            </p>#}
+            <p style="font-size:0.875em;">Last Updated: 18/03/2026</p>
         </div>
-        <p style="color: red">Please note: Purchases must be done 1 concert at a time, as such the purchase button only applies for the box of which it is in.</p>
+{#        <p style="color: red">Please note: Purchases must be done 1 concert at a time, as such the purchase button only applies for the box of which it is in.</p>#}
         {% for concert in concerts %}
             <div class="bg-primary full-small-padding ticket-info text-white">
                 <h3>{{ concert.Concert_Date|date:"l jS F Y, G:i" }}</h3>
@@ -706,12 +703,12 @@
         {% endfor %}
     </div>
 
-    <div><center>
-
-            If you would like to familiarise yourself with the music beforehand, feel free to add this playlists to your
-            library:
-            </p><div class="playlists"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6alhQ10B3ZJLmpqA6l8Jo6?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
-    </center></div>
+{#    <div><center>#}
+{##}
+{#            If you would like to familiarise yourself with the music beforehand, feel free to add this playlists to your#}
+{#            library:#}
+{#            </p><div class="playlists"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6alhQ10B3ZJLmpqA6l8Jo6?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>#}
+{#    </center></div>#}
 {% endif %}
 <!-- Playlists -->
 {#<!--#}
