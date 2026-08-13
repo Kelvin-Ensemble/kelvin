@@ -10,9 +10,86 @@
     .col {
         width: 50%;
     }
+
+    .rebrand-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .rebrand-modal {
+        position: relative;
+        background: #fff;
+        max-width: 520px;
+        width: 100%;
+        padding: 40px 30px 30px;
+        border-radius: 6px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .rebrand-modal h2 {
+        margin: 15px 0;
+    }
+
+    .rebrand-modal p {
+        color: #555;
+    }
+
+    .rebrand-close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        line-height: 1;
+        color: #999;
+        cursor: pointer;
+    }
+
+    .rebrand-close:hover {
+        color: #333;
+    }
     </style>
 {% endblock %}
 {% block full-content %}
+    <!-- REBRAND ANNOUNCEMENT POPUP -->
+    <div id="rebrand-overlay" class="rebrand-overlay">
+        <div class="rebrand-modal" role="dialog" aria-modal="true" aria-labelledby="rebrand-title">
+            <button type="button" class="rebrand-close" aria-label="Close" onclick="closeRebrandPopup()">&times;</button>
+            <i class="fa fa-3x fa-music text-primary sr-icons"></i>
+            <h2 id="rebrand-title">We're now the Kelvin Symphony Orchestra!</h2>
+            <p>
+                We've got a fresh name and a brand-new website on the way. This page may be
+                a little out of date while we make the switch.
+            </p>
+            <p>
+                For our latest news, follow us on social media and keep an eye on our
+                new home at
+                <a href="https://www.kelvin-symphony.co.uk/" target="_blank" rel="noopener">kelvin-symphony.co.uk</a>,
+                launching soon!
+            </p>
+            <button type="button" class="btn btn-primary btn-l" onclick="closeRebrandPopup()">Got it</button>
+        </div>
+    </div>
+    <script>
+        function closeRebrandPopup() {
+            var overlay = document.getElementById("rebrand-overlay");
+            if (overlay) { overlay.style.display = "none"; }
+        }
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") { closeRebrandPopup(); }
+        });
+    </script>
     <header class="masthead">
         <div class="header-content">
             <div class="header-content-inner">
