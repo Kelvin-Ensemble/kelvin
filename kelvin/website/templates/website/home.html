@@ -38,6 +38,7 @@
 
     .rebrand-modal h2 {
         margin: 15px 0;
+        color: #222;
     }
 
     .rebrand-modal p {
@@ -58,6 +59,33 @@
 
     .rebrand-close:hover {
         color: #333;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .rebrand-modal {
+            background: #1e1e1e;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .rebrand-modal h2 {
+            color: #f5f5f5;
+        }
+
+        .rebrand-modal p {
+            color: #c7c7c7;
+        }
+
+        .rebrand-modal a {
+            color: #4db6ac;
+        }
+
+        .rebrand-close {
+            color: #888;
+        }
+
+        .rebrand-close:hover {
+            color: #eee;
+        }
     }
     </style>
 {% endblock %}
